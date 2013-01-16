@@ -1,0 +1,18 @@
+LedBorg-Server
+==============
+
+LedBorg-Server Copyright (C) 2012 - 2013 Ross Taylor the.mighty.ug@gmail.com
+
+
+
+About
+=====
+
+LedBorg-Server is a simple server written in Vala to provide
+network control of an LedBorg add-on for the Raspberry Pi
+computer.
+
+
+
+
+
