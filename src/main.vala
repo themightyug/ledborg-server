@@ -1,26 +1,29 @@
-/* main.vala
+/*
+ * main.vala
+ * This file is part of LedBorg-Server
  *
- * Copyright (C) 2013  Ross Taylor
- * 
- * This program is free software: you can redistribute it and/or modify
+ * Copyright (C) 2013 - Ross Taylor
+ *
+ * LedBorg-Server is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
+ * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
- *  
- * This program is distributed in the hope that it will be useful,
+ *
+ * LedBorg-Server is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- *  
+ *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- * 
- * Author:
- * 	Ross Taylor <the.mighty.ug@gmail.com>
+ * along with LedBorg-Server. If not, see <http://www.gnu.org/licenses/>.
  */
+
 
 using GLib;
 
+
+// pick up the package version from the build system
+extern const string VERSION;
 
 
 namespace LedBorg
@@ -31,9 +34,11 @@ namespace LedBorg
 	{
 
 		// options and defaults
-		static int listen_port = 9999;
-		const OptionEntry[] options = {
+		private static bool _show_version = false;
+		private static int listen_port = 9999;
+		private const OptionEntry[] options = {
 			{"port", 'p', 0, OptionArg.INT, ref listen_port, "Specify which port to listen on", null},
+			{"version", 'V', 0, OptionArg.NONE, ref _show_version, "Show version information", null},
 			{null}
 		};
 
@@ -44,6 +49,7 @@ namespace LedBorg
 			// handle options
 			try {
 				var opt = new OptionContext("");
+				opt.set_summary("LedBorg Server %s is a simple server that allows network control an LedBorg add-on for the Raspberry Pi".printf(VERSION));
 				opt.set_help_enabled(true);
 				opt.add_main_entries(options, null);
 				opt.parse(ref args);
@@ -53,6 +59,15 @@ namespace LedBorg
 				GLib.stderr.printf("Run '%s --help' to see a full list of available options\n", args[0]);
 				return 1;
 			}
+
+
+			// show version information
+			if(_show_version)
+			{
+				stdout.printf("LedBorg Server version %s\n", VERSION);
+				return 0;
+			}
+
 			
 			// create new LedBorgServer to listen on the specified port
 			LedBorgServer server = new LedBorgServer.with_listen_port(listen_port);
