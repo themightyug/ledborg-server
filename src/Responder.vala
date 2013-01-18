@@ -37,9 +37,14 @@ namespace LedBorg
 		}
 
 
-		public static void respond_with_colour(ref unowned Soup.Message msg, Colour colour)
+		public static void respond_with_colour(ref unowned Soup.Message msg, Colour colour, bool include_form)
 		{
 			string html = generate_html_colour(colour);
+			
+			if(include_form)
+			{
+				html += generate_html_form(colour);
+			}
 			
 			msg.response_headers.append("Colour-LedBorg", colour.get_ledborg_value());
 			msg.response_headers.append("Colour-Html", colour.get_html_value());
@@ -55,6 +60,16 @@ namespace LedBorg
 					&nbsp;
 				</div>
 			""".printf(colour.get_html_value());
+			
+			return html;
+		}
+
+
+		private static string generate_html_form(Colour colour)
+		{
+			string html = """
+			
+			""";
 			
 			return html;
 		}

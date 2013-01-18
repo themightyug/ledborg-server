@@ -46,7 +46,7 @@ namespace LedBorg
 		
 		public void initialize_server()
 		{
-			this.add_handler("/", handler_default);
+			this.add_handler("/", handler_set_colour);
 			this.add_handler("/GetColour", handler_get_colour);
 			this.add_handler("/SetColour", handler_set_colour);
 		}
@@ -57,7 +57,10 @@ namespace LedBorg
 		(Soup.Server server, Soup.Message msg, string path,
 		GLib.HashTable<string, string>? query, Soup.ClientContext client)
 		{
-			
+			if(query != null)
+			{
+				handler_set_colour(server, msg, path, query, client);
+			}
 		}
 
 
@@ -69,7 +72,7 @@ namespace LedBorg
 			try
 			{
 				Colour current_colour = Device.get_colour();
-				Responder.respond_with_colour(ref msg, current_colour);
+				Responder.respond_with_colour(ref msg, current_colour, false);
 			}
 			catch (IOError e)
 			{
@@ -84,20 +87,29 @@ namespace LedBorg
 		(Soup.Server server, Soup.Message msg, string path,
 		GLib.HashTable<string, string>? query, Soup.ClientContext client)
 		{
+			Colour? colour = null;
+			
+			if(query != null || path != "/")
+			{
+				try
+				{
+					colour = get_colour_from_query(query);
+				}
+				catch (RequestError e)
+				{
+					stderr.printf("Request Error: %s\n", e.message);
+					Responder.respond_with_error(ref msg, e.message);
+					return;
+				}
+			}
+			
 			try
 			{
-				Colour? colour = get_colour_from_query(query);
-		
 				if(colour != null)
 				{
 					Device.set_colour(colour);
-					Responder.respond_with_colour(ref msg, colour);
+					Responder.respond_with_colour(ref msg, colour, (path == "/"));
 				}
-			}
-			catch (RequestError e)
-			{
-				stderr.printf("Request Error: %s\n", e.message);
-				Responder.respond_with_error(ref msg, e.message);
 			}
 			catch (IOError e)
 			{

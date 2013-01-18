@@ -69,8 +69,9 @@ void led_borg_responder_respond_with_error (SoupMessage** msg, const gchar* erro
 GType led_borg_colour_get_type (void) G_GNUC_CONST;
 LedBorgColour* led_borg_colour_dup (const LedBorgColour* self);
 void led_borg_colour_free (LedBorgColour* self);
-void led_borg_responder_respond_with_colour (SoupMessage** msg, LedBorgColour* colour);
+void led_borg_responder_respond_with_colour (SoupMessage** msg, LedBorgColour* colour, gboolean include_form);
 static gchar* led_borg_responder_generate_html_colour (LedBorgColour* colour);
+static gchar* led_borg_responder_generate_html_form (LedBorgColour* colour);
 gchar* led_borg_colour_get_ledborg_value (LedBorgColour *self);
 gchar* led_borg_colour_get_html_value (LedBorgColour *self);
 LedBorgResponder* led_borg_responder_new (void);
@@ -132,48 +133,67 @@ void led_borg_responder_respond_with_error (SoupMessage** msg, const gchar* erro
 }
 
 
-void led_borg_responder_respond_with_colour (SoupMessage** msg, LedBorgColour* colour) {
+void led_borg_responder_respond_with_colour (SoupMessage** msg, LedBorgColour* colour, gboolean include_form) {
 	LedBorgColour _tmp0_;
 	gchar* _tmp1_ = NULL;
 	gchar* html;
-	SoupMessage* _tmp2_;
-	SoupMessageHeaders* _tmp3_;
-	gchar* _tmp4_ = NULL;
-	gchar* _tmp5_;
-	SoupMessage* _tmp6_;
-	SoupMessageHeaders* _tmp7_;
-	gchar* _tmp8_ = NULL;
-	gchar* _tmp9_;
-	SoupMessage* _tmp10_;
-	SoupMessage* _tmp11_;
-	guint8* _tmp12_;
-	gint _tmp12__length1;
-	guint8* _tmp13_;
-	gint _tmp13__length1;
+	gboolean _tmp2_;
+	SoupMessage* _tmp8_;
+	SoupMessageHeaders* _tmp9_;
+	gchar* _tmp10_ = NULL;
+	gchar* _tmp11_;
+	SoupMessage* _tmp12_;
+	SoupMessageHeaders* _tmp13_;
+	gchar* _tmp14_ = NULL;
+	gchar* _tmp15_;
+	SoupMessage* _tmp16_;
+	SoupMessage* _tmp17_;
+	const gchar* _tmp18_;
+	guint8* _tmp19_;
+	gint _tmp19__length1;
+	guint8* _tmp20_;
+	gint _tmp20__length1;
 	g_return_if_fail (*msg != NULL);
 	g_return_if_fail (colour != NULL);
 	_tmp0_ = *colour;
 	_tmp1_ = led_borg_responder_generate_html_colour (&_tmp0_);
 	html = _tmp1_;
-	_tmp2_ = *msg;
-	_tmp3_ = _tmp2_->response_headers;
-	_tmp4_ = led_borg_colour_get_ledborg_value (colour);
-	_tmp5_ = _tmp4_;
-	soup_message_headers_append (_tmp3_, "Colour-LedBorg", _tmp5_);
-	_g_free0 (_tmp5_);
-	_tmp6_ = *msg;
-	_tmp7_ = _tmp6_->response_headers;
-	_tmp8_ = led_borg_colour_get_html_value (colour);
-	_tmp9_ = _tmp8_;
-	soup_message_headers_append (_tmp7_, "Colour-Html", _tmp9_);
-	_g_free0 (_tmp9_);
-	_tmp10_ = *msg;
-	soup_message_set_status_full (_tmp10_, (guint) SOUP_STATUS_OK, "OK");
-	_tmp11_ = *msg;
-	_tmp12_ = string_get_data (html, &_tmp12__length1);
-	_tmp13_ = _tmp12_;
-	_tmp13__length1 = _tmp12__length1;
-	soup_message_set_response (_tmp11_, "text/html", SOUP_MEMORY_COPY, _tmp13_, (gsize) _tmp13__length1);
+	_tmp2_ = include_form;
+	if (_tmp2_) {
+		const gchar* _tmp3_;
+		LedBorgColour _tmp4_;
+		gchar* _tmp5_ = NULL;
+		gchar* _tmp6_;
+		gchar* _tmp7_;
+		_tmp3_ = html;
+		_tmp4_ = *colour;
+		_tmp5_ = led_borg_responder_generate_html_form (&_tmp4_);
+		_tmp6_ = _tmp5_;
+		_tmp7_ = g_strconcat (_tmp3_, _tmp6_, NULL);
+		_g_free0 (html);
+		html = _tmp7_;
+		_g_free0 (_tmp6_);
+	}
+	_tmp8_ = *msg;
+	_tmp9_ = _tmp8_->response_headers;
+	_tmp10_ = led_borg_colour_get_ledborg_value (colour);
+	_tmp11_ = _tmp10_;
+	soup_message_headers_append (_tmp9_, "Colour-LedBorg", _tmp11_);
+	_g_free0 (_tmp11_);
+	_tmp12_ = *msg;
+	_tmp13_ = _tmp12_->response_headers;
+	_tmp14_ = led_borg_colour_get_html_value (colour);
+	_tmp15_ = _tmp14_;
+	soup_message_headers_append (_tmp13_, "Colour-Html", _tmp15_);
+	_g_free0 (_tmp15_);
+	_tmp16_ = *msg;
+	soup_message_set_status_full (_tmp16_, (guint) SOUP_STATUS_OK, "OK");
+	_tmp17_ = *msg;
+	_tmp18_ = html;
+	_tmp19_ = string_get_data (_tmp18_, &_tmp19__length1);
+	_tmp20_ = _tmp19_;
+	_tmp20__length1 = _tmp19__length1;
+	soup_message_set_response (_tmp17_, "text/html", SOUP_MEMORY_COPY, _tmp20_, (gsize) _tmp20__length1);
 	_g_free0 (html);
 }
 
@@ -197,6 +217,18 @@ static gchar* led_borg_responder_generate_html_colour (LedBorgColour* colour) {
 	_tmp3_ = _tmp2_;
 	_g_free0 (_tmp1_);
 	html = _tmp3_;
+	result = html;
+	return result;
+}
+
+
+static gchar* led_borg_responder_generate_html_form (LedBorgColour* colour) {
+	gchar* result = NULL;
+	gchar* _tmp0_;
+	gchar* html;
+	g_return_val_if_fail (colour != NULL, NULL);
+	_tmp0_ = g_strdup ("\n\t\t\t\n\t\t\t");
+	html = _tmp0_;
 	result = html;
 	return result;
 }
