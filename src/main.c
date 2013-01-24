@@ -25,6 +25,7 @@
 #include <glib-object.h>
 #include <stdlib.h>
 #include <string.h>
+#include <config.h>
 #include <stdio.h>
 #include <libsoup/soup.h>
 
@@ -87,10 +88,10 @@ static const GOptionEntry LED_BORG_MAIN_options[3] = {{"port", 'p', 0, G_OPTION_
 static gint led_borg_main_main (gchar** args, int args_length1) {
 	gint result = 0;
 	gboolean _tmp13_;
-	gint _tmp15_;
-	LedBorgLedBorgServer* _tmp16_;
-	LedBorgLedBorgServer* server;
+	gint _tmp16_;
 	LedBorgLedBorgServer* _tmp17_;
+	LedBorgLedBorgServer* server;
+	LedBorgLedBorgServer* _tmp18_;
 	GError * _inner_error_ = NULL;
 	{
 		GOptionContext* _tmp0_;
@@ -156,16 +157,19 @@ static gint led_borg_main_main (gchar** args, int args_length1) {
 	_tmp13_ = led_borg_main__show_version;
 	if (_tmp13_) {
 		FILE* _tmp14_;
+		FILE* _tmp15_;
 		_tmp14_ = stdout;
 		fprintf (_tmp14_, "LedBorg Server version %s\n", VERSION);
+		_tmp15_ = stdout;
+		fprintf (_tmp15_, "LedBorg Server sysconfdir=%s\n", SYSCONFDIR);
 		result = 0;
 		return result;
 	}
-	_tmp15_ = led_borg_main_listen_port;
-	_tmp16_ = led_borg_led_borg_server_new_with_listen_port (_tmp15_);
-	server = _tmp16_;
-	_tmp17_ = server;
-	soup_server_run ((SoupServer*) _tmp17_);
+	_tmp16_ = led_borg_main_listen_port;
+	_tmp17_ = led_borg_led_borg_server_new_with_listen_port (_tmp16_);
+	server = _tmp17_;
+	_tmp18_ = server;
+	soup_server_run ((SoupServer*) _tmp18_);
 	result = 0;
 	_g_object_unref0 (server);
 	return result;

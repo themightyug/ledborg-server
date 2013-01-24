@@ -4,6 +4,7 @@ AM_CPPFLAGS = \
 	$(LEDBORG_SERVER_CFLAGS) \
 	-include $(CONFIG_HEADER) \
 	-march=native -mtune=native \
+	-DSYSCONFDIR=\"${sysconfdir}\" \
 	$(NULL)
 
 AM_VALAFLAGS = \

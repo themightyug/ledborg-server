@@ -57,7 +57,10 @@ DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in Colour.c \
 	Device.c IOError.c LedBorgServer.c RequestError.c Responder.c \
 	ledborg_server_vala.stamp main.c
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/m4/intltool.m4 \
+	$(top_srcdir)/m4/libtool.m4 $(top_srcdir)/m4/ltoptions.m4 \
+	$(top_srcdir)/m4/ltsugar.m4 $(top_srcdir)/m4/ltversion.m4 \
+	$(top_srcdir)/m4/lt~obsolete.m4 $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
@@ -298,10 +301,12 @@ AM_CPPFLAGS = \
 	$(LEDBORG_SERVER_CFLAGS) \
 	-include $(CONFIG_HEADER) \
 	-march=native -mtune=native \
+	-DSYSCONFDIR=\"${sysconfdir}\" \
 	$(NULL)
 
 AM_VALAFLAGS = \
 	--vapidir=../vapi \
+	--pkg Config \
 	--pkg glib-2.0 \
 	--pkg gio-2.0 \
 	--pkg libsoup-2.4 \

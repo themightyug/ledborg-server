@@ -8,10 +8,12 @@ AM_CPPFLAGS = \
 	$(LEDBORG_SERVER_CFLAGS) \
 	-include $(CONFIG_HEADER) \
 	-march=native -mtune=native \
+	-DSYSCONFDIR=\"${sysconfdir}\" \
 	$(NULL)
 
 AM_VALAFLAGS = \
 	--vapidir=../vapi \
+	--pkg Config \
 	--pkg glib-2.0 \
 	--pkg gio-2.0 \
 	--pkg libsoup-2.4 \

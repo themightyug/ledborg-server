@@ -22,10 +22,6 @@
 using GLib;
 
 
-// pick up the package version from the build system
-extern const string VERSION;
-
-
 namespace LedBorg
 {
 
@@ -49,7 +45,7 @@ namespace LedBorg
 			// handle options
 			try {
 				var opt = new OptionContext("");
-				opt.set_summary("LedBorg Server %s is a simple server that allows network control an LedBorg add-on for the Raspberry Pi".printf(VERSION));
+				opt.set_summary("LedBorg Server %s is a simple server that allows network control an LedBorg add-on for the Raspberry Pi".printf(Config.VERSION));
 				opt.set_help_enabled(true);
 				opt.add_main_entries(options, null);
 				opt.parse(ref args);
@@ -64,7 +60,8 @@ namespace LedBorg
 			// show version information
 			if(_show_version)
 			{
-				stdout.printf("LedBorg Server version %s\n", VERSION);
+				stdout.printf("LedBorg Server version %s\n", Config.VERSION);
+				stdout.printf("LedBorg Server sysconfdir=%s\n", Config.SYSCONFDIR);
 				return 0;
 			}
 
