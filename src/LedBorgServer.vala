@@ -149,6 +149,17 @@ namespace LedBorg
 						throw new RequestError.COLOUR_REQUEST_INVALID("Failed to create colour from parameters: %s".printf(e.message));
 					}
 				}
+				else if(query["ledborg-colour"] != null)
+				{
+					try
+					{
+						colour = Colour.with_rgb(query["ledborg-colour"]);
+					}
+					catch (GLib.Error e)
+					{
+						throw new RequestError.COLOUR_REQUEST_INVALID("Failed to create colour from parameters: %s".printf(e.message));
+					}
+				}
 				else
 				{
 					throw new RequestError.COLOUR_REQUEST_INVALID("Incorrect parameters");

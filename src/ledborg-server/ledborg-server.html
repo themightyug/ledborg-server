@@ -2,37 +2,91 @@
 	<head>
 		<title>LedBorg Server</title>
 		<style type="text/css">
-			
+			BODY {
+				background-color: #404040;
+				color: white;
+				font-family: tahoma, verdana, arial;
+			}
+			.LED {
+				float: left;
+				width: 64px; height: 20px; border: black solid 8px;
+			}
+			.LED:hover {
+				border-color: silver;
+			}
+			.LEDPanel {
+				height: 32px; width: 240px;
+				padding: 8px 8px 0px 8px;
+				background-color: #7a7a7a;
+			}
 		</style>
+		<script type="text/javascript">
+			setColour = function(col)
+			{
+				var c = document.getElementById('fColour');
+				c.value = col;
+				c.form.submit();
+			};
+		</script>
 	</head>
 	<body>
-		<div>
-			Current colour: %s
+		<h1>LedBorg-Server</h1>
+		<div id="CurrentColourBox">
+			%s
 		</div>
 	
 		<br/>
 		
-		<form method="post">
-			<div>
-				<select name="red">
-					<option value="0">Off</option>
-					<option value="1">Half</option>
-					<option value="2">Full</option>
-				</select>
-				<br/>
-				<select name="green">
-					<option value="0">Off</option>
-					<option value="1">Half</option>
-					<option value="2">Full</option>
-				</select>
-				<br/>
-				<select name="blue">
-					<option value="0">Off</option>
-					<option value="1">Half</option>
-					<option value="2">Full</option>
-				</select>
-				<br/>
-				<input type="submit" name="SetColour" value=" Set Colour &gt; "/>
+		<form method="get">
+			<input type="hidden" id="fColour" name="ledborg-colour" value="%s" />
+			<div id="ColourSelector">
+				<div class="LEDPanel">
+					<div class="LED" style="background-color: #000000;" onclick="setColour('000');">&nbsp;</div>
+					<div class="LED" style="background-color: #0000a0;" onclick="setColour('001');">&nbsp;</div>
+					<div class="LED" style="background-color: #0000ff;" onclick="setColour('002');">&nbsp;</div>
+				</div>
+				<div class="LEDPanel">
+					<div class="LED" style="background-color: #00a000;" onclick="setColour('010');">&nbsp;</div>
+					<div class="LED" style="background-color: #00a0a0;" onclick="setColour('011');">&nbsp;</div>
+					<div class="LED" style="background-color: #00a0ff;" onclick="setColour('012');">&nbsp;</div>
+				</div>
+				<div class="LEDPanel">
+					<div class="LED" style="background-color: #00ff00;" onclick="setColour('020');">&nbsp;</div>
+					<div class="LED" style="background-color: #00ffa0;" onclick="setColour('021');">&nbsp;</div>
+					<div class="LED" style="background-color: #00ffff;" onclick="setColour('022');">&nbsp;</div>
+				</div>
+				
+				<div class="LEDPanel">
+					<div class="LED" style="background-color: #a00000;" onclick="setColour('100');">&nbsp;</div>
+					<div class="LED" style="background-color: #a000a0;" onclick="setColour('101');">&nbsp;</div>
+					<div class="LED" style="background-color: #a000ff;" onclick="setColour('102');">&nbsp;</div>
+				</div>
+				<div class="LEDPanel">
+					<div class="LED" style="background-color: #a0a000;" onclick="setColour('110');">&nbsp;</div>
+					<div class="LED" style="background-color: #a0a0a0;" onclick="setColour('111');">&nbsp;</div>
+					<div class="LED" style="background-color: #a0a0ff;" onclick="setColour('112');">&nbsp;</div>
+				</div>
+				<div class="LEDPanel">
+					<div class="LED" style="background-color: #a0ff00;" onclick="setColour('120');">&nbsp;</div>
+					<div class="LED" style="background-color: #a0ffa0;" onclick="setColour('121');">&nbsp;</div>
+					<div class="LED" style="background-color: #a0ffff;" onclick="setColour('122');">&nbsp;</div>
+				</div>
+				
+				<div class="LEDPanel">
+					<div class="LED" style="background-color: #ff0000;" onclick="setColour('200');">&nbsp;</div>
+					<div class="LED" style="background-color: #ff00a0;" onclick="setColour('201');">&nbsp;</div>
+					<div class="LED" style="background-color: #ff00ff;" onclick="setColour('202');">&nbsp;</div>
+				</div>
+				<div class="LEDPanel">
+					<div class="LED" style="background-color: #ffa000;" onclick="setColour('210');">&nbsp;</div>
+					<div class="LED" style="background-color: #ffa0a0;" onclick="setColour('211');">&nbsp;</div>
+					<div class="LED" style="background-color: #ffa0ff;" onclick="setColour('212');">&nbsp;</div>
+				</div>
+				<div class="LEDPanel">
+					<div class="LED" style="background-color: #ffff00;" onclick="setColour('220');">&nbsp;</div>
+					<div class="LED" style="background-color: #ffffa0;" onclick="setColour('221');">&nbsp;</div>
+					<div class="LED" style="background-color: #ffffff;" onclick="setColour('222');">&nbsp;</div>
+				</div>
 			</div>
 		</form>
 	

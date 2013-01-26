@@ -76,6 +76,7 @@ static gchar* led_borg_responder_generate_html_form (LedBorgColour* colour);
 static gchar* led_borg_responder_generate_html_colour (LedBorgColour* colour);
 gchar* led_borg_colour_get_ledborg_value (LedBorgColour *self);
 gchar* led_borg_colour_get_html_value (LedBorgColour *self);
+gchar* led_borg_colour_to_string (LedBorgColour *self);
 LedBorgResponder* led_borg_responder_new (void);
 LedBorgResponder* led_borg_responder_construct (GType object_type);
 
@@ -232,6 +233,8 @@ static gchar* led_borg_responder_generate_html_form (LedBorgColour* colour) {
 	gchar* _tmp5_ = NULL;
 	gchar* _tmp6_;
 	gchar* _tmp7_ = NULL;
+	gchar* _tmp8_;
+	gchar* _tmp9_ = NULL;
 	GError * _inner_error_ = NULL;
 	g_return_val_if_fail (colour != NULL, NULL);
 	_tmp0_ = g_strdup_printf ("%s/ledborg-server/ledborg-server.html", SYSCONFDIR);
@@ -251,9 +254,12 @@ static gchar* led_borg_responder_generate_html_form (LedBorgColour* colour) {
 	_tmp4_ = *colour;
 	_tmp5_ = led_borg_responder_generate_html_colour (&_tmp4_);
 	_tmp6_ = _tmp5_;
-	_tmp7_ = g_strdup_printf (_tmp3_, _tmp6_);
+	_tmp7_ = led_borg_colour_to_string (colour);
+	_tmp8_ = _tmp7_;
+	_tmp9_ = g_strdup_printf (_tmp3_, _tmp6_, _tmp8_);
 	_g_free0 (html);
-	html = _tmp7_;
+	html = _tmp9_;
+	_g_free0 (_tmp8_);
 	_g_free0 (_tmp6_);
 	result = html;
 	_g_free0 (html_file_path);

@@ -77,7 +77,7 @@ namespace LedBorg
 			string html_file_path = "%s/ledborg-server/ledborg-server.html".printf(Config.SYSCONFDIR);
 			
 			FileUtils.get_contents(html_file_path, out html, out html_length);
-			html = html.printf(generate_html_colour(colour));
+			html = html.printf(generate_html_colour(colour), colour.to_string());
 			
 			return html;
 		}

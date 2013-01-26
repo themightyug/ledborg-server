@@ -100,6 +100,7 @@ void led_borg_device_set_colour (LedBorgColour* colour, GError** error);
 void led_borg_device_get_colour (LedBorgColour* result, GError** error);
 void led_borg_responder_respond_with_colour (SoupMessage** msg, LedBorgColour* colour, gboolean include_form);
 void led_borg_responder_respond_with_error (SoupMessage** msg, const gchar* error_message);
+void led_borg_colour_init_with_rgb (LedBorgColour *self, const gchar* rgb);
 
 
 LedBorgLedBorgServer* led_borg_led_borg_server_construct (GType object_type) {
@@ -510,24 +511,79 @@ static LedBorgColour* led_borg_led_borg_server_get_colour_from_query (GHashTable
 				}
 			}
 		} else {
-			GError* _tmp28_;
-			_tmp28_ = g_error_new_literal (REQUEST_ERROR, REQUEST_ERROR_COLOUR_REQUEST_INVALID, "Incorrect parameters");
-			_inner_error_ = _tmp28_;
-			if (_inner_error_->domain == REQUEST_ERROR) {
-				g_propagate_error (error, _inner_error_);
-				_led_borg_colour_free0 (colour);
-				return NULL;
+			GHashTable* _tmp28_;
+			gconstpointer _tmp29_ = NULL;
+			_tmp28_ = query;
+			_tmp29_ = g_hash_table_lookup (_tmp28_, "ledborg-colour");
+			if (((const gchar*) _tmp29_) != NULL) {
+				{
+					GHashTable* _tmp30_;
+					gconstpointer _tmp31_ = NULL;
+					LedBorgColour _tmp32_ = {0};
+					LedBorgColour* _tmp33_;
+					_tmp30_ = query;
+					_tmp31_ = g_hash_table_lookup (_tmp30_, "ledborg-colour");
+					led_borg_colour_init_with_rgb (&_tmp32_, (const gchar*) _tmp31_);
+					_tmp33_ = _led_borg_colour_dup0 (&_tmp32_);
+					_led_borg_colour_free0 (colour);
+					colour = _tmp33_;
+				}
+				goto __finally6;
+				__catch6_g_error:
+				{
+					GError* e = NULL;
+					GError* _tmp34_;
+					const gchar* _tmp35_;
+					gchar* _tmp36_ = NULL;
+					gchar* _tmp37_;
+					GError* _tmp38_;
+					GError* _tmp39_;
+					e = _inner_error_;
+					_inner_error_ = NULL;
+					_tmp34_ = e;
+					_tmp35_ = _tmp34_->message;
+					_tmp36_ = g_strdup_printf ("Failed to create colour from parameters: %s", _tmp35_);
+					_tmp37_ = _tmp36_;
+					_tmp38_ = g_error_new_literal (REQUEST_ERROR, REQUEST_ERROR_COLOUR_REQUEST_INVALID, _tmp37_);
+					_tmp39_ = _tmp38_;
+					_g_free0 (_tmp37_);
+					_inner_error_ = _tmp39_;
+					_g_error_free0 (e);
+					goto __finally6;
+				}
+				__finally6:
+				if (_inner_error_ != NULL) {
+					if (_inner_error_->domain == REQUEST_ERROR) {
+						g_propagate_error (error, _inner_error_);
+						_led_borg_colour_free0 (colour);
+						return NULL;
+					} else {
+						_led_borg_colour_free0 (colour);
+						g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
+						g_clear_error (&_inner_error_);
+						return NULL;
+					}
+				}
 			} else {
-				_led_borg_colour_free0 (colour);
-				g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
-				g_clear_error (&_inner_error_);
-				return NULL;
+				GError* _tmp40_;
+				_tmp40_ = g_error_new_literal (REQUEST_ERROR, REQUEST_ERROR_COLOUR_REQUEST_INVALID, "Incorrect parameters");
+				_inner_error_ = _tmp40_;
+				if (_inner_error_->domain == REQUEST_ERROR) {
+					g_propagate_error (error, _inner_error_);
+					_led_borg_colour_free0 (colour);
+					return NULL;
+				} else {
+					_led_borg_colour_free0 (colour);
+					g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
+					g_clear_error (&_inner_error_);
+					return NULL;
+				}
 			}
 		}
 	} else {
-		GError* _tmp29_;
-		_tmp29_ = g_error_new_literal (REQUEST_ERROR, REQUEST_ERROR_COLOUR_REQUEST_INVALID, "No parameters found");
-		_inner_error_ = _tmp29_;
+		GError* _tmp41_;
+		_tmp41_ = g_error_new_literal (REQUEST_ERROR, REQUEST_ERROR_COLOUR_REQUEST_INVALID, "No parameters found");
+		_inner_error_ = _tmp41_;
 		if (_inner_error_->domain == REQUEST_ERROR) {
 			g_propagate_error (error, _inner_error_);
 			_led_borg_colour_free0 (colour);
