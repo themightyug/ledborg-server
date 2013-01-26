@@ -1,3 +1,21 @@
+commit 250b3e8b1602829a19de3540bd24562c0267b18d
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Sat Jan 26 13:33:22 2013 +0000
+
+    server html control panel now working
+
+commit b9c8da55fe63c751e8bbb259e7e59cab2bee99a9
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Sat Jan 26 01:12:57 2013 +0000
+
+    cleanup
+
+commit da07eed20835598339fa153acf04804b0e1e68e9
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Sat Jan 26 01:12:09 2013 +0000
+
+    server html form changes
+
 commit f08ca37de4845c53bbba7dab7443388477ffda42
 Author: Ross Taylor <the.mighty.ug@gmail.com>
 Date:   Thu Jan 24 01:04:38 2013 +0000
