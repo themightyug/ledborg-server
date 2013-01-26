@@ -26,6 +26,8 @@
 #include <libsoup/soup.h>
 #include <stdlib.h>
 #include <string.h>
+#include <config.h>
+#include <glib/gstdio.h>
 
 
 #define LED_BORG_TYPE_RESPONDER (led_borg_responder_get_type ())
@@ -70,8 +72,8 @@ GType led_borg_colour_get_type (void) G_GNUC_CONST;
 LedBorgColour* led_borg_colour_dup (const LedBorgColour* self);
 void led_borg_colour_free (LedBorgColour* self);
 void led_borg_responder_respond_with_colour (SoupMessage** msg, LedBorgColour* colour, gboolean include_form);
-static gchar* led_borg_responder_generate_html_colour (LedBorgColour* colour);
 static gchar* led_borg_responder_generate_html_form (LedBorgColour* colour);
+static gchar* led_borg_responder_generate_html_colour (LedBorgColour* colour);
 gchar* led_borg_colour_get_ledborg_value (LedBorgColour *self);
 gchar* led_borg_colour_get_html_value (LedBorgColour *self);
 LedBorgResponder* led_borg_responder_new (void);
@@ -134,66 +136,61 @@ void led_borg_responder_respond_with_error (SoupMessage** msg, const gchar* erro
 
 
 void led_borg_responder_respond_with_colour (SoupMessage** msg, LedBorgColour* colour, gboolean include_form) {
-	LedBorgColour _tmp0_;
-	gchar* _tmp1_ = NULL;
-	gchar* html;
-	gboolean _tmp2_;
-	SoupMessage* _tmp8_;
-	SoupMessageHeaders* _tmp9_;
-	gchar* _tmp10_ = NULL;
-	gchar* _tmp11_;
-	SoupMessage* _tmp12_;
-	SoupMessageHeaders* _tmp13_;
-	gchar* _tmp14_ = NULL;
-	gchar* _tmp15_;
-	SoupMessage* _tmp16_;
-	SoupMessage* _tmp17_;
-	const gchar* _tmp18_;
-	guint8* _tmp19_;
-	gint _tmp19__length1;
-	guint8* _tmp20_;
-	gint _tmp20__length1;
+	gchar* html = NULL;
+	gboolean _tmp0_;
+	SoupMessage* _tmp5_;
+	SoupMessageHeaders* _tmp6_;
+	gchar* _tmp7_ = NULL;
+	gchar* _tmp8_;
+	SoupMessage* _tmp9_;
+	SoupMessageHeaders* _tmp10_;
+	gchar* _tmp11_ = NULL;
+	gchar* _tmp12_;
+	SoupMessage* _tmp13_;
+	SoupMessage* _tmp14_;
+	const gchar* _tmp15_;
+	guint8* _tmp16_;
+	gint _tmp16__length1;
+	guint8* _tmp17_;
+	gint _tmp17__length1;
 	g_return_if_fail (*msg != NULL);
 	g_return_if_fail (colour != NULL);
-	_tmp0_ = *colour;
-	_tmp1_ = led_borg_responder_generate_html_colour (&_tmp0_);
-	html = _tmp1_;
-	_tmp2_ = include_form;
-	if (_tmp2_) {
-		const gchar* _tmp3_;
-		LedBorgColour _tmp4_;
-		gchar* _tmp5_ = NULL;
-		gchar* _tmp6_;
-		gchar* _tmp7_;
-		_tmp3_ = html;
-		_tmp4_ = *colour;
-		_tmp5_ = led_borg_responder_generate_html_form (&_tmp4_);
-		_tmp6_ = _tmp5_;
-		_tmp7_ = g_strconcat (_tmp3_, _tmp6_, NULL);
+	_tmp0_ = include_form;
+	if (_tmp0_) {
+		LedBorgColour _tmp1_;
+		gchar* _tmp2_ = NULL;
+		_tmp1_ = *colour;
+		_tmp2_ = led_borg_responder_generate_html_form (&_tmp1_);
 		_g_free0 (html);
-		html = _tmp7_;
-		_g_free0 (_tmp6_);
+		html = _tmp2_;
+	} else {
+		LedBorgColour _tmp3_;
+		gchar* _tmp4_ = NULL;
+		_tmp3_ = *colour;
+		_tmp4_ = led_borg_responder_generate_html_colour (&_tmp3_);
+		_g_free0 (html);
+		html = _tmp4_;
 	}
-	_tmp8_ = *msg;
-	_tmp9_ = _tmp8_->response_headers;
-	_tmp10_ = led_borg_colour_get_ledborg_value (colour);
-	_tmp11_ = _tmp10_;
-	soup_message_headers_append (_tmp9_, "Colour-LedBorg", _tmp11_);
-	_g_free0 (_tmp11_);
-	_tmp12_ = *msg;
-	_tmp13_ = _tmp12_->response_headers;
-	_tmp14_ = led_borg_colour_get_html_value (colour);
-	_tmp15_ = _tmp14_;
-	soup_message_headers_append (_tmp13_, "Colour-Html", _tmp15_);
-	_g_free0 (_tmp15_);
-	_tmp16_ = *msg;
-	soup_message_set_status_full (_tmp16_, (guint) SOUP_STATUS_OK, "OK");
-	_tmp17_ = *msg;
-	_tmp18_ = html;
-	_tmp19_ = string_get_data (_tmp18_, &_tmp19__length1);
-	_tmp20_ = _tmp19_;
-	_tmp20__length1 = _tmp19__length1;
-	soup_message_set_response (_tmp17_, "text/html", SOUP_MEMORY_COPY, _tmp20_, (gsize) _tmp20__length1);
+	_tmp5_ = *msg;
+	_tmp6_ = _tmp5_->response_headers;
+	_tmp7_ = led_borg_colour_get_ledborg_value (colour);
+	_tmp8_ = _tmp7_;
+	soup_message_headers_append (_tmp6_, "Colour-LedBorg", _tmp8_);
+	_g_free0 (_tmp8_);
+	_tmp9_ = *msg;
+	_tmp10_ = _tmp9_->response_headers;
+	_tmp11_ = led_borg_colour_get_html_value (colour);
+	_tmp12_ = _tmp11_;
+	soup_message_headers_append (_tmp10_, "Colour-Html", _tmp12_);
+	_g_free0 (_tmp12_);
+	_tmp13_ = *msg;
+	soup_message_set_status_full (_tmp13_, (guint) SOUP_STATUS_OK, "OK");
+	_tmp14_ = *msg;
+	_tmp15_ = html;
+	_tmp16_ = string_get_data (_tmp15_, &_tmp16__length1);
+	_tmp17_ = _tmp16_;
+	_tmp17__length1 = _tmp16__length1;
+	soup_message_set_response (_tmp14_, "text/html", SOUP_MEMORY_COPY, _tmp17_, (gsize) _tmp17__length1);
 	_g_free0 (html);
 }
 
@@ -224,12 +221,42 @@ static gchar* led_borg_responder_generate_html_colour (LedBorgColour* colour) {
 
 static gchar* led_borg_responder_generate_html_form (LedBorgColour* colour) {
 	gchar* result = NULL;
-	gchar* _tmp0_;
-	gchar* html;
+	gchar* html = NULL;
+	gsize html_length = 0UL;
+	gchar* _tmp0_ = NULL;
+	gchar* html_file_path;
+	gchar* _tmp1_ = NULL;
+	gsize _tmp2_ = 0UL;
+	const gchar* _tmp3_;
+	LedBorgColour _tmp4_;
+	gchar* _tmp5_ = NULL;
+	gchar* _tmp6_;
+	gchar* _tmp7_ = NULL;
+	GError * _inner_error_ = NULL;
 	g_return_val_if_fail (colour != NULL, NULL);
-	_tmp0_ = g_strdup ("\n\t\t\t\n\t\t\t");
-	html = _tmp0_;
+	_tmp0_ = g_strdup_printf ("%s/ledborg-server/ledborg-server.html", SYSCONFDIR);
+	html_file_path = _tmp0_;
+	g_file_get_contents (html_file_path, &_tmp1_, &_tmp2_, &_inner_error_);
+	_g_free0 (html);
+	html = _tmp1_;
+	html_length = _tmp2_;
+	if (_inner_error_ != NULL) {
+		_g_free0 (html_file_path);
+		_g_free0 (html);
+		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
+		g_clear_error (&_inner_error_);
+		return NULL;
+	}
+	_tmp3_ = html;
+	_tmp4_ = *colour;
+	_tmp5_ = led_borg_responder_generate_html_colour (&_tmp4_);
+	_tmp6_ = _tmp5_;
+	_tmp7_ = g_strdup_printf (_tmp3_, _tmp6_);
+	_g_free0 (html);
+	html = _tmp7_;
+	_g_free0 (_tmp6_);
 	result = html;
+	_g_free0 (html_file_path);
 	return result;
 }
 

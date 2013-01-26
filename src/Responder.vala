@@ -39,11 +39,15 @@ namespace LedBorg
 
 		public static void respond_with_colour(ref unowned Soup.Message msg, Colour colour, bool include_form)
 		{
-			string html = generate_html_colour(colour);
+			string html;
 			
 			if(include_form)
 			{
-				html += generate_html_form(colour);
+				html = generate_html_form(colour);
+			}
+			else
+			{
+				html = generate_html_colour(colour);
 			}
 			
 			msg.response_headers.append("Colour-LedBorg", colour.get_ledborg_value());
@@ -67,9 +71,13 @@ namespace LedBorg
 
 		private static string generate_html_form(Colour colour)
 		{
-			string html = """
+			string html;
+			size_t html_length;
+
+			string html_file_path = "%s/ledborg-server/ledborg-server.html".printf(Config.SYSCONFDIR);
 			
-			""";
+			FileUtils.get_contents(html_file_path, out html, out html_length);
+			html = html.printf(generate_html_colour(colour));
 			
 			return html;
 		}

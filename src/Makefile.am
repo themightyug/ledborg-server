@@ -7,7 +7,7 @@ SUBDIRS = \
 AM_CPPFLAGS = \
 	$(LEDBORG_SERVER_CFLAGS) \
 	-include $(CONFIG_HEADER) \
-	-march=native -mtune=native \
+	-Ofast -mfpu=vfp -mfloat-abi=hard -march=armv6zk -mtune=arm1176jzf-s \
 	-DSYSCONFDIR=\"${sysconfdir}\" \
 	$(NULL)
 

@@ -1,0 +1,35 @@
+commit f08ca37de4845c53bbba7dab7443388477ffda42
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Thu Jan 24 01:04:38 2013 +0000
+
+    new Config vapi package that picks up compile-time constants
+
+commit aaa50832069e3a2bde1eaa96e5619d1af52ac638
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Fri Jan 18 00:29:12 2013 +0000
+
+    re-arrange server request handling ready for html form
+
+commit fc6c32dfc6a74ad523ec6557dc5728984e477fae
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Thu Jan 17 12:22:44 2013 +0000
+
+    tidy up license headers and add --version option to server program
+
+commit 7aecc1ad6d84a898e18452897d2cb30ee98e67f6
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Wed Jan 16 16:37:32 2013 +0000
+
+    second tidy up
+
+commit 7f4ecaa94b1337ce2b0ce7240131d6ff9f6329da
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Wed Jan 16 16:32:28 2013 +0000
+
+    README and first tidy up
+
+commit 243ab1524d679267fd52244da1295982c57fad24
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Wed Jan 16 16:01:43 2013 +0000
+
+    first commit

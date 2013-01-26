@@ -46,7 +46,7 @@ namespace LedBorg
 		
 		public void initialize_server()
 		{
-			this.add_handler("/", handler_set_colour);
+			this.add_handler("/", handler_default);
 			this.add_handler("/GetColour", handler_get_colour);
 			this.add_handler("/SetColour", handler_set_colour);
 		}
@@ -57,10 +57,19 @@ namespace LedBorg
 		(Soup.Server server, Soup.Message msg, string path,
 		GLib.HashTable<string, string>? query, Soup.ClientContext client)
 		{
-			if(query != null)
+			try
 			{
-				handler_set_colour(server, msg, path, query, client);
+				Colour? colour = get_colour_from_query(query);
+				if(colour != null)
+				{
+					Device.set_colour(colour);
+				}
 			}
+			catch
+			{
+			}
+			Colour current_colour = Device.get_colour();
+			Responder.respond_with_colour(ref msg, current_colour, true);
 		}
 
 

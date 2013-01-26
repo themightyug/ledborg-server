@@ -43,8 +43,8 @@ typedef struct _LedBorgLedBorgServerPrivate LedBorgLedBorgServerPrivate;
 
 #define LED_BORG_TYPE_COLOUR (led_borg_colour_get_type ())
 typedef struct _LedBorgColour LedBorgColour;
-#define _g_error_free0(var) ((var == NULL) ? NULL : (var = (g_error_free (var), NULL)))
 #define _led_borg_colour_free0(var) ((var == NULL) ? NULL : (var = (led_borg_colour_free (var), NULL)))
+#define _g_error_free0(var) ((var == NULL) ? NULL : (var = (g_error_free (var), NULL)))
 
 struct _LedBorgLedBorgServer {
 	SoupServer parent_instance;
@@ -62,16 +62,16 @@ struct _LedBorgColour {
 };
 
 typedef enum  {
+	REQUEST_ERROR_COLOUR_REQUEST_INVALID,
+	REQUEST_ERROR_GENERAL
+} RequestError;
+#define REQUEST_ERROR request_error_quark ()
+typedef enum  {
 	IO_ERROR_FILE_NOT_FOUND,
 	IO_ERROR_COMMUNICATION_BREAKDOWN,
 	IO_ERROR_GENERAL
 } IOError;
 #define IO_ERROR io_error_quark ()
-typedef enum  {
-	REQUEST_ERROR_COLOUR_REQUEST_INVALID,
-	REQUEST_ERROR_GENERAL
-} RequestError;
-#define REQUEST_ERROR request_error_quark ()
 
 static gpointer led_borg_led_borg_server_parent_class = NULL;
 
@@ -84,21 +84,22 @@ LedBorgLedBorgServer* led_borg_led_borg_server_construct (GType object_type);
 LedBorgLedBorgServer* led_borg_led_borg_server_new_with_listen_port (gint listen_port);
 LedBorgLedBorgServer* led_borg_led_borg_server_construct_with_listen_port (GType object_type, gint listen_port);
 void led_borg_led_borg_server_initialize_server (LedBorgLedBorgServer* self);
-void led_borg_led_borg_server_handler_set_colour (SoupServer* server, SoupMessage* msg, const gchar* path, GHashTable* query, SoupClientContext* client);
-static void _led_borg_led_borg_server_handler_set_colour_soup_server_callback (SoupServer* server, SoupMessage* msg, const gchar* path, GHashTable* query, SoupClientContext* client, gpointer self);
+void led_borg_led_borg_server_handler_default (SoupServer* server, SoupMessage* msg, const gchar* path, GHashTable* query, SoupClientContext* client);
+static void _led_borg_led_borg_server_handler_default_soup_server_callback (SoupServer* server, SoupMessage* msg, const gchar* path, GHashTable* query, SoupClientContext* client, gpointer self);
 void led_borg_led_borg_server_handler_get_colour (SoupServer* server, SoupMessage* msg, const gchar* path, GHashTable* query, SoupClientContext* client);
 static void _led_borg_led_borg_server_handler_get_colour_soup_server_callback (SoupServer* server, SoupMessage* msg, const gchar* path, GHashTable* query, SoupClientContext* client, gpointer self);
-void led_borg_led_borg_server_handler_default (SoupServer* server, SoupMessage* msg, const gchar* path, GHashTable* query, SoupClientContext* client);
+void led_borg_led_borg_server_handler_set_colour (SoupServer* server, SoupMessage* msg, const gchar* path, GHashTable* query, SoupClientContext* client);
+static void _led_borg_led_borg_server_handler_set_colour_soup_server_callback (SoupServer* server, SoupMessage* msg, const gchar* path, GHashTable* query, SoupClientContext* client, gpointer self);
 GType led_borg_colour_get_type (void) G_GNUC_CONST;
 LedBorgColour* led_borg_colour_dup (const LedBorgColour* self);
 void led_borg_colour_free (LedBorgColour* self);
+GQuark request_error_quark (void);
+static LedBorgColour* led_borg_led_borg_server_get_colour_from_query (GHashTable* query, GError** error);
 GQuark io_error_quark (void);
+void led_borg_device_set_colour (LedBorgColour* colour, GError** error);
 void led_borg_device_get_colour (LedBorgColour* result, GError** error);
 void led_borg_responder_respond_with_colour (SoupMessage** msg, LedBorgColour* colour, gboolean include_form);
 void led_borg_responder_respond_with_error (SoupMessage** msg, const gchar* error_message);
-GQuark request_error_quark (void);
-static LedBorgColour* led_borg_led_borg_server_get_colour_from_query (GHashTable* query, GError** error);
-void led_borg_device_set_colour (LedBorgColour* colour, GError** error);
 
 
 LedBorgLedBorgServer* led_borg_led_borg_server_construct (GType object_type) {
@@ -140,8 +141,8 @@ LedBorgLedBorgServer* led_borg_led_borg_server_new_with_listen_port (gint listen
 }
 
 
-static void _led_borg_led_borg_server_handler_set_colour_soup_server_callback (SoupServer* server, SoupMessage* msg, const gchar* path, GHashTable* query, SoupClientContext* client, gpointer self) {
-	led_borg_led_borg_server_handler_set_colour (server, msg, path, query, client);
+static void _led_borg_led_borg_server_handler_default_soup_server_callback (SoupServer* server, SoupMessage* msg, const gchar* path, GHashTable* query, SoupClientContext* client, gpointer self) {
+	led_borg_led_borg_server_handler_default (server, msg, path, query, client);
 }
 
 
@@ -150,34 +151,74 @@ static void _led_borg_led_borg_server_handler_get_colour_soup_server_callback (S
 }
 
 
+static void _led_borg_led_borg_server_handler_set_colour_soup_server_callback (SoupServer* server, SoupMessage* msg, const gchar* path, GHashTable* query, SoupClientContext* client, gpointer self) {
+	led_borg_led_borg_server_handler_set_colour (server, msg, path, query, client);
+}
+
+
 void led_borg_led_borg_server_initialize_server (LedBorgLedBorgServer* self) {
 	g_return_if_fail (self != NULL);
-	soup_server_add_handler ((SoupServer*) self, "/", _led_borg_led_borg_server_handler_set_colour_soup_server_callback, NULL, NULL);
+	soup_server_add_handler ((SoupServer*) self, "/", _led_borg_led_borg_server_handler_default_soup_server_callback, NULL, NULL);
 	soup_server_add_handler ((SoupServer*) self, "/GetColour", _led_borg_led_borg_server_handler_get_colour_soup_server_callback, NULL, NULL);
 	soup_server_add_handler ((SoupServer*) self, "/SetColour", _led_borg_led_borg_server_handler_set_colour_soup_server_callback, NULL, NULL);
 }
 
 
 void led_borg_led_borg_server_handler_default (SoupServer* server, SoupMessage* msg, const gchar* path, GHashTable* query, SoupClientContext* client) {
-	GHashTable* _tmp0_;
+	LedBorgColour _tmp5_ = {0};
+	LedBorgColour current_colour;
+	LedBorgColour _tmp6_;
+	GError * _inner_error_ = NULL;
 	g_return_if_fail (server != NULL);
 	g_return_if_fail (msg != NULL);
 	g_return_if_fail (path != NULL);
 	g_return_if_fail (client != NULL);
-	_tmp0_ = query;
-	if (_tmp0_ != NULL) {
-		SoupServer* _tmp1_;
-		SoupMessage* _tmp2_;
-		const gchar* _tmp3_;
-		GHashTable* _tmp4_;
-		SoupClientContext* _tmp5_;
-		_tmp1_ = server;
-		_tmp2_ = msg;
-		_tmp3_ = path;
-		_tmp4_ = query;
-		_tmp5_ = client;
-		led_borg_led_borg_server_handler_set_colour (_tmp1_, _tmp2_, _tmp3_, _tmp4_, _tmp5_);
+	{
+		GHashTable* _tmp0_;
+		LedBorgColour* _tmp1_ = NULL;
+		LedBorgColour* colour;
+		LedBorgColour* _tmp2_;
+		_tmp0_ = query;
+		_tmp1_ = led_borg_led_borg_server_get_colour_from_query (_tmp0_, &_inner_error_);
+		colour = _tmp1_;
+		if (_inner_error_ != NULL) {
+			goto __catch1_g_error;
+		}
+		_tmp2_ = colour;
+		if (_tmp2_ != NULL) {
+			LedBorgColour* _tmp3_;
+			LedBorgColour _tmp4_;
+			_tmp3_ = colour;
+			_tmp4_ = *_tmp3_;
+			led_borg_device_set_colour (&_tmp4_, &_inner_error_);
+			if (_inner_error_ != NULL) {
+				_led_borg_colour_free0 (colour);
+				goto __catch1_g_error;
+			}
+		}
+		_led_borg_colour_free0 (colour);
 	}
+	goto __finally1;
+	__catch1_g_error:
+	{
+		g_clear_error (&_inner_error_);
+		_inner_error_ = NULL;
+	}
+	__finally1:
+	if (_inner_error_ != NULL) {
+		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
+		g_clear_error (&_inner_error_);
+		return;
+	}
+	led_borg_device_get_colour (&_tmp5_, &_inner_error_);
+	current_colour = _tmp5_;
+	if (_inner_error_ != NULL) {
+		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
+		g_clear_error (&_inner_error_);
+		return;
+	}
+	_tmp6_ = current_colour;
+	led_borg_responder_respond_with_colour (&msg, &_tmp6_, TRUE);
 }
 
 
@@ -195,7 +236,7 @@ void led_borg_led_borg_server_handler_get_colour (SoupServer* server, SoupMessag
 		current_colour = _tmp0_;
 		if (_inner_error_ != NULL) {
 			if (_inner_error_->domain == IO_ERROR) {
-				goto __catch1_io_error;
+				goto __catch2_io_error;
 			}
 			g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
 			g_clear_error (&_inner_error_);
@@ -204,8 +245,8 @@ void led_borg_led_borg_server_handler_get_colour (SoupServer* server, SoupMessag
 		_tmp1_ = current_colour;
 		led_borg_responder_respond_with_colour (&msg, &_tmp1_, FALSE);
 	}
-	goto __finally1;
-	__catch1_io_error:
+	goto __finally2;
+	__catch2_io_error:
 	{
 		GError* e = NULL;
 		FILE* _tmp2_;
@@ -224,7 +265,7 @@ void led_borg_led_borg_server_handler_get_colour (SoupServer* server, SoupMessag
 		led_borg_responder_respond_with_error (&msg, _tmp6_);
 		_g_error_free0 (e);
 	}
-	__finally1:
+	__finally2:
 	if (_inner_error_ != NULL) {
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
 		g_clear_error (&_inner_error_);
@@ -263,7 +304,7 @@ void led_borg_led_borg_server_handler_set_colour (SoupServer* server, SoupMessag
 			_tmp6_ = _tmp5_;
 			if (_inner_error_ != NULL) {
 				if (_inner_error_->domain == REQUEST_ERROR) {
-					goto __catch2_request_error;
+					goto __catch3_request_error;
 				}
 				_led_borg_colour_free0 (colour);
 				g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
@@ -273,8 +314,8 @@ void led_borg_led_borg_server_handler_set_colour (SoupServer* server, SoupMessag
 			_led_borg_colour_free0 (colour);
 			colour = _tmp6_;
 		}
-		goto __finally2;
-		__catch2_request_error:
+		goto __finally3;
+		__catch3_request_error:
 		{
 			GError* e = NULL;
 			FILE* _tmp7_;
@@ -295,7 +336,7 @@ void led_borg_led_borg_server_handler_set_colour (SoupServer* server, SoupMessag
 			_led_borg_colour_free0 (colour);
 			return;
 		}
-		__finally2:
+		__finally3:
 		if (_inner_error_ != NULL) {
 			_led_borg_colour_free0 (colour);
 			g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
@@ -317,7 +358,7 @@ void led_borg_led_borg_server_handler_set_colour (SoupServer* server, SoupMessag
 			led_borg_device_set_colour (&_tmp14_, &_inner_error_);
 			if (_inner_error_ != NULL) {
 				if (_inner_error_->domain == IO_ERROR) {
-					goto __catch3_io_error;
+					goto __catch4_io_error;
 				}
 				_led_borg_colour_free0 (colour);
 				g_critical ("file %s: line %d: unexpected error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
@@ -330,8 +371,8 @@ void led_borg_led_borg_server_handler_set_colour (SoupServer* server, SoupMessag
 			led_borg_responder_respond_with_colour (&msg, &_tmp17_, g_strcmp0 (_tmp16_, "/") == 0);
 		}
 	}
-	goto __finally3;
-	__catch3_io_error:
+	goto __finally4;
+	__catch4_io_error:
 	{
 		GError* e = NULL;
 		FILE* _tmp18_;
@@ -350,7 +391,7 @@ void led_borg_led_borg_server_handler_set_colour (SoupServer* server, SoupMessag
 		led_borg_responder_respond_with_error (&msg, _tmp22_);
 		_g_error_free0 (e);
 	}
-	__finally3:
+	__finally4:
 	if (_inner_error_ != NULL) {
 		_led_borg_colour_free0 (colour);
 		g_critical ("file %s: line %d: uncaught error: %s (%s, %d)", __FILE__, __LINE__, _inner_error_->message, g_quark_to_string (_inner_error_->domain), _inner_error_->code);
@@ -432,8 +473,8 @@ static LedBorgColour* led_borg_led_borg_server_get_colour_from_query (GHashTable
 				_led_borg_colour_free0 (colour);
 				colour = _tmp21_;
 			}
-			goto __finally4;
-			__catch4_g_error:
+			goto __finally5;
+			__catch5_g_error:
 			{
 				GError* e = NULL;
 				GError* _tmp22_;
@@ -453,9 +494,9 @@ static LedBorgColour* led_borg_led_borg_server_get_colour_from_query (GHashTable
 				_g_free0 (_tmp25_);
 				_inner_error_ = _tmp27_;
 				_g_error_free0 (e);
-				goto __finally4;
+				goto __finally5;
 			}
-			__finally4:
+			__finally5:
 			if (_inner_error_ != NULL) {
 				if (_inner_error_->domain == REQUEST_ERROR) {
 					g_propagate_error (error, _inner_error_);
