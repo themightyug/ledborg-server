@@ -16,14 +16,20 @@ ledborg_serverdoc_DATA = \
 	COPYING \
 	AUTHORS \
 	INSTALL \
-	NEWS\
+	NEWS \
+	$(NULL)
+
+ledborg_confdir = ${sysconfdir}/ledborg-server
+ledborg_conf_DATA = \
+	src/ledborg-server/ledborg-server.html \
 	$(NULL)
 
 EXTRA_DIST = \
 	$(ledborg_serverdoc_DATA) \
+	$(ledborg_conf_DATA) \
 	intltool-extract.in \
 	intltool-merge.in \
-	intltool-update.in\
+	intltool-update.in \
 	$(NULL)
 
 DISTCLEANFILES = \
