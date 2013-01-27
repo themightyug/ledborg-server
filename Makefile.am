@@ -21,7 +21,7 @@ ledborg_serverdoc_DATA = \
 
 ledborg_confdir = ${sysconfdir}/ledborg-server
 ledborg_conf_DATA = \
-	src/ledborg-server/ledborg-server.html \
+	src/conf/ledborg-server.html \
 	$(NULL)
 
 EXTRA_DIST = \

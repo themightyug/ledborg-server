@@ -101,11 +101,13 @@ namespace LedBorg
 			// This makes easier to scale the picture
 			ctx.scale(size, size);
 
-			ctx.set_source_rgb(red, green, blue);
-
-			ctx.arc(0.5, 0.5, 0.3, 0, 6.283184);
-			ctx.set_line_width(0.4);
+			ctx.set_source_rgb(0, 0, 0);
+			ctx.rectangle(0, 0, 1, 0.5);
+			ctx.set_line_width(0.2);
 			ctx.stroke();
+			ctx.set_source_rgb(red, green, blue);
+			ctx.in_fill(0.5, 0.25);
+			ctx.paint();
 
 			// the pixel buffer must remain after being created, so manual memory management is used here
 			uint8* pixel_data = new uint8[size * size * 4];
