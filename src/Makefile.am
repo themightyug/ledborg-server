@@ -1,7 +1,13 @@
 NULL = 
 
+
+if WITH_APPLET
+  MAYBE_APPLET = applet
+endif
+
+
 SUBDIRS = \
-	applet \
+	$(MAYBE_APPLET) \
 	$(NULL)
 
 AM_CPPFLAGS = \

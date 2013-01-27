@@ -4,6 +4,7 @@ ACLOCAL_AMFLAGS = -I m4
 
 #Build in these directories:
 
+
 SUBDIRS = \
 	src \
 	po \

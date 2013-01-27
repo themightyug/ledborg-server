@@ -636,6 +636,8 @@ ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
 LIB@&t@OBJS
+WITH_APPLET_FALSE
+WITH_APPLET_TRUE
 LEDBORG_SERVER_LIBS
 LEDBORG_SERVER_CFLAGS
 PKG_CONFIG_LIBDIR
@@ -815,6 +817,7 @@ with_gnu_ld
 with_sysroot
 enable_libtool_lock
 enable_nls
+enable_applet
 '
       ac_precious_vars='build_alias
 host_alias
@@ -1458,6 +1461,7 @@ Optional Features:
                           optimize for fast installation @<:@default=yes@:>@
   --disable-libtool-lock  avoid locking (might break parallel builds)
   --disable-nls           do not use Native Language Support
+  --disable-applet   Disable compilation of the gnome ledborg control applet
 
 Optional Packages:
   --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
@@ -13062,9 +13066,41 @@ fi
 
 
 
+
+@%:@ Check whether --enable-applet was given.
+if test "${enable_applet+set}" = set; then :
+  enableval=$enable_applet; case "${enableval}" in
+     yes | no ) WITH_APPLET="${enableval}" ;;
+     *) as_fn_error $? "bad value ${enableval} for --disable-applet" "$LINENO" 5 ;;
+   esac
+else
+  WITH_APPLET="yes"
+
+fi
+
+
+ if test "x$WITH_APPLET" = "xyes"; then
+  WITH_APPLET_TRUE=
+  WITH_APPLET_FALSE='#'
+else
+  WITH_APPLET_TRUE='#'
+  WITH_APPLET_FALSE=
+fi
+
+
+if test "x$WITH_APPLET" = "xyes"; then
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: LedBorg control applet for gnome will be built" >&5
+$as_echo "$as_me: LedBorg control applet for gnome will be built" >&6;}
+	makefile_applet=src/applet/Makefile
+else
+    { $as_echo "$as_me:${as_lineno-$LINENO}: LedBorg control applet will NOT be built" >&5
+$as_echo "$as_me: LedBorg control applet will NOT be built" >&6;}
+fi
+
+
 #AC_DEFINE_UNQUOTED([sysconfdir], ["$sysconfdir"], [Configuration directory])
 
-ac_config_files="$ac_config_files Makefile src/Makefile src/applet/Makefile po/Makefile.in"
+ac_config_files="$ac_config_files Makefile src/Makefile $makefile_applet po/Makefile.in"
 
 
 cat >confcache <<\_ACEOF
@@ -13200,6 +13236,10 @@ fi
   ac_config_commands="$ac_config_commands po/stamp-it"
 
 
+if test -z "${WITH_APPLET_TRUE}" && test -z "${WITH_APPLET_FALSE}"; then
+  as_fn_error $? "conditional \"WITH_APPLET\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
 
 : "${CONFIG_STATUS=./config.status}"
 ac_write_fail=0
@@ -14076,7 +14116,7 @@ do
     "default-1") CONFIG_COMMANDS="$CONFIG_COMMANDS default-1" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
     "src/Makefile") CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
-    "src/applet/Makefile") CONFIG_FILES="$CONFIG_FILES src/applet/Makefile" ;;
+    "$makefile_applet") CONFIG_FILES="$CONFIG_FILES $makefile_applet" ;;
     "po/Makefile.in") CONFIG_FILES="$CONFIG_FILES po/Makefile.in" ;;
     "po/stamp-it") CONFIG_COMMANDS="$CONFIG_COMMANDS po/stamp-it" ;;
 
