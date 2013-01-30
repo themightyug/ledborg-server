@@ -301,7 +301,7 @@ SUBDIRS = \
 AM_CPPFLAGS = \
 	$(LEDBORG_SERVER_CFLAGS) \
 	-include $(CONFIG_HEADER) \
-	-fPIC -Ofast -mfpu=vfp -mfloat-abi=hard -march=armv6zk -mtune=arm1176jzf-s \
+	$(COMPILER_OPTIMISATIONS) \
 	-DSYSCONFDIR=\"${sysconfdir}\" \
 	$(NULL)
 
@@ -824,6 +824,9 @@ uninstall-am: uninstall-binPROGRAMS
 	tags tags-recursive uninstall uninstall-am \
 	uninstall-binPROGRAMS
 
+
+@WITH_RPI_TRUE@	COMPILER_OPTIMISATIONS = -fpic -Ofast -mfpu=vfp -mfloat-abi=hard -march=armv6zk -mtune=arm1176jzf-s
+@WITH_RPI_FALSE@	COMPILER_OPTIMISATIONS = -march=native -mtune=native
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

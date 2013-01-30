@@ -5,6 +5,12 @@ if WITH_APPLET
   MAYBE_APPLET = applet
 endif
 
+if WITH_RPI
+	COMPILER_OPTIMISATIONS = -fpic -Ofast -mfpu=vfp -mfloat-abi=hard -march=armv6zk -mtune=arm1176jzf-s
+else
+	COMPILER_OPTIMISATIONS = -march=native -mtune=native
+endif
+
 
 SUBDIRS = \
 	$(MAYBE_APPLET) \
@@ -13,7 +19,7 @@ SUBDIRS = \
 AM_CPPFLAGS = \
 	$(LEDBORG_SERVER_CFLAGS) \
 	-include $(CONFIG_HEADER) \
-	-fPIC -Ofast -mfpu=vfp -mfloat-abi=hard -march=armv6zk -mtune=arm1176jzf-s \
+	$(COMPILER_OPTIMISATIONS) \
 	-DSYSCONFDIR=\"${sysconfdir}\" \
 	$(NULL)
 

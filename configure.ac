@@ -47,14 +47,25 @@ AC_ARG_ENABLE(applet,
    esac],
   [WITH_APPLET="yes"]
 )
-
 AM_CONDITIONAL([WITH_APPLET], [test "x$WITH_APPLET" = "xyes"])
-
 if test "x$WITH_APPLET" = "xyes"; then
 	AC_MSG_NOTICE([LedBorg control applet for gnome will be built])
 	makefile_applet=src/applet/Makefile
 else
     AC_MSG_NOTICE([LedBorg control applet will NOT be built])
+fi
+
+AC_ARG_ENABLE(rpi,
+  [  --disable-rpi   Disable raspberry pi compiler optimisations],
+  [case "${enableval}" in
+     yes | no ) WITH_RPI="${enableval}" ;;
+     *) AC_MSG_ERROR(bad value ${enableval} for --disable-rpi) ;;
+   esac],
+  [WITH_RPI="yes"]
+)
+AM_CONDITIONAL([WITH_RPI], [test "x$WITH_RPI" = "xyes"])
+if test "x$WITH_RPI" = "xyes"; then
+	AC_MSG_NOTICE([enabled Raspberry Pi compiler optimisations. THIS WILL ALMOST CERTAINLY FAIL ON ANY OTHER MACHINE! Use --disable-rpi to compile on other machines/architectures])
 fi
 
 

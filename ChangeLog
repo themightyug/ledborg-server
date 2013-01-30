@@ -1,3 +1,27 @@
+commit 011b846a84c3986c8053e5eaff5e1bc4871ac8b2
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Sun Jan 27 21:08:37 2013 +0000
+
+    make building of gnome applet optional with --disable-applet configure flag
+
+commit 58ad8a3a6b6c70ad6f4400faeb7661d824342c67
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Sun Jan 27 02:00:35 2013 +0000
+
+    extra work on applet indicator graphics
+
+commit 3302fed9e9d5f937166b830e82a97c2f0b178235
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Sun Jan 27 00:38:58 2013 +0000
+
+    fixed install target to include html file in sysconfdir/ledborg-server
+
+commit 1a724c78184a4eecc1eaa8db4519724f754c9dca
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Sat Jan 26 19:41:00 2013 +0000
+
+    server v0.2 functionally complete
+
 commit 250b3e8b1602829a19de3540bd24562c0267b18d
 Author: Ross Taylor <the.mighty.ug@gmail.com>
 Date:   Sat Jan 26 13:33:22 2013 +0000
