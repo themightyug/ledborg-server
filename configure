@@ -642,6 +642,14 @@ WITH_APPLET_FALSE
 WITH_APPLET_TRUE
 LEDBORG_SERVER_LIBS
 LEDBORG_SERVER_CFLAGS
+LIBSOUP_LIBS
+LIBSOUP_CFLAGS
+GIO_LIBS
+GIO_CFLAGS
+GOBJECT_LIBS
+GOBJECT_CFLAGS
+GLIB_LIBS
+GLIB_CFLAGS
 PKG_CONFIG_LIBDIR
 PKG_CONFIG_PATH
 PKG_CONFIG
@@ -834,8 +842,14 @@ CPP
 PKG_CONFIG
 PKG_CONFIG_PATH
 PKG_CONFIG_LIBDIR
-LEDBORG_SERVER_CFLAGS
-LEDBORG_SERVER_LIBS'
+GLIB_CFLAGS
+GLIB_LIBS
+GOBJECT_CFLAGS
+GOBJECT_LIBS
+GIO_CFLAGS
+GIO_LIBS
+LIBSOUP_CFLAGS
+LIBSOUP_LIBS'
 
 
 # Initialize some variables set by options.
@@ -1490,10 +1504,18 @@ Some influential environment variables:
               directories to add to pkg-config's search path
   PKG_CONFIG_LIBDIR
               path overriding pkg-config's built-in search path
-  LEDBORG_SERVER_CFLAGS
-              C compiler flags for LEDBORG_SERVER, overriding pkg-config
-  LEDBORG_SERVER_LIBS
-              linker flags for LEDBORG_SERVER, overriding pkg-config
+  GLIB_CFLAGS C compiler flags for GLIB, overriding pkg-config
+  GLIB_LIBS   linker flags for GLIB, overriding pkg-config
+  GOBJECT_CFLAGS
+              C compiler flags for GOBJECT, overriding pkg-config
+  GOBJECT_LIBS
+              linker flags for GOBJECT, overriding pkg-config
+  GIO_CFLAGS  C compiler flags for GIO, overriding pkg-config
+  GIO_LIBS    linker flags for GIO, overriding pkg-config
+  LIBSOUP_CFLAGS
+              C compiler flags for LIBSOUP, overriding pkg-config
+  LIBSOUP_LIBS
+              linker flags for LIBSOUP, overriding pkg-config
 
 Use these variables to override the choices made by `configure' or to help
 it to find libraries and programs with nonstandard names/locations.
@@ -12850,7 +12872,6 @@ fi
 
 GLIB_REQUIRED=2.12.0
 pkg_modules="glib-2.0 >= $GLIB_REQUIRED
-	gtk+-2.0 >= $GLIB_REQUIRED
 	gobject-2.0 >= $GLIB_REQUIRED
 	gio-2.0 >= $GLIB_REQUIRED
 	libsoup-2.4
@@ -12978,19 +12999,19 @@ $as_echo "no" >&6; }
 fi
 
 pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for LEDBORG_SERVER" >&5
-$as_echo_n "checking for LEDBORG_SERVER... " >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for GLIB" >&5
+$as_echo_n "checking for GLIB... " >&6; }
 
-if test -n "$LEDBORG_SERVER_CFLAGS"; then
-    pkg_cv_LEDBORG_SERVER_CFLAGS="$LEDBORG_SERVER_CFLAGS"
+if test -n "$GLIB_CFLAGS"; then
+    pkg_cv_GLIB_CFLAGS="$GLIB_CFLAGS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"\$pkg_modules\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "$pkg_modules") 2>&5
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"glib-2.0 >= \$GLIB_REQUIRED\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "glib-2.0 >= $GLIB_REQUIRED") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_LEDBORG_SERVER_CFLAGS=`$PKG_CONFIG --cflags "$pkg_modules" 2>/dev/null`
+  pkg_cv_GLIB_CFLAGS=`$PKG_CONFIG --cflags "glib-2.0 >= $GLIB_REQUIRED" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes
 else
   pkg_failed=yes
@@ -12998,16 +13019,16 @@ fi
  else
     pkg_failed=untried
 fi
-if test -n "$LEDBORG_SERVER_LIBS"; then
-    pkg_cv_LEDBORG_SERVER_LIBS="$LEDBORG_SERVER_LIBS"
+if test -n "$GLIB_LIBS"; then
+    pkg_cv_GLIB_LIBS="$GLIB_LIBS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"\$pkg_modules\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "$pkg_modules") 2>&5
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"glib-2.0 >= \$GLIB_REQUIRED\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "glib-2.0 >= $GLIB_REQUIRED") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_LEDBORG_SERVER_LIBS=`$PKG_CONFIG --libs "$pkg_modules" 2>/dev/null`
+  pkg_cv_GLIB_LIBS=`$PKG_CONFIG --libs "glib-2.0 >= $GLIB_REQUIRED" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes
 else
   pkg_failed=yes
@@ -13028,22 +13049,22 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-	        LEDBORG_SERVER_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "$pkg_modules" 2>&1`
+	        GLIB_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "glib-2.0 >= $GLIB_REQUIRED" 2>&1`
         else
-	        LEDBORG_SERVER_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "$pkg_modules" 2>&1`
+	        GLIB_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "glib-2.0 >= $GLIB_REQUIRED" 2>&1`
         fi
 	# Put the nasty error message in config.log where it belongs
-	echo "$LEDBORG_SERVER_PKG_ERRORS" >&5
+	echo "$GLIB_PKG_ERRORS" >&5
 
-	as_fn_error $? "Package requirements ($pkg_modules) were not met:
+	as_fn_error $? "Package requirements (glib-2.0 >= $GLIB_REQUIRED) were not met:
 
-$LEDBORG_SERVER_PKG_ERRORS
+$GLIB_PKG_ERRORS
 
 Consider adjusting the PKG_CONFIG_PATH environment variable if you
 installed software in a non-standard prefix.
 
-Alternatively, you may set the environment variables LEDBORG_SERVER_CFLAGS
-and LEDBORG_SERVER_LIBS to avoid the need to call pkg-config.
+Alternatively, you may set the environment variables GLIB_CFLAGS
+and GLIB_LIBS to avoid the need to call pkg-config.
 See the pkg-config man page for more details." "$LINENO" 5
 elif test $pkg_failed = untried; then
      	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
@@ -13054,19 +13075,297 @@ as_fn_error $? "The pkg-config script could not be found or is too old.  Make su
 is in your PATH or set the PKG_CONFIG environment variable to the full
 path to pkg-config.
 
-Alternatively, you may set the environment variables LEDBORG_SERVER_CFLAGS
-and LEDBORG_SERVER_LIBS to avoid the need to call pkg-config.
+Alternatively, you may set the environment variables GLIB_CFLAGS
+and GLIB_LIBS to avoid the need to call pkg-config.
 See the pkg-config man page for more details.
 
 To get pkg-config, see <http://pkg-config.freedesktop.org/>.
 See \`config.log' for more details" "$LINENO" 5; }
 else
-	LEDBORG_SERVER_CFLAGS=$pkg_cv_LEDBORG_SERVER_CFLAGS
-	LEDBORG_SERVER_LIBS=$pkg_cv_LEDBORG_SERVER_LIBS
+	GLIB_CFLAGS=$pkg_cv_GLIB_CFLAGS
+	GLIB_LIBS=$pkg_cv_GLIB_LIBS
         { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 $as_echo "yes" >&6; }
 
 fi
+
+pkg_failed=no
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for GOBJECT" >&5
+$as_echo_n "checking for GOBJECT... " >&6; }
+
+if test -n "$GOBJECT_CFLAGS"; then
+    pkg_cv_GOBJECT_CFLAGS="$GOBJECT_CFLAGS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gobject-2.0 >= \$GLIB_REQUIRED\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "gobject-2.0 >= $GLIB_REQUIRED") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_GOBJECT_CFLAGS=`$PKG_CONFIG --cflags "gobject-2.0 >= $GLIB_REQUIRED" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+if test -n "$GOBJECT_LIBS"; then
+    pkg_cv_GOBJECT_LIBS="$GOBJECT_LIBS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gobject-2.0 >= \$GLIB_REQUIRED\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "gobject-2.0 >= $GLIB_REQUIRED") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_GOBJECT_LIBS=`$PKG_CONFIG --libs "gobject-2.0 >= $GLIB_REQUIRED" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+
+
+
+if test $pkg_failed = yes; then
+   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+
+if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
+        _pkg_short_errors_supported=yes
+else
+        _pkg_short_errors_supported=no
+fi
+        if test $_pkg_short_errors_supported = yes; then
+	        GOBJECT_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "gobject-2.0 >= $GLIB_REQUIRED" 2>&1`
+        else
+	        GOBJECT_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "gobject-2.0 >= $GLIB_REQUIRED" 2>&1`
+        fi
+	# Put the nasty error message in config.log where it belongs
+	echo "$GOBJECT_PKG_ERRORS" >&5
+
+	as_fn_error $? "Package requirements (gobject-2.0 >= $GLIB_REQUIRED) were not met:
+
+$GOBJECT_PKG_ERRORS
+
+Consider adjusting the PKG_CONFIG_PATH environment variable if you
+installed software in a non-standard prefix.
+
+Alternatively, you may set the environment variables GOBJECT_CFLAGS
+and GOBJECT_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details." "$LINENO" 5
+elif test $pkg_failed = untried; then
+     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
+as_fn_error $? "The pkg-config script could not be found or is too old.  Make sure it
+is in your PATH or set the PKG_CONFIG environment variable to the full
+path to pkg-config.
+
+Alternatively, you may set the environment variables GOBJECT_CFLAGS
+and GOBJECT_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details.
+
+To get pkg-config, see <http://pkg-config.freedesktop.org/>.
+See \`config.log' for more details" "$LINENO" 5; }
+else
+	GOBJECT_CFLAGS=$pkg_cv_GOBJECT_CFLAGS
+	GOBJECT_LIBS=$pkg_cv_GOBJECT_LIBS
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+$as_echo "yes" >&6; }
+
+fi
+
+pkg_failed=no
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for GIO" >&5
+$as_echo_n "checking for GIO... " >&6; }
+
+if test -n "$GIO_CFLAGS"; then
+    pkg_cv_GIO_CFLAGS="$GIO_CFLAGS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gio-2.0 >= \$GLIB_REQUIRED\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "gio-2.0 >= $GLIB_REQUIRED") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_GIO_CFLAGS=`$PKG_CONFIG --cflags "gio-2.0 >= $GLIB_REQUIRED" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+if test -n "$GIO_LIBS"; then
+    pkg_cv_GIO_LIBS="$GIO_LIBS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gio-2.0 >= \$GLIB_REQUIRED\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "gio-2.0 >= $GLIB_REQUIRED") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_GIO_LIBS=`$PKG_CONFIG --libs "gio-2.0 >= $GLIB_REQUIRED" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+
+
+
+if test $pkg_failed = yes; then
+   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+
+if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
+        _pkg_short_errors_supported=yes
+else
+        _pkg_short_errors_supported=no
+fi
+        if test $_pkg_short_errors_supported = yes; then
+	        GIO_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "gio-2.0 >= $GLIB_REQUIRED" 2>&1`
+        else
+	        GIO_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "gio-2.0 >= $GLIB_REQUIRED" 2>&1`
+        fi
+	# Put the nasty error message in config.log where it belongs
+	echo "$GIO_PKG_ERRORS" >&5
+
+	as_fn_error $? "Package requirements (gio-2.0 >= $GLIB_REQUIRED) were not met:
+
+$GIO_PKG_ERRORS
+
+Consider adjusting the PKG_CONFIG_PATH environment variable if you
+installed software in a non-standard prefix.
+
+Alternatively, you may set the environment variables GIO_CFLAGS
+and GIO_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details." "$LINENO" 5
+elif test $pkg_failed = untried; then
+     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
+as_fn_error $? "The pkg-config script could not be found or is too old.  Make sure it
+is in your PATH or set the PKG_CONFIG environment variable to the full
+path to pkg-config.
+
+Alternatively, you may set the environment variables GIO_CFLAGS
+and GIO_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details.
+
+To get pkg-config, see <http://pkg-config.freedesktop.org/>.
+See \`config.log' for more details" "$LINENO" 5; }
+else
+	GIO_CFLAGS=$pkg_cv_GIO_CFLAGS
+	GIO_LIBS=$pkg_cv_GIO_LIBS
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+$as_echo "yes" >&6; }
+
+fi
+
+pkg_failed=no
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for LIBSOUP" >&5
+$as_echo_n "checking for LIBSOUP... " >&6; }
+
+if test -n "$LIBSOUP_CFLAGS"; then
+    pkg_cv_LIBSOUP_CFLAGS="$LIBSOUP_CFLAGS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"libsoup-2.4\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "libsoup-2.4") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_LIBSOUP_CFLAGS=`$PKG_CONFIG --cflags "libsoup-2.4" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+if test -n "$LIBSOUP_LIBS"; then
+    pkg_cv_LIBSOUP_LIBS="$LIBSOUP_LIBS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"libsoup-2.4\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "libsoup-2.4") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_LIBSOUP_LIBS=`$PKG_CONFIG --libs "libsoup-2.4" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+
+
+
+if test $pkg_failed = yes; then
+   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+
+if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
+        _pkg_short_errors_supported=yes
+else
+        _pkg_short_errors_supported=no
+fi
+        if test $_pkg_short_errors_supported = yes; then
+	        LIBSOUP_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "libsoup-2.4" 2>&1`
+        else
+	        LIBSOUP_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "libsoup-2.4" 2>&1`
+        fi
+	# Put the nasty error message in config.log where it belongs
+	echo "$LIBSOUP_PKG_ERRORS" >&5
+
+	as_fn_error $? "Package requirements (libsoup-2.4) were not met:
+
+$LIBSOUP_PKG_ERRORS
+
+Consider adjusting the PKG_CONFIG_PATH environment variable if you
+installed software in a non-standard prefix.
+
+Alternatively, you may set the environment variables LIBSOUP_CFLAGS
+and LIBSOUP_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details." "$LINENO" 5
+elif test $pkg_failed = untried; then
+     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
+as_fn_error $? "The pkg-config script could not be found or is too old.  Make sure it
+is in your PATH or set the PKG_CONFIG environment variable to the full
+path to pkg-config.
+
+Alternatively, you may set the environment variables LIBSOUP_CFLAGS
+and LIBSOUP_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details.
+
+To get pkg-config, see <http://pkg-config.freedesktop.org/>.
+See \`config.log' for more details" "$LINENO" 5; }
+else
+	LIBSOUP_CFLAGS=$pkg_cv_LIBSOUP_CFLAGS
+	LIBSOUP_LIBS=$pkg_cv_LIBSOUP_LIBS
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+$as_echo "yes" >&6; }
+
+fi
+
+
+LEDBORG_SERVER_CFLAGS="$GLIB_CFLAGS $GOBJECT_CFLAGS $GIO_CFLAGS $LIBSOUP_CFLAGS"
+LEDBORG_SERVER_LIBS="$GLIB_LIBS $GOBJECT_LIBS $GIO_LIBS $LIBSOUP_LIBS"
+
 
 
 

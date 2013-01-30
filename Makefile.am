@@ -10,7 +10,7 @@ SUBDIRS = \
 	po \
 	$(NULL)
 
-ledborg_serverdocdir = ${prefix}/doc/ledborg_server
+ledborg_serverdocdir = ${datarootdir}/doc/ledborg_server
 ledborg_serverdoc_DATA = \
 	ChangeLog \
 	README \

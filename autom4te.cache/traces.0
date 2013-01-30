@@ -2941,41 +2941,65 @@ m4trace:configure.ac:22: -1- IT_PO_SUBDIR([po])
 m4trace:configure.ac:25: -1- m4_pattern_allow([^CFLAGS$])
 m4trace:configure.ac:26: -1- m4_pattern_allow([^CPPFLAGS$])
 m4trace:configure.ac:27: -1- m4_pattern_allow([^LDFLAGS$])
-m4trace:configure.ac:37: -1- PKG_CHECK_MODULES([LEDBORG_SERVER], [$pkg_modules])
-m4trace:configure.ac:37: -1- PKG_PROG_PKG_CONFIG
-m4trace:configure.ac:37: -1- m4_pattern_forbid([^_?PKG_[A-Z_]+$])
-m4trace:configure.ac:37: -1- m4_pattern_allow([^PKG_CONFIG(_(PATH|LIBDIR|SYSROOT_DIR|ALLOW_SYSTEM_(CFLAGS|LIBS)))?$])
-m4trace:configure.ac:37: -1- m4_pattern_allow([^PKG_CONFIG_(DISABLE_UNINSTALLED|TOP_BUILD_DIR|DEBUG_SPEW)$])
-m4trace:configure.ac:37: -1- m4_pattern_allow([^PKG_CONFIG$])
-m4trace:configure.ac:37: -1- m4_pattern_allow([^PKG_CONFIG_PATH$])
-m4trace:configure.ac:37: -1- m4_pattern_allow([^PKG_CONFIG_LIBDIR$])
-m4trace:configure.ac:37: -1- m4_pattern_allow([^PKG_CONFIG$])
-m4trace:configure.ac:37: -1- m4_pattern_allow([^LEDBORG_SERVER_CFLAGS$])
-m4trace:configure.ac:37: -1- m4_pattern_allow([^LEDBORG_SERVER_LIBS$])
-m4trace:configure.ac:37: -1- PKG_CHECK_EXISTS([$pkg_modules], [pkg_cv_[]LEDBORG_SERVER_CFLAGS=`$PKG_CONFIG --[]cflags "$pkg_modules" 2>/dev/null`
+m4trace:configure.ac:36: -1- PKG_CHECK_MODULES([GLIB], [glib-2.0 >= $GLIB_REQUIRED])
+m4trace:configure.ac:36: -1- PKG_PROG_PKG_CONFIG
+m4trace:configure.ac:36: -1- m4_pattern_forbid([^_?PKG_[A-Z_]+$])
+m4trace:configure.ac:36: -1- m4_pattern_allow([^PKG_CONFIG(_(PATH|LIBDIR|SYSROOT_DIR|ALLOW_SYSTEM_(CFLAGS|LIBS)))?$])
+m4trace:configure.ac:36: -1- m4_pattern_allow([^PKG_CONFIG_(DISABLE_UNINSTALLED|TOP_BUILD_DIR|DEBUG_SPEW)$])
+m4trace:configure.ac:36: -1- m4_pattern_allow([^PKG_CONFIG$])
+m4trace:configure.ac:36: -1- m4_pattern_allow([^PKG_CONFIG_PATH$])
+m4trace:configure.ac:36: -1- m4_pattern_allow([^PKG_CONFIG_LIBDIR$])
+m4trace:configure.ac:36: -1- m4_pattern_allow([^PKG_CONFIG$])
+m4trace:configure.ac:36: -1- m4_pattern_allow([^GLIB_CFLAGS$])
+m4trace:configure.ac:36: -1- m4_pattern_allow([^GLIB_LIBS$])
+m4trace:configure.ac:36: -1- PKG_CHECK_EXISTS([glib-2.0 >= $GLIB_REQUIRED], [pkg_cv_[]GLIB_CFLAGS=`$PKG_CONFIG --[]cflags "glib-2.0 >= $GLIB_REQUIRED" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
-m4trace:configure.ac:37: -1- PKG_CHECK_EXISTS([$pkg_modules], [pkg_cv_[]LEDBORG_SERVER_LIBS=`$PKG_CONFIG --[]libs "$pkg_modules" 2>/dev/null`
+m4trace:configure.ac:36: -1- PKG_CHECK_EXISTS([glib-2.0 >= $GLIB_REQUIRED], [pkg_cv_[]GLIB_LIBS=`$PKG_CONFIG --[]libs "glib-2.0 >= $GLIB_REQUIRED" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
+m4trace:configure.ac:36: -1- _PKG_SHORT_ERRORS_SUPPORTED
+m4trace:configure.ac:37: -1- PKG_CHECK_MODULES([GOBJECT], [gobject-2.0 >= $GLIB_REQUIRED])
+m4trace:configure.ac:37: -1- m4_pattern_allow([^GOBJECT_CFLAGS$])
+m4trace:configure.ac:37: -1- m4_pattern_allow([^GOBJECT_LIBS$])
+m4trace:configure.ac:37: -1- PKG_CHECK_EXISTS([gobject-2.0 >= $GLIB_REQUIRED], [pkg_cv_[]GOBJECT_CFLAGS=`$PKG_CONFIG --[]cflags "gobject-2.0 >= $GLIB_REQUIRED" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
+m4trace:configure.ac:37: -1- PKG_CHECK_EXISTS([gobject-2.0 >= $GLIB_REQUIRED], [pkg_cv_[]GOBJECT_LIBS=`$PKG_CONFIG --[]libs "gobject-2.0 >= $GLIB_REQUIRED" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
 m4trace:configure.ac:37: -1- _PKG_SHORT_ERRORS_SUPPORTED
-m4trace:configure.ac:38: -1- m4_pattern_allow([^LEDBORG_SERVER_CFLAGS$])
-m4trace:configure.ac:39: -1- m4_pattern_allow([^LEDBORG_SERVER_LIBS$])
-m4trace:configure.ac:50: -1- AM_CONDITIONAL([WITH_APPLET], [test "x$WITH_APPLET" = "xyes"])
-m4trace:configure.ac:50: -1- m4_pattern_allow([^WITH_APPLET_TRUE$])
-m4trace:configure.ac:50: -1- m4_pattern_allow([^WITH_APPLET_FALSE$])
-m4trace:configure.ac:50: -1- _AM_SUBST_NOTMAKE([WITH_APPLET_TRUE])
-m4trace:configure.ac:50: -1- _AM_SUBST_NOTMAKE([WITH_APPLET_FALSE])
-m4trace:configure.ac:66: -1- AM_CONDITIONAL([WITH_RPI], [test "x$WITH_RPI" = "xyes"])
-m4trace:configure.ac:66: -1- m4_pattern_allow([^WITH_RPI_TRUE$])
-m4trace:configure.ac:66: -1- m4_pattern_allow([^WITH_RPI_FALSE$])
-m4trace:configure.ac:66: -1- _AM_SUBST_NOTMAKE([WITH_RPI_TRUE])
-m4trace:configure.ac:66: -1- _AM_SUBST_NOTMAKE([WITH_RPI_FALSE])
-m4trace:configure.ac:79: -1- m4_pattern_allow([^LIB@&t@OBJS$])
-m4trace:configure.ac:79: -1- m4_pattern_allow([^LTLIBOBJS$])
-m4trace:configure.ac:79: -1- AM_CONDITIONAL([am__EXEEXT], [test -n "$EXEEXT"])
-m4trace:configure.ac:79: -1- m4_pattern_allow([^am__EXEEXT_TRUE$])
-m4trace:configure.ac:79: -1- m4_pattern_allow([^am__EXEEXT_FALSE$])
-m4trace:configure.ac:79: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_TRUE])
-m4trace:configure.ac:79: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_FALSE])
-m4trace:configure.ac:79: -1- _AC_AM_CONFIG_HEADER_HOOK(["$ac_file"])
-m4trace:configure.ac:79: -1- _AM_OUTPUT_DEPENDENCY_COMMANDS
-m4trace:configure.ac:79: -1- _LT_PROG_LTMAIN
+m4trace:configure.ac:38: -1- PKG_CHECK_MODULES([GIO], [gio-2.0 >= $GLIB_REQUIRED])
+m4trace:configure.ac:38: -1- m4_pattern_allow([^GIO_CFLAGS$])
+m4trace:configure.ac:38: -1- m4_pattern_allow([^GIO_LIBS$])
+m4trace:configure.ac:38: -1- PKG_CHECK_EXISTS([gio-2.0 >= $GLIB_REQUIRED], [pkg_cv_[]GIO_CFLAGS=`$PKG_CONFIG --[]cflags "gio-2.0 >= $GLIB_REQUIRED" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
+m4trace:configure.ac:38: -1- PKG_CHECK_EXISTS([gio-2.0 >= $GLIB_REQUIRED], [pkg_cv_[]GIO_LIBS=`$PKG_CONFIG --[]libs "gio-2.0 >= $GLIB_REQUIRED" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
+m4trace:configure.ac:38: -1- _PKG_SHORT_ERRORS_SUPPORTED
+m4trace:configure.ac:39: -1- PKG_CHECK_MODULES([LIBSOUP], [libsoup-2.4])
+m4trace:configure.ac:39: -1- m4_pattern_allow([^LIBSOUP_CFLAGS$])
+m4trace:configure.ac:39: -1- m4_pattern_allow([^LIBSOUP_LIBS$])
+m4trace:configure.ac:39: -1- PKG_CHECK_EXISTS([libsoup-2.4], [pkg_cv_[]LIBSOUP_CFLAGS=`$PKG_CONFIG --[]cflags "libsoup-2.4" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
+m4trace:configure.ac:39: -1- PKG_CHECK_EXISTS([libsoup-2.4], [pkg_cv_[]LIBSOUP_LIBS=`$PKG_CONFIG --[]libs "libsoup-2.4" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
+m4trace:configure.ac:39: -1- _PKG_SHORT_ERRORS_SUPPORTED
+m4trace:configure.ac:46: -1- m4_pattern_allow([^LEDBORG_SERVER_CFLAGS$])
+m4trace:configure.ac:47: -1- m4_pattern_allow([^LEDBORG_SERVER_LIBS$])
+m4trace:configure.ac:58: -1- AM_CONDITIONAL([WITH_APPLET], [test "x$WITH_APPLET" = "xyes"])
+m4trace:configure.ac:58: -1- m4_pattern_allow([^WITH_APPLET_TRUE$])
+m4trace:configure.ac:58: -1- m4_pattern_allow([^WITH_APPLET_FALSE$])
+m4trace:configure.ac:58: -1- _AM_SUBST_NOTMAKE([WITH_APPLET_TRUE])
+m4trace:configure.ac:58: -1- _AM_SUBST_NOTMAKE([WITH_APPLET_FALSE])
+m4trace:configure.ac:74: -1- AM_CONDITIONAL([WITH_RPI], [test "x$WITH_RPI" = "xyes"])
+m4trace:configure.ac:74: -1- m4_pattern_allow([^WITH_RPI_TRUE$])
+m4trace:configure.ac:74: -1- m4_pattern_allow([^WITH_RPI_FALSE$])
+m4trace:configure.ac:74: -1- _AM_SUBST_NOTMAKE([WITH_RPI_TRUE])
+m4trace:configure.ac:74: -1- _AM_SUBST_NOTMAKE([WITH_RPI_FALSE])
+m4trace:configure.ac:87: -1- m4_pattern_allow([^LIB@&t@OBJS$])
+m4trace:configure.ac:87: -1- m4_pattern_allow([^LTLIBOBJS$])
+m4trace:configure.ac:87: -1- AM_CONDITIONAL([am__EXEEXT], [test -n "$EXEEXT"])
+m4trace:configure.ac:87: -1- m4_pattern_allow([^am__EXEEXT_TRUE$])
+m4trace:configure.ac:87: -1- m4_pattern_allow([^am__EXEEXT_FALSE$])
+m4trace:configure.ac:87: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_TRUE])
+m4trace:configure.ac:87: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_FALSE])
+m4trace:configure.ac:87: -1- _AC_AM_CONFIG_HEADER_HOOK(["$ac_file"])
+m4trace:configure.ac:87: -1- _AM_OUTPUT_DEPENDENCY_COMMANDS
+m4trace:configure.ac:87: -1- _LT_PROG_LTMAIN

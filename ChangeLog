@@ -1,3 +1,9 @@
+commit 5239fc31f9bbfc969600974c079afed49cdd547c
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Wed Jan 30 21:30:09 2013 +0000
+
+    added raspberry pi specific compiler optimizations that can be disabled by passing --disable-rpi to ./configure
+
 commit 011b846a84c3986c8053e5eaff5e1bc4871ac8b2
 Author: Ross Taylor <the.mighty.ug@gmail.com>
 Date:   Sun Jan 27 21:08:37 2013 +0000
