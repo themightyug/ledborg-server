@@ -72,7 +72,10 @@ fi
 
 #AC_DEFINE_UNQUOTED([sysconfdir], ["$sysconfdir"], [Configuration directory])
 
+LT_INIT
+
 AC_CONFIG_FILES([Makefile
+	src/lib/Makefile
 	src/Makefile
 	$makefile_applet
 	po/Makefile.in])

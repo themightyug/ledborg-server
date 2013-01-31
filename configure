@@ -12870,12 +12870,8 @@ fi
 
 
 
+
 GLIB_REQUIRED=2.12.0
-pkg_modules="glib-2.0 >= $GLIB_REQUIRED
-	gobject-2.0 >= $GLIB_REQUIRED
-	gio-2.0 >= $GLIB_REQUIRED
-	libsoup-2.4
-	"
 
 
 
@@ -13362,10 +13358,8 @@ $as_echo "yes" >&6; }
 
 fi
 
-
 LEDBORG_SERVER_CFLAGS="$GLIB_CFLAGS $GOBJECT_CFLAGS $GIO_CFLAGS $LIBSOUP_CFLAGS"
 LEDBORG_SERVER_LIBS="$GLIB_LIBS $GOBJECT_LIBS $GIO_LIBS $LIBSOUP_LIBS"
-
 
 
 
@@ -13425,7 +13419,9 @@ fi
 
 #AC_DEFINE_UNQUOTED([sysconfdir], ["$sysconfdir"], [Configuration directory])
 
-ac_config_files="$ac_config_files Makefile src/Makefile $makefile_applet po/Makefile.in"
+
+
+ac_config_files="$ac_config_files Makefile src/lib/Makefile src/Makefile $makefile_applet po/Makefile.in"
 
 
 cat >confcache <<\_ACEOF
@@ -14444,6 +14440,7 @@ do
     "libtool") CONFIG_COMMANDS="$CONFIG_COMMANDS libtool" ;;
     "default-1") CONFIG_COMMANDS="$CONFIG_COMMANDS default-1" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
+    "src/lib/Makefile") CONFIG_FILES="$CONFIG_FILES src/lib/Makefile" ;;
     "src/Makefile") CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
     "$makefile_applet") CONFIG_FILES="$CONFIG_FILES $makefile_applet" ;;
     "po/Makefile.in") CONFIG_FILES="$CONFIG_FILES po/Makefile.in" ;;

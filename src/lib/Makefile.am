@@ -1,53 +1,44 @@
 NULL = 
 
 
-if WITH_APPLET
-  MAYBE_APPLET = applet
-endif
-
 if WITH_RPI
 	COMPILER_OPTIMISATIONS = -fpic -Ofast -mfpu=vfp -mfloat-abi=hard -march=armv6zk -mtune=arm1176jzf-s
 else
-	COMPILER_OPTIMISATIONS = -march=native -mtune=native
+	COMPILER_OPTIMISATIONS = -fpic -march=native -mtune=native
 endif
 
-
-SUBDIRS = \
-	$(MAYBE_APPLET) \
-	$(NULL)
+lib_LTLIBRARIES = libledborg.la
 
 AM_CPPFLAGS = \
 	$(LEDBORG_SERVER_CFLAGS) \
 	-include $(CONFIG_HEADER) \
+	$(NULL)
 	$(COMPILER_OPTIMISATIONS) \
-	-DSYSCONFDIR=\"${sysconfdir}\" \
 	$(NULL)
 
-AM_VALAFLAGS = \
-	--vapidir=../vapi \
+libledborg_la_LDFLAGS = \
+	-version-info 0:1:0 \
+	$(NULL)
+
+libledborg_la_VALAFLAGS = \
+	--library=libledborg.so \
+	-H libledborg.h \
 	--thread \
-	--pkg Config \
+	--vapidir=../../vapi \
 	--pkg glib-2.0 \
 	--pkg gio-2.0 \
 	--pkg libsoup-2.4 \
 	--pkg posix \
 	$(NULL)
 
-bin_PROGRAMS = \
-	ledborg_server \
-	$(NULL)
-
-ledborg_server_SOURCES = \
-	main.vala \
-	LedBorgServer.vala \
+libledborg_la_SOURCES = \
+	LedBorgClient.vala \
 	IOError.vala \
 	RequestError.vala \
-	Device.vala \
 	Colour.vala \
-	Responder.vala \
 	$(NULL)
 
-ledborg_server_LDADD = \
+libledborg_la_LIBADD = \
 	$(LEDBORG_SERVER_LIBS) \
 	$(NULL)
 
