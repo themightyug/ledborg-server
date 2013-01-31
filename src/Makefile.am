@@ -31,6 +31,7 @@ AM_VALAFLAGS = \
 	--pkg gio-2.0 \
 	--pkg libsoup-2.4 \
 	--pkg posix \
+	--pkg ledborg \
 	$(NULL)
 
 bin_PROGRAMS = \
@@ -40,15 +41,13 @@ bin_PROGRAMS = \
 ledborg_server_SOURCES = \
 	main.vala \
 	LedBorgServer.vala \
-	IOError.vala \
-	RequestError.vala \
 	Device.vala \
-	Colour.vala \
 	Responder.vala \
 	$(NULL)
 
 ledborg_server_LDADD = \
 	$(LEDBORG_SERVER_LIBS) \
+	lib/.libs/libledborg.so \
 	$(NULL)
 
 EXTRA_DIST = \

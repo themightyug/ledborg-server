@@ -53,9 +53,8 @@ build_triplet = @build@
 host_triplet = @host@
 bin_PROGRAMS = ledborg_server$(EXEEXT) $(am__EXEEXT_1)
 subdir = src
-DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in Colour.c \
-	Device.c IOError.c LedBorgServer.c RequestError.c Responder.c \
-	ledborg_server_vala.stamp main.c
+DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in Device.c \
+	LedBorgServer.c Responder.c ledborg_server_vala.stamp main.c
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/intltool.m4 \
 	$(top_srcdir)/m4/libtool.m4 $(top_srcdir)/m4/ltoptions.m4 \
@@ -72,12 +71,11 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am__objects_1 =
 am_ledborg_server_OBJECTS = main.$(OBJEXT) LedBorgServer.$(OBJEXT) \
-	IOError.$(OBJEXT) RequestError.$(OBJEXT) Device.$(OBJEXT) \
-	Colour.$(OBJEXT) Responder.$(OBJEXT) $(am__objects_1)
+	Device.$(OBJEXT) Responder.$(OBJEXT) $(am__objects_1)
 ledborg_server_OBJECTS = $(am_ledborg_server_OBJECTS)
 am__DEPENDENCIES_1 =
 ledborg_server_DEPENDENCIES = $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1)
+	lib/.libs/libledborg.so $(am__DEPENDENCIES_1)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -321,20 +319,19 @@ AM_VALAFLAGS = \
 	--pkg gio-2.0 \
 	--pkg libsoup-2.4 \
 	--pkg posix \
+	--pkg ledborg \
 	$(NULL)
 
 ledborg_server_SOURCES = \
 	main.vala \
 	LedBorgServer.vala \
-	IOError.vala \
-	RequestError.vala \
 	Device.vala \
-	Colour.vala \
 	Responder.vala \
 	$(NULL)
 
 ledborg_server_LDADD = \
 	$(LEDBORG_SERVER_LIBS) \
+	lib/.libs/libledborg.so \
 	$(NULL)
 
 EXTRA_DIST = \
@@ -433,11 +430,8 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Colour.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Device.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/IOError.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/LedBorgServer.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/RequestError.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Responder.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 
@@ -471,22 +465,7 @@ $(srcdir)/LedBorgServer.c: $(srcdir)/ledborg_server_vala.stamp
 	@if test -f $@; then :; else \
 	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/ledborg_server_vala.stamp; \
 	fi
-$(srcdir)/IOError.c: $(srcdir)/ledborg_server_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/ledborg_server_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/ledborg_server_vala.stamp; \
-	fi
-$(srcdir)/RequestError.c: $(srcdir)/ledborg_server_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/ledborg_server_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/ledborg_server_vala.stamp; \
-	fi
 $(srcdir)/Device.c: $(srcdir)/ledborg_server_vala.stamp
-	@if test -f $@; then :; else rm -f $(srcdir)/ledborg_server_vala.stamp; fi
-	@if test -f $@; then :; else \
-	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/ledborg_server_vala.stamp; \
-	fi
-$(srcdir)/Colour.c: $(srcdir)/ledborg_server_vala.stamp
 	@if test -f $@; then :; else rm -f $(srcdir)/ledborg_server_vala.stamp; fi
 	@if test -f $@; then :; else \
 	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/ledborg_server_vala.stamp; \
@@ -496,9 +475,9 @@ $(srcdir)/Responder.c: $(srcdir)/ledborg_server_vala.stamp
 	@if test -f $@; then :; else \
 	  $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/ledborg_server_vala.stamp; \
 	fi
-$(srcdir)/ledborg_server_vala.stamp: main.vala LedBorgServer.vala IOError.vala RequestError.vala Device.vala Colour.vala Responder.vala
+$(srcdir)/ledborg_server_vala.stamp: main.vala LedBorgServer.vala Device.vala Responder.vala
 	rm -f $@ && echo stamp > $@-t
-	$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C main.vala LedBorgServer.vala IOError.vala RequestError.vala Device.vala Colour.vala Responder.vala
+	$(am__cd) $(srcdir) && $(VALAC) $(AM_VALAFLAGS) $(VALAFLAGS) -C main.vala LedBorgServer.vala Device.vala Responder.vala
 	mv -f $@-t $@
 
 mostlyclean-libtool:
@@ -736,11 +715,8 @@ distclean-generic:
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
-	-rm -f Colour.c
 	-rm -f Device.c
-	-rm -f IOError.c
 	-rm -f LedBorgServer.c
-	-rm -f RequestError.c
 	-rm -f Responder.c
 	-rm -f ledborg_server_vala.stamp
 	-rm -f main.c
