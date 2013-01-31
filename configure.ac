@@ -1,4 +1,4 @@
-AC_INIT([ledborg-server], [0.2.1], [the.mighty.ug@gmail.com], [ledborg-server])
+AC_INIT([ledborg-server], [0.2.2], [the.mighty.ug@gmail.com], [ledborg-server])
 AC_CONFIG_SRCDIR([Makefile.am])
 AC_CONFIG_HEADERS(config.h)
 AM_INIT_AUTOMAKE([dist-bzip2])
