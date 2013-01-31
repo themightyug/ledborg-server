@@ -40,21 +40,6 @@ AC_SUBST(LEDBORG_SERVER_CFLAGS)
 AC_SUBST(LEDBORG_SERVER_LIBS)
 
 
-AC_ARG_ENABLE(applet,
-  [  --disable-applet   Disable compilation of the gnome ledborg control applet],
-  [case "${enableval}" in
-     yes | no ) WITH_APPLET="${enableval}" ;;
-     *) AC_MSG_ERROR(bad value ${enableval} for --disable-applet) ;;
-   esac],
-  [WITH_APPLET="yes"]
-)
-AM_CONDITIONAL([WITH_APPLET], [test "x$WITH_APPLET" = "xyes"])
-if test "x$WITH_APPLET" = "xyes"; then
-	AC_MSG_NOTICE([LedBorg control applet for gnome will be built])
-	makefile_applet=src/applet/Makefile
-else
-    AC_MSG_NOTICE([LedBorg control applet will NOT be built])
-fi
 
 AC_ARG_ENABLE(rpi,
   [  --disable-rpi   Disable raspberry pi compiler optimisations],
@@ -77,7 +62,6 @@ LT_INIT
 AC_CONFIG_FILES([Makefile
 	src/lib/Makefile
 	src/Makefile
-	$makefile_applet
 	po/Makefile.in])
 
 AC_OUTPUT
