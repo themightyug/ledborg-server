@@ -4,12 +4,21 @@ ACLOCAL_AMFLAGS = -I m4
 
 #Build in these directories:
 
+if WITH_SERVER
+    MAYBE_SERVER = src
+else
+    MAYBE_SERVER = $(NULL)
+endif
+
 
 SUBDIRS = \
-	src \
+	src/lib \
+	$(MAYBE_SERVER) \
 	po \
 	$(NULL)
 
+
+if WITH_SERVER
 ledborg_serverdocdir = ${datarootdir}/doc/ledborg_server
 ledborg_serverdoc_DATA = \
 	ChangeLog \
@@ -24,6 +33,13 @@ ledborg_confdir = ${sysconfdir}/ledborg-server
 ledborg_conf_DATA = \
 	src/conf/ledborg-server.html \
 	$(NULL)
+
+else
+ledborg_serverdocdir = $(NULL)
+ledborg_serverdoc_DATA = $(NULL)
+ledborg_confdir = $(NULL)
+ledborg_conf_DATA = $(NULL)
+endif
 
 EXTRA_DIST = \
 	$(ledborg_serverdoc_DATA) \

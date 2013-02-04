@@ -636,6 +636,8 @@ ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
 LIB@&t@OBJS
+WITH_SERVER_FALSE
+WITH_SERVER_TRUE
 WITH_RPI_FALSE
 WITH_RPI_TRUE
 LEDBORG_SERVER_LIBS
@@ -826,6 +828,7 @@ with_sysroot
 enable_libtool_lock
 enable_nls
 enable_rpi
+enable_server
 '
       ac_precious_vars='build_alias
 host_alias
@@ -1476,6 +1479,7 @@ Optional Features:
   --disable-libtool-lock  avoid locking (might break parallel builds)
   --disable-nls           do not use Native Language Support
   --disable-rpi   Disable raspberry pi compiler optimisations
+  --disable-server   Disable building of ledborg_server - build libledborg only
 
 Optional Packages:
   --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
@@ -13385,8 +13389,34 @@ if test "x$WITH_RPI" = "xyes"; then
 $as_echo "$as_me: enabled Raspberry Pi compiler optimisations. THIS WILL ALMOST CERTAINLY FAIL ON ANY OTHER MACHINE! Use --disable-rpi to compile on other machines/architectures" >&6;}
 fi
 
+@%:@ Check whether --enable-server was given.
+if test "${enable_server+set}" = set; then :
+  enableval=$enable_server; case "${enableval}" in
+     yes | no ) WITH_SERVER="${enableval}" ;;
+     *) as_fn_error $? "bad value ${enableval} for --disable-server" "$LINENO" 5 ;;
+   esac
+else
+  WITH_SERVER="yes"
 
-#AC_DEFINE_UNQUOTED([sysconfdir], ["$sysconfdir"], [Configuration directory])
+fi
+
+ if test "x$WITH_SERVER" = "xyes"; then
+  WITH_SERVER_TRUE=
+  WITH_SERVER_FALSE='#'
+else
+  WITH_SERVER_TRUE='#'
+  WITH_SERVER_FALSE=
+fi
+
+if test "x$WITH_SERVER" = "xyes"; then
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: enabled builing of ledborg_server" >&5
+$as_echo "$as_me: enabled builing of ledborg_server" >&6;}
+else
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: NOT building ledborg_server - building libledborg library only" >&5
+$as_echo "$as_me: NOT building ledborg_server - building libledborg library only" >&6;}
+fi
+
+
 
 
 
@@ -13528,6 +13558,10 @@ fi
 
 if test -z "${WITH_RPI_TRUE}" && test -z "${WITH_RPI_FALSE}"; then
   as_fn_error $? "conditional \"WITH_RPI\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${WITH_SERVER_TRUE}" && test -z "${WITH_SERVER_FALSE}"; then
+  as_fn_error $? "conditional \"WITH_SERVER\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 

@@ -3,9 +3,9 @@ NULL =
 
 
 if WITH_RPI
-	COMPILER_OPTIMISATIONS = -fpic -Ofast -mfpu=vfp -mfloat-abi=hard -march=armv6zk -mtune=arm1176jzf-s
+    COMPILER_OPTIMISATIONS = -fpic -Ofast -mfpu=vfp -mfloat-abi=hard -march=armv6zk -mtune=arm1176jzf-s
 else
-	COMPILER_OPTIMISATIONS = -march=native -mtune=native
+    COMPILER_OPTIMISATIONS = -march=native -mtune=native
 endif
 
 
@@ -51,4 +51,5 @@ EXTRA_DIST = \
 
 DISTCLEANFILES = \
 	$(NULL)
+
 

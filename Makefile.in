@@ -121,7 +121,7 @@ AM_RECURSIVE_TARGETS = $(RECURSIVE_TARGETS:-recursive=) \
 	distdir dist dist-all distcheck
 ETAGS = etags
 CTAGS = ctags
-DIST_SUBDIRS = $(SUBDIRS)
+DIST_SUBDIRS = src/lib src po
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -322,27 +322,34 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 NULL = 
 ACLOCAL_AMFLAGS = -I m4
+@WITH_SERVER_FALSE@MAYBE_SERVER = $(NULL)
 
 #Build in these directories:
+@WITH_SERVER_TRUE@MAYBE_SERVER = src
 SUBDIRS = \
-	src \
+	src/lib \
+	$(MAYBE_SERVER) \
 	po \
 	$(NULL)
 
-ledborg_serverdocdir = ${datarootdir}/doc/ledborg_server
-ledborg_serverdoc_DATA = \
-	ChangeLog \
-	README \
-	COPYING \
-	AUTHORS \
-	INSTALL \
-	NEWS \
-	$(NULL)
+@WITH_SERVER_FALSE@ledborg_serverdocdir = $(NULL)
+@WITH_SERVER_TRUE@ledborg_serverdocdir = ${datarootdir}/doc/ledborg_server
+@WITH_SERVER_FALSE@ledborg_serverdoc_DATA = $(NULL)
+@WITH_SERVER_TRUE@ledborg_serverdoc_DATA = \
+@WITH_SERVER_TRUE@	ChangeLog \
+@WITH_SERVER_TRUE@	README \
+@WITH_SERVER_TRUE@	COPYING \
+@WITH_SERVER_TRUE@	AUTHORS \
+@WITH_SERVER_TRUE@	INSTALL \
+@WITH_SERVER_TRUE@	NEWS \
+@WITH_SERVER_TRUE@	$(NULL)
 
-ledborg_confdir = ${sysconfdir}/ledborg-server
-ledborg_conf_DATA = \
-	src/conf/ledborg-server.html \
-	$(NULL)
+@WITH_SERVER_FALSE@ledborg_confdir = $(NULL)
+@WITH_SERVER_TRUE@ledborg_confdir = ${sysconfdir}/ledborg-server
+@WITH_SERVER_FALSE@ledborg_conf_DATA = $(NULL)
+@WITH_SERVER_TRUE@ledborg_conf_DATA = \
+@WITH_SERVER_TRUE@	src/conf/ledborg-server.html \
+@WITH_SERVER_TRUE@	$(NULL)
 
 EXTRA_DIST = \
 	$(ledborg_serverdoc_DATA) \

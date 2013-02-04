@@ -54,8 +54,23 @@ if test "x$WITH_RPI" = "xyes"; then
 	AC_MSG_NOTICE([enabled Raspberry Pi compiler optimisations. THIS WILL ALMOST CERTAINLY FAIL ON ANY OTHER MACHINE! Use --disable-rpi to compile on other machines/architectures])
 fi
 
+AC_ARG_ENABLE(server,
+  [  --disable-server   Disable building of ledborg_server - build libledborg only],
+  [case "${enableval}" in
+     yes | no ) WITH_SERVER="${enableval}" ;;
+     *) AC_MSG_ERROR(bad value ${enableval} for --disable-server) ;;
+   esac],
+  [WITH_SERVER="yes"]
+)
+AM_CONDITIONAL([WITH_SERVER], [test "x$WITH_SERVER" = "xyes"])
+if test "x$WITH_SERVER" = "xyes"; then
+	AC_MSG_NOTICE([enabled builing of ledborg_server])
+else
+	AC_MSG_NOTICE([NOT building ledborg_server - building libledborg library only])
+fi
 
-#AC_DEFINE_UNQUOTED([sysconfdir], ["$sysconfdir"], [Configuration directory])
+
+dnl AC_DEFINE_UNQUOTED([sysconfdir], ["$sysconfdir"], [Configuration directory])
 
 LT_INIT
 
