@@ -41,7 +41,20 @@ ledborg_confdir = $(NULL)
 ledborg_conf_DATA = $(NULL)
 endif
 
+
+libledborg_vapidir = $(VAPIDIR)
+libledborg_vapi_DATA = \
+	src/lib/libledborg.vapi \
+	$(NULL)
+
+libledborg_hdir = $(INCLUDEDIR)
+libledborg_h_DATA = \
+	src/lib/libledborg.h \
+	$(NULL)
+
 EXTRA_DIST = \
+	$(libledborg_vapi_DATA) \
+	$(libledborg_h_DATA) \
 	$(ledborg_serverdoc_DATA) \
 	$(ledborg_conf_DATA) \
 	intltool-extract.in \
