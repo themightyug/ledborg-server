@@ -1,3 +1,39 @@
+commit cae98ef6198dc23ab2f2646a71aa4773a24f7f79
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Sat Feb 9 15:35:01 2013 +0000
+
+    ditched client and tweaked build system to install vapi and C-header
+
+commit 158b37c06e32614a3ab534f7c3a6f26f61cb00f5
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Sat Feb 9 11:34:50 2013 +0000
+
+    cleanup following .gitignore
+
+commit 9a59e84cde9d83a97817b4f4979e5c14ce563f3c
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Sat Feb 9 11:19:17 2013 +0000
+
+    added .gitignore
+
+commit 3af16594190d25f73e8fa46129cecedd1363fd77
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Mon Feb 4 23:18:32 2013 +0000
+
+    --disable-server configure option stops building of the server
+
+commit 59511bcda12ad93ab8f8cf04d7f2669fba4e0ffa
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Thu Jan 31 23:17:07 2013 +0000
+
+    dumped applet
+
+commit 0592ff94eb6b439a2984387156fc9f0389ed6ef5
+Author: Ross Taylor <the.mighty.ug@gmail.com>
+Date:   Thu Jan 31 14:56:25 2013 +0000
+
+    merged libledborg changes
+
 commit ec040ed5796cc821a55c3adf17682f6cd964a245
 Author: Ross Taylor <the.mighty.ug@gmail.com>
 Date:   Thu Jan 31 14:39:59 2013 +0000

@@ -22,9 +22,10 @@ libledborg_la_LDFLAGS = \
 
 libledborg_la_VALAFLAGS = \
 	--library=libledborg.so \
-	-H libledborg.h \
+	--header=libledborg.h \
 	--thread \
 	--vapidir=../../vapi \
+	--vapi=LedBorg.vapi \
 	--pkg glib-2.0 \
 	--pkg gio-2.0 \
 	--pkg libsoup-2.4 \
@@ -49,5 +50,8 @@ EXTRA_DIST = \
 	$(NULL)
 
 DISTCLEANFILES = \
+	*.lo \
+	*.c \
+	.libs \
 	$(NULL)
 

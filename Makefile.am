@@ -42,10 +42,18 @@ ledborg_conf_DATA = $(NULL)
 endif
 
 
-libledborg_vapidir = $(VAPIDIR)
-libledborg_vapi_DATA = \
-	src/lib/libledborg.vapi \
+vapidir = $(VAPIDIR)
+
+vapi_DATA = \
+	src/lib/LedBorg.vapi \
 	$(NULL)
+
+#dist_vapi_DATA = \
+#	src/lib/libledborg.deps \
+#	$(NULL)
+
+BUILT_SOURCES = $(vapi_DATA)
+
 
 libledborg_hdir = $(INCLUDEDIR)
 libledborg_h_DATA = \
@@ -53,7 +61,7 @@ libledborg_h_DATA = \
 	$(NULL)
 
 EXTRA_DIST = \
-	$(libledborg_vapi_DATA) \
+	$(vapi_DATA) \
 	$(libledborg_h_DATA) \
 	$(ledborg_serverdoc_DATA) \
 	$(ledborg_conf_DATA) \
@@ -67,5 +75,10 @@ DISTCLEANFILES = \
 	intltool-merge \
 	intltool-update \
 	po/.intltool-merge-cache \
+	$(vapi_DATA) \
+	$(libledborg_h_DATA) \
 	$(NULL)
+
+
+src/lib/LedBorg.vapi: $(NULL)
 

@@ -1,4 +1,4 @@
-AC_INIT([ledborg-server], [0.2.2], [the.mighty.ug@gmail.com], [ledborg-server])
+AC_INIT([ledborg-server], [0.2.3], [the.mighty.ug@gmail.com], [ledborg-server])
 AC_CONFIG_SRCDIR([Makefile.am])
 AC_CONFIG_HEADERS(config.h)
 AM_INIT_AUTOMAKE([dist-bzip2])
@@ -11,7 +11,8 @@ AM_PROG_CC_C_O
 AC_DISABLE_STATIC
 AC_PROG_LIBTOOL
 
-AC_PATH_PROG(VALAC, valac, valac)
+dnl AC_PATH_PROG(VALAC, valac, valac)
+AC_PATH_PROG([VALAC], [valac-0.18 valac], [valac-0.18 valac])
 AC_SUBST(VALAC)
 
 VAPIDIR="${datadir}/vala/vapi"
@@ -34,6 +35,8 @@ AC_SUBST(LDFLAGS)
 
 
 GLIB_REQUIRED=2.12.0
+
+AC_CHECK_LIB(gthread-2.0, g_thread_init)
 
 PKG_CHECK_MODULES(GLIB, [glib-2.0 >= $GLIB_REQUIRED])
 PKG_CHECK_MODULES(GOBJECT, [gobject-2.0 >= $GLIB_REQUIRED])

@@ -15,19 +15,21 @@ SUBDIRS = \
 AM_CPPFLAGS = \
 	$(LEDBORG_SERVER_CFLAGS) \
 	-include $(CONFIG_HEADER) \
+	-I lib \
 	$(COMPILER_OPTIMISATIONS) \
 	-DSYSCONFDIR=\"${sysconfdir}\" \
 	$(NULL)
 
 AM_VALAFLAGS = \
 	--vapidir=../vapi \
+	--vapidir=./lib \
 	--thread \
 	--pkg Config \
 	--pkg glib-2.0 \
 	--pkg gio-2.0 \
 	--pkg libsoup-2.4 \
 	--pkg posix \
-	--pkg ledborg \
+	--pkg LedBorg \
 	$(NULL)
 
 bin_PROGRAMS = \
@@ -50,6 +52,8 @@ EXTRA_DIST = \
 	$(NULL)
 
 DISTCLEANFILES = \
+	*.c \
+	*.o \
 	$(NULL)
 
 

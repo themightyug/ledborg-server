@@ -19,6 +19,7 @@
  */
 
 
+
 using GLib;
 
 
@@ -56,7 +57,6 @@ namespace LedBorg
 				return 1;
 			}
 
-
 			// show version information
 			if(_show_version)
 			{
@@ -64,14 +64,12 @@ namespace LedBorg
 				stdout.printf("LedBorg Server sysconfdir=%s\n", Config.SYSCONFDIR);
 				return 0;
 			}
-
 			
 			// create new LedBorgServer to listen on the specified port
 			LedBorgServer server = new LedBorgServer.with_listen_port(listen_port);
 			
 			// run the server
 			server.run();
-
 
 			return 0;
 		}
