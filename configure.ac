@@ -10,6 +10,9 @@ AC_PROG_CC
 AM_PROG_CC_C_O
 AC_DISABLE_STATIC
 AC_PROG_LIBTOOL
+AC_PROG_LN_S
+
+AC_SUBST(pkgdatadir, [${datadir}/libledborg])
 
 dnl AC_PATH_PROG(VALAC, valac, valac)
 AC_PATH_PROG([VALAC], [valac-0.18 valac], [valac-0.18 valac])
@@ -18,7 +21,7 @@ AC_SUBST(VALAC)
 VAPIDIR="${datadir}/vala/vapi"
 AC_SUBST(VAPIDIR)
 
-INCLUDEDIR="${includedir}/vala"
+INCLUDEDIR="${includedir}/ledborg"
 AC_SUBST(INCLUDEDIR)
 
 AH_TEMPLATE([GETTEXT_PACKAGE], [Package name for gettext])
@@ -86,6 +89,7 @@ LT_INIT
 AC_CONFIG_FILES([Makefile
 	src/lib/Makefile
 	src/Makefile
-	po/Makefile.in])
+	po/Makefile.in
+	src/lib/libledborg.pc])
 
 AC_OUTPUT

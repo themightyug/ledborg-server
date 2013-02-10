@@ -43,7 +43,10 @@ libledborg_la_LIBADD = \
 	$(LEDBORG_SERVER_LIBS) \
 	$(NULL)
 
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = libledborg.pc
 
+libledborg.pc: $(NULL)
 
 
 EXTRA_DIST = \
@@ -53,5 +56,6 @@ DISTCLEANFILES = \
 	*.lo \
 	*.c \
 	.libs \
+	libledborg.pc \
 	$(NULL)
 
