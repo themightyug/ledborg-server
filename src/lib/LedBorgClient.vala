@@ -50,9 +50,9 @@ namespace LedBorg
 			
 			if(colour != null)
 			{
-				url += url.printf("?red=%d&green=%d&blue=%d", colour.red, colour.green, colour.blue);
+				url += "?ledborg-colour=%s".printf(colour.get_ledborg_value());
 			}
-			
+
 			return url;
 		}
 
