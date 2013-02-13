@@ -78,6 +78,29 @@ namespace LedBorg
 			return colour;
 		}
 		
+		
+		// set colour
+		public Colour set_colour_on_server(Colour colour_set) throws IOError.COMMUNICATION_BREAKDOWN
+		{
+			Colour colour_result = Colour();
+		
+			string url = generate_url("SetColour", colour_set);
+
+			Soup.Message message = new Soup.Message("GET", url);
+			uint status = session.send_message(message);
+
+			if(status == Soup.KnownStatusCode.OK)
+			{
+				colour_result = Colour.with_rgb(message.response_headers["Colour-LedBorg"]);
+			}
+			else
+			{
+				throw new IOError.COMMUNICATION_BREAKDOWN("Failed to communicate with server at %s - %d %s".printf(url, (int)status, message.reason_phrase));
+			}
+			
+			return colour_result;
+		}
+		
 
 	}
 
