@@ -13,6 +13,95 @@ network control of an LedBorg add-on for the Raspberry Pi
 computer.
 
 
+Package
+=======
 
+The package is split into the shared library component, and the
+server application.
+
+To compile server on a Raspberry Pi:
+./configure --enable-rpi --enable-server
+
+--enable-rpi enables Raspberry Pi specific compiler flags, to compile
+the package with performance enhancing flags tailored for the Pi.
+This will almost certainly fail on any other platform!
+
+--enable-server builds the server application as well as the
+shared library.
+
+
+To compile the shared library on other platforms:
+./configure --disable-rpi --disable-server
+
+The server application *can* be built on other platforms,
+but it's not going to be much use on anything other than
+an Ledborg-equipped Raspberry Pi.
+
+
+
+Communication
+=============
+
+Communication with the server component uses HTTP. Instructions and data are
+passed to the server in the URL of a GET request.  Responses include data in
+the headers and extra information in the message body.
+
+There are currently three requests you can pass to the server:
+
+	1)	/
+		This returns an HTML control panel to control the LedBorg server,
+		for using a standard web browser as a client.
+		The HTML returned is stored in a file on the server in
+		$SYSCONFDIR/ledborg-server/ledborg-server.html
+		
+	2)	/GetColour/
+		This request returns the current colour setting of the LedBorg server.
+		The response format is detailed below.
+		
+	3)	/SetColour/
+		This request is used to set the colour. It also returns the colour
+		it has been set to, so the client can confirm the request's success.
+		This request expects colour parameters in a choice of two formats:
+		
+		i)	/SetColour/?red=x&green=y&blue=z
+			This format allows you to specify the red, green and blue
+			brightness channels specifically. Each of the three values
+			can be 0 for off, 1 for half-brightness, or 2 for full-brightness.
+		
+		ii)	/SetColour/?ledborg-colour=xyz
+			This format allows you to specify the ledborg colour code as a
+			single parameter. Again, x y and z are a single integer digit
+			of values 0, 1 or 2.
+
+
+Response Format
+===============
+
+A successful request will return a confirmation of the current colour the
+LedBorg is displaying.
+
+The ledborg colour value and equivalent hex HTML colour value are returned
+in the HTTP response headers.
+
+The HTTP response body also contains minimal HTML markup to display
+a rectangular 'LED' with an 8px black border, 64px by 20px, whose
+background-color is set to the HTML equivalent of the LedBorg-colour.
+
+An example response from a /GetColour/ request is shown here:
+
+=== START ===
+HTTP/1.0 200 OK
+Date: Tue, 26 Feb 2013 14:23:17 GMT
+Colour-LedBorg: 012
+Colour-Html: #00bbff
+Content-Type: text/html
+Content-Length: 124
+
+
+				<div style="width: 64px; height: 20px; border: black solid 8px; background-color: #00bbff;">
+					&nbsp;
+				</div>
+			
+=== END ===
 
 
