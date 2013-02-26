@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html>
+  <head>
+    <title>Soup.MultipartInputStream -- Vala Binding Reference</title>
+    <link href="../style.css" rel="stylesheet" type="text/css"/><script src="../scripts.js" type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <div class="site_header">Soup.MultipartInputStream Reference Manual</div>
+    <div class="site_body">
+      <div class="site_navigation">
+        <ul class="navi_main">
+          <li class="package_index"><a href="../index.html">Packages</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="package"><a href="index.htm">libsoup-2.4</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="namespace"><a href="Soup.html">Soup</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="class">MultipartInputStream</li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="property"><a href="Soup.MultipartInputStream.message.html">message</a></li>
+          <li class="creation_method"><a href="Soup.MultipartInputStream.MultipartInputStream.html">MultipartInputStream</a></li>
+          <li class="method"><a href="Soup.MultipartInputStream.get_headers.html">get_headers</a></li>
+          <li class="method"><a href="Soup.MultipartInputStream.next_part.html">next_part</a></li>
+          <li class="method"><a href="Soup.MultipartInputStream.next_part_async.html">next_part_async</a></li>
+        </ul>
+      </div>
+      <div class="site_content">
+        <h1 class="main_title">MultipartInputStream</h1>
+        <hr class="main_hr"/>
+        <h2 class="main_title">Object Hierarchy:</h2>
+        
+        <img class="main_diagram" usemap="#Soup.MultipartInputStream" alt="Object hierarchy for MultipartInputStream" src="img/Soup.MultipartInputStream.png"/>
+      
+
+      <map id="Soup.MultipartInputStream" name="Soup.MultipartInputStream">
+<area shape="rect" id="node1" href="Soup.MultipartInputStream.html" title="Soup.MultipartInputStream" alt="" coords="105,293,327,341"/>
+<area shape="rect" id="node2" href="../gio-2.0/GLib.FilterInputStream.html" title="GLib.FilterInputStream" alt="" coords="5,197,200,245"/>
+<area shape="rect" id="node3" href="../gio-2.0/GLib.InputStream.html" title="GLib.InputStream" alt="" coords="25,101,180,149"/>
+<area shape="rect" id="node4" href="../gobject-2.0/GLib.Object.html" title="GLib.Object" alt="" coords="47,5,159,53"/>
+<area shape="rect" id="node5" href="../gio-2.0/GLib.PollableInputStream.html" title="GLib.PollableInputStream" alt="" coords="224,197,437,245"/>
+</map>
+
+        <h2 class="main_title">Description:</h2>
+        <div class="main_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">class</span> <b><span css="class">MultipartInputStream</span></b> : <span class="main_type"><a href="../gio-2.0/GLib.FilterInputStream.html" class="abstract_class">FilterInputStream</a></span>, <span class="main_type"><a href="../gio-2.0/GLib.PollableInputStream.html" class="interface">PollableInputStream</a></span>
+        </div><br/>
+        <div class="namespace_note"><b>Namespace:</b> Soup</div>
+        <div class="package_note"><b>Package:</b> libsoup-2.4</div>
+        <h2 class="main_title">Content:</h2>
+        <h3 class="main_title">Properties:</h3>
+        <ul class="navi_inline">
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> <b><a href="Soup.MultipartInputStream.message.html" class="property">message</a></b> { <span class="main_keyword">construct</span> <span class="main_keyword">set</span>; <span class="main_keyword">owned</span> <span class="main_keyword">get</span>; }
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+        </ul>
+        <h3 class="main_title">Creation methods:</h3>
+        <ul class="navi_inline">
+          <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="Soup.MultipartInputStream.MultipartInputStream.html" class="creation_method">MultipartInputStream</a></b> (<span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> msg, <span class="main_type"><a href="../gio-2.0/GLib.InputStream.html" class="abstract_class">InputStream</a></span> base_stream)
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+        </ul>
+        <h3 class="main_title">Methods:</h3>
+        <ul class="navi_inline">
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">unowned</span> <span class="main_type"><a href="Soup.MessageHeaders.html" class="class">MessageHeaders</a></span> <b><a href="Soup.MultipartInputStream.get_headers.html" class="method">get_headers</a></b> ()
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="../gio-2.0/GLib.InputStream.html" class="abstract_class">InputStream</a></span> <b><a href="Soup.MultipartInputStream.next_part.html" class="method">next_part</a></b> (<span class="main_type"><a href="../gio-2.0/GLib.Cancellable.html" class="class">Cancellable</a></span>? cancellable = <span class="main_optional_parameter">null</span>) <span class="main_keyword">throws</span> <span class="main_type"><a href="../glib-2.0/GLib.Error.html" class="class">Error</a></span>
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">async</span> <span class="main_type"><a href="../gio-2.0/GLib.InputStream.html" class="abstract_class">InputStream</a></span> <b><a href="Soup.MultipartInputStream.next_part_async.html" class="method">next_part_async</a></b> (<span class="main_basic_type"><a href="../glib-2.0/int.html" class="struct">int</a></span> io_priority, <span class="main_type"><a href="../gio-2.0/GLib.Cancellable.html" class="class">Cancellable</a></span>? cancellable) <span class="main_keyword">throws</span> <span class="main_type"><a href="../glib-2.0/GLib.Error.html" class="class">Error</a></span>
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+        </ul>
+      </div>
+    </div><br/>
+    <div class="site_footer">Generated by <a href="http://www.valadoc.org/">Valadoc</a>
+    </div>
+  </body>
+</html>
