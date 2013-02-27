@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html>
+  <head>
+    <title>Soup.Message.get_uri -- Vala Binding Reference</title>
+    <link href="../style.css" rel="stylesheet" type="text/css"/><script src="../scripts.js" type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <div class="site_header">Soup.Message.get_uri Reference Manual</div>
+    <div class="site_body">
+      <div class="site_navigation">
+        <ul class="navi_main">
+          <li class="package_index"><a href="../index.html">Packages</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="package"><a href="index.htm">libsoup-2.4</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="namespace"><a href="Soup.html">Soup</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="class"><a href="Soup.Message.html">Message</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="property"><a href="Soup.Message.first_party.html">first_party</a></li>
+          <li class="property"><a href="Soup.Message.flags.html">flags</a></li>
+          <li class="property"><a href="Soup.Message.http_version.html">http_version</a></li>
+          <li class="property"><a href="Soup.Message.method.html">method</a></li>
+          <li class="property"><a href="Soup.Message.reason_phrase.html">reason_phrase</a></li>
+          <li class="property"><a href="Soup.Message.server_side.html">server_side</a></li>
+          <li class="property"><a href="Soup.Message.status_code.html">status_code</a></li>
+          <li class="property"><a href="Soup.Message.tls_certificate.html">tls_certificate</a></li>
+          <li class="property"><a href="Soup.Message.tls_errors.html">tls_errors</a></li>
+          <li class="property"><a href="Soup.Message.uri.html">uri</a></li>
+          <li class="creation_method"><a href="Soup.Message.Message.html">Message</a></li>
+          <li class="creation_method"><a href="Soup.Message.Message.from_uri.html">Message.from_uri</a></li>
+          <li class="method"><a href="Soup.Message.add_header_handler.html">add_header_handler</a></li>
+          <li class="method"><a href="Soup.Message.add_status_code_handler.html">add_status_code_handler</a></li>
+          <li class="method"><a href="Soup.Message.disable_feature.html">disable_feature</a></li>
+          <li class="method"><a href="Soup.Message.get_address.html">get_address</a></li>
+          <li class="method"><a href="Soup.Message.get_first_party.html">get_first_party</a></li>
+          <li class="method"><a href="Soup.Message.get_flags.html">get_flags</a></li>
+          <li class="method"><a href="Soup.Message.get_http_version.html">get_http_version</a></li>
+          <li class="method"><a href="Soup.Message.get_https_status.html">get_https_status</a></li>
+          <li class="method">get_uri</li>
+          <li class="method"><a href="Soup.Message.is_keepalive.html">is_keepalive</a></li>
+          <li class="method"><a href="Soup.Message.set_chunk_allocator.html">set_chunk_allocator</a></li>
+          <li class="method"><a href="Soup.Message.set_first_party.html">set_first_party</a></li>
+          <li class="method"><a href="Soup.Message.set_flags.html">set_flags</a></li>
+          <li class="method"><a href="Soup.Message.set_http_version.html">set_http_version</a></li>
+          <li class="method"><a href="Soup.Message.set_redirect.html">set_redirect</a></li>
+          <li class="method"><a href="Soup.Message.set_request.html">set_request</a></li>
+          <li class="method"><a href="Soup.Message.set_response.html">set_response</a></li>
+          <li class="method"><a href="Soup.Message.set_status.html">set_status</a></li>
+          <li class="method"><a href="Soup.Message.set_status_full.html">set_status_full</a></li>
+          <li class="method"><a href="Soup.Message.set_uri.html">set_uri</a></li>
+          <li class="signal"><a href="Soup.Message.content_sniffed.html">content_sniffed</a></li>
+          <li class="signal"><a href="Soup.Message.finished.html">finished</a></li>
+          <li class="signal"><a href="Soup.Message.got_body.html">got_body</a></li>
+          <li class="signal"><a href="Soup.Message.got_chunk.html">got_chunk</a></li>
+          <li class="signal"><a href="Soup.Message.got_headers.html">got_headers</a></li>
+          <li class="signal"><a href="Soup.Message.got_informational.html">got_informational</a></li>
+          <li class="signal"><a href="Soup.Message.network_event.html">network_event</a></li>
+          <li class="signal"><a href="Soup.Message.restarted.html">restarted</a></li>
+          <li class="signal"><a href="Soup.Message.wrote_body.html">wrote_body</a></li>
+          <li class="signal"><a href="Soup.Message.wrote_body_data.html">wrote_body_data</a></li>
+          <li class="signal"><a href="Soup.Message.wrote_chunk.html">wrote_chunk</a></li>
+          <li class="signal"><a href="Soup.Message.wrote_headers.html">wrote_headers</a></li>
+          <li class="signal"><a href="Soup.Message.wrote_informational.html">wrote_informational</a></li>
+          <li class="field"><a href="Soup.Message.request_body.html">request_body</a></li>
+          <li class="field"><a href="Soup.Message.request_headers.html">request_headers</a></li>
+          <li class="field"><a href="Soup.Message.response_body.html">response_body</a></li>
+          <li class="field"><a href="Soup.Message.response_headers.html">response_headers</a></li>
+        </ul>
+      </div>
+      <div class="site_content">
+        <h1 class="main_title">get_uri</h1>
+        <hr class="main_hr"/>
+        <h2 class="main_title">Description:</h2>
+        <div class="main_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">unowned</span> <span class="main_type"><a href="Soup.URI.html" class="class">URI</a></span> <b><span css="method">get_uri</span></b> ()
+        </div>
+      </div>
+    </div><br/>
+    <div class="site_footer">Generated by <a href="http://www.valadoc.org/">Valadoc</a>
+    </div>
+  </body>
+</html>

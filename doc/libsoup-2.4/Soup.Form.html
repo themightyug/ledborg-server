@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html>
+  <head>
+    <title>Soup.Form -- Vala Binding Reference</title>
+    <link href="../style.css" rel="stylesheet" type="text/css"/><script src="../scripts.js" type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <div class="site_header">Soup.Form Reference Manual</div>
+    <div class="site_body">
+      <div class="site_navigation">
+        <ul class="navi_main">
+          <li class="package_index"><a href="../index.html">Packages</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="package"><a href="index.htm">libsoup-2.4</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="namespace"><a href="Soup.html">Soup</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="namespace">Form</li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="method"><a href="Soup.Form.decode.html">decode</a></li>
+          <li class="method"><a href="Soup.Form.decode_multipart.html">decode_multipart</a></li>
+          <li class="method"><a href="Soup.Form.encode.html">encode</a></li>
+          <li class="method"><a href="Soup.Form.encode_datalist.html">encode_datalist</a></li>
+          <li class="method"><a href="Soup.Form.encode_hash.html">encode_hash</a></li>
+          <li class="method"><a href="Soup.Form.encode_valist.html">encode_valist</a></li>
+          <li class="method"><a href="Soup.Form.request_new.html">request_new</a></li>
+          <li class="method"><a href="Soup.Form.request_new_from_datalist.html">request_new_from_datalist</a></li>
+          <li class="method"><a href="Soup.Form.request_new_from_hash.html">request_new_from_hash</a></li>
+          <li class="method"><a href="Soup.Form.request_new_from_multipart.html">request_new_from_multipart</a></li>
+        </ul>
+      </div>
+      <div class="site_content">
+        <h1 class="main_title">Soup.Form</h1>
+        <hr class="main_hr"/>
+        <h2 class="main_title">Description:</h2>
+        <h2 class="main_title">Content:</h2>
+        <h3 class="main_title">Functions:</h3>
+        <ul class="navi_inline">
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="../glib-2.0/GLib.HashTable.html" class="class">HashTable</a></span>&lt;<span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span>,<span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span>&gt; <b><a href="Soup.Form.decode.html" class="method">decode</a></b> (<span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> encoded_form)
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="../glib-2.0/GLib.HashTable.html" class="class">HashTable</a></span>&lt;<span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span>,<span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span>&gt; <b><a href="Soup.Form.decode_multipart.html" class="method">decode_multipart</a></b> (<span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> msg, <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span>? file_control_name, <span class="main_keyword">out</span> <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> filename, <span class="main_keyword">out</span> <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> content_type, <span class="main_keyword">out</span> <span class="main_type"><a href="Soup.Buffer.html" class="class">Buffer</a></span> file)
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> <b><a href="Soup.Form.encode.html" class="method">encode</a></b> (...)
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> <b><a href="Soup.Form.encode_datalist.html" class="method">encode_datalist</a></b> (<span class="main_type"><a href="../glib-2.0/GLib.Datalist.html" class="struct">Datalist</a></span>&lt;<span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span>&gt; form_data_set)
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> <b><a href="Soup.Form.encode_hash.html" class="method">encode_hash</a></b> (<span class="main_type"><a href="../glib-2.0/GLib.HashTable.html" class="class">HashTable</a></span>&lt;<span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span>,<span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span>&gt; form_data_set)
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> <b><a href="Soup.Form.encode_valist.html" class="method">encode_valist</a></b> (<span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> first_field, <span class="main_type"><a href="../glib-2.0/va_list.html" class="struct">va_list</a></span> args)
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> <b><a href="Soup.Form.request_new.html" class="method">request_new</a></b> (<span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> method, <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> uri, ...)
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> <b><a href="Soup.Form.request_new_from_datalist.html" class="method">request_new_from_datalist</a></b> (<span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> method, <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> uri, <span class="main_type"><a href="../glib-2.0/GLib.Datalist.html" class="struct">Datalist</a></span>&lt;<span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span>&gt; form_data_set)
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> <b><a href="Soup.Form.request_new_from_hash.html" class="method">request_new_from_hash</a></b> (<span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> method, <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> uri, <span class="main_type"><a href="../glib-2.0/GLib.HashTable.html" class="class">HashTable</a></span>&lt;<span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span>,<span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span>&gt; form_data_set)
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> <b><a href="Soup.Form.request_new_from_multipart.html" class="method">request_new_from_multipart</a></b> (<span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> uri, <span class="main_type"><a href="Soup.Multipart.html" class="class">Multipart</a></span> multipart)
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+        </ul>
+      </div>
+    </div><br/>
+    <div class="site_footer">Generated by <a href="http://www.valadoc.org/">Valadoc</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html>
+  <head>
+    <title>Soup.Session -- Vala Binding Reference</title>
+    <link href="../style.css" rel="stylesheet" type="text/css"/><script src="../scripts.js" type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <div class="site_header">Soup.Session Reference Manual</div>
+    <div class="site_body">
+      <div class="site_navigation">
+        <ul class="navi_main">
+          <li class="package_index"><a href="../index.html">Packages</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="package"><a href="index.htm">libsoup-2.4</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="namespace"><a href="Soup.html">Soup</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="abstract_class">Session</li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="property"><a href="Soup.Session.accept_language.html">accept_language</a></li>
+          <li class="property"><a href="Soup.Session.accept_language_auto.html">accept_language_auto</a></li>
+          <li class="property"><a href="Soup.Session.async_context.html">async_context</a></li>
+          <li class="property"><a href="Soup.Session.http_aliases.html">http_aliases</a></li>
+          <li class="property"><a href="Soup.Session.https_aliases.html">https_aliases</a></li>
+          <li class="property"><a href="Soup.Session.idle_timeout.html">idle_timeout</a></li>
+          <li class="property"><a href="Soup.Session.max_conns.html">max_conns</a></li>
+          <li class="property"><a href="Soup.Session.max_conns_per_host.html">max_conns_per_host</a></li>
+          <li class="property"><a href="Soup.Session.proxy_uri.html">proxy_uri</a></li>
+          <li class="property"><a href="Soup.Session.ssl_ca_file.html">ssl_ca_file</a></li>
+          <li class="property"><a href="Soup.Session.ssl_strict.html">ssl_strict</a></li>
+          <li class="property"><a href="Soup.Session.ssl_use_system_ca_file.html">ssl_use_system_ca_file</a></li>
+          <li class="property"><a href="Soup.Session.timeout.html">timeout</a></li>
+          <li class="property"><a href="Soup.Session.tls_database.html">tls_database</a></li>
+          <li class="property"><a href="Soup.Session.use_ntlm.html">use_ntlm</a></li>
+          <li class="property"><a href="Soup.Session.use_thread_context.html">use_thread_context</a></li>
+          <li class="property"><a href="Soup.Session.user_agent.html">user_agent</a></li>
+          <li class="creation_method"><a href="Soup.Session.Session.html">Session</a></li>
+          <li class="method"><a href="Soup.Session.abort.html">abort</a></li>
+          <li class="method"><a href="Soup.Session.add_feature.html">add_feature</a></li>
+          <li class="method"><a href="Soup.Session.add_feature_by_type.html">add_feature_by_type</a></li>
+          <li class="virtual_method"><a href="Soup.Session.auth_required.html">auth_required</a></li>
+          <li class="virtual_method"><a href="Soup.Session.cancel_message.html">cancel_message</a></li>
+          <li class="virtual_method"><a href="Soup.Session.flush_queue.html">flush_queue</a></li>
+          <li class="method"><a href="Soup.Session.get_async_context.html">get_async_context</a></li>
+          <li class="method"><a href="Soup.Session.get_feature.html">get_feature</a></li>
+          <li class="method"><a href="Soup.Session.get_feature_for_message.html">get_feature_for_message</a></li>
+          <li class="method"><a href="Soup.Session.get_features.html">get_features</a></li>
+          <li class="virtual_method"><a href="Soup.Session.kick.html">kick</a></li>
+          <li class="method"><a href="Soup.Session.pause_message.html">pause_message</a></li>
+          <li class="method"><a href="Soup.Session.prefetch_dns.html">prefetch_dns</a></li>
+          <li class="method"><span class="deprecated"><a href="Soup.Session.prepare_for_uri.html">prepare_for_uri</a></span></li>
+          <li class="virtual_method"><a href="Soup.Session.queue_message.html">queue_message</a></li>
+          <li class="method"><a href="Soup.Session.redirect_message.html">redirect_message</a></li>
+          <li class="method"><a href="Soup.Session.remove_feature.html">remove_feature</a></li>
+          <li class="method"><a href="Soup.Session.remove_feature_by_type.html">remove_feature_by_type</a></li>
+          <li class="virtual_method"><a href="Soup.Session.requeue_message.html">requeue_message</a></li>
+          <li class="virtual_method"><a href="Soup.Session.send_message.html">send_message</a></li>
+          <li class="method"><a href="Soup.Session.unpause_message.html">unpause_message</a></li>
+          <li class="method"><a href="Soup.Session.would_redirect.html">would_redirect</a></li>
+          <li class="signal"><a href="Soup.Session.authenticate.html">authenticate</a></li>
+          <li class="signal"><a href="Soup.Session.connection_created.html">connection_created</a></li>
+          <li class="signal"><a href="Soup.Session.request_queued.html">request_queued</a></li>
+          <li class="signal"><a href="Soup.Session.request_started.html">request_started</a></li>
+          <li class="signal"><a href="Soup.Session.request_unqueued.html">request_unqueued</a></li>
+          <li class="signal"><a href="Soup.Session.tunneling.html">tunneling</a></li>
+        </ul>
+      </div>
+      <div class="site_content">
+        <h1 class="main_title">Session</h1>
+        <hr class="main_hr"/>
+        <h2 class="main_title">Object Hierarchy:</h2>
+        <img class="main_diagram" usemap="#Soup.Session" alt="Object hierarchy for Session" src="img/Soup.Session.png"/>
+
+      <map id="Soup.Session" name="Soup.Session">
+<area shape="rect" id="node1" href="Soup.Session.html" title="Soup.Session" alt="" coords="5,101,123,149"/>
+<area shape="rect" id="node2" href="../gobject-2.0/GLib.Object.html" title="GLib.Object" alt="" coords="8,5,120,53"/>
+</map>
+
+        <h2 class="main_title">Description:</h2>
+        <div class="main_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">abstract</span> <span class="main_keyword">class</span> <b><span css="abstract_class">Session</span></b> : <span class="main_type"><a href="../gobject-2.0/GLib.Object.html" class="class">Object</a></span>
+        </div>
+        <div class="box">
+          <div class="headline">
+            <div class="text">All known sub-classes:</div>
+            <div class="toggle">
+              <img onclick="toggle_box  (this, 'box-content-12')" src="../coll_open.png">&nbsp;</div>
+            </div>
+            <div class="content" id="box-content-12">
+              <div class="column">
+                <ul class="navi_inline">
+                  <li class="class"><a href="Soup.SessionAsync.html">SessionAsync</a></li>
+                </ul>
+              </div>
+              <div class="column">
+                <ul class="navi_inline">
+                  <li class="class"><a href="Soup.SessionSync.html">SessionSync</a></li>
+                </ul>
+              </div>
+              <div class="column">
+                <ul class="navi_inline">
+                </ul>
+              </div>
+            </div>
+          </div><br/>
+          <div class="namespace_note"><b>Namespace:</b> Soup</div>
+          <div class="package_note"><b>Package:</b> libsoup-2.4</div>
+          <h2 class="main_title">Content:</h2>
+          <h3 class="main_title">Properties:</h3>
+          <ul class="navi_inline">
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> <b><a href="Soup.Session.accept_language.html" class="property">accept_language</a></b> { <span class="main_keyword">set</span>; <span class="main_keyword">owned</span> <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> <b><a href="Soup.Session.accept_language_auto.html" class="property">accept_language_auto</a></b> { <span class="main_keyword">set</span>; <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="../glib-2.0/GLib.MainContext.html" class="class">MainContext</a></span> <b><a href="Soup.Session.async_context.html" class="property">async_context</a></b> { <span class="main_keyword">construct</span> <span class="main_keyword">set</span>; <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span>[] <b><a href="Soup.Session.http_aliases.html" class="property">http_aliases</a></b> { <span class="main_keyword">set</span>; <span class="main_keyword">owned</span> <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span>[] <b><a href="Soup.Session.https_aliases.html" class="property">https_aliases</a></b> { <span class="main_keyword">set</span>; <span class="main_keyword">owned</span> <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/uint.html" class="struct">uint</a></span> <b><a href="Soup.Session.idle_timeout.html" class="property">idle_timeout</a></b> { <span class="main_keyword">set</span>; <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/int.html" class="struct">int</a></span> <b><a href="Soup.Session.max_conns.html" class="property">max_conns</a></b> { <span class="main_keyword">set</span>; <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/int.html" class="struct">int</a></span> <b><a href="Soup.Session.max_conns_per_host.html" class="property">max_conns_per_host</a></b> { <span class="main_keyword">set</span>; <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="Soup.URI.html" class="class">URI</a></span> <b><a href="Soup.Session.proxy_uri.html" class="property">proxy_uri</a></b> { <span class="main_keyword">set</span>; <span class="main_keyword">owned</span> <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> <b><a href="Soup.Session.ssl_ca_file.html" class="property">ssl_ca_file</a></b> { <span class="main_keyword">set</span>; <span class="main_keyword">owned</span> <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> <b><a href="Soup.Session.ssl_strict.html" class="property">ssl_strict</a></b> { <span class="main_keyword">set</span>; <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> <b><a href="Soup.Session.ssl_use_system_ca_file.html" class="property">ssl_use_system_ca_file</a></b> { <span class="main_keyword">set</span>; <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/uint.html" class="struct">uint</a></span> <b><a href="Soup.Session.timeout.html" class="property">timeout</a></b> { <span class="main_keyword">set</span>; <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="../gio-2.0/GLib.TlsDatabase.html" class="abstract_class">TlsDatabase</a></span> <b><a href="Soup.Session.tls_database.html" class="property">tls_database</a></b> { <span class="main_keyword">set</span>; <span class="main_keyword">owned</span> <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> <b><a href="Soup.Session.use_ntlm.html" class="property">use_ntlm</a></b> { <span class="main_keyword">set</span>; <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> <b><a href="Soup.Session.use_thread_context.html" class="property">use_thread_context</a></b> { <span class="main_keyword">set</span>; <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> <b><a href="Soup.Session.user_agent.html" class="property">user_agent</a></b> { <span class="main_keyword">set</span>; <span class="main_keyword">owned</span> <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+          </ul>
+          <h3 class="main_title">Creation methods:</h3>
+          <ul class="navi_inline">
+            <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">protected</span> <b><a href="Soup.Session.Session.html" class="creation_method">Session</a></b> ()
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+          </ul>
+          <h3 class="main_title">Methods:</h3>
+          <ul class="navi_inline">
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.abort.html" class="method">abort</a></b> ()
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.add_feature.html" class="method">add_feature</a></b> (<span class="main_type"><a href="Soup.SessionFeature.html" class="interface">SessionFeature</a></span> feature)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.add_feature_by_type.html" class="method">add_feature_by_type</a></b> (<span class="main_type"><a href="../gobject-2.0/GLib.Type.html" class="struct">Type</a></span> feature_type)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="virtual_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">virtual</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.auth_required.html" class="virtual_method">auth_required</a></b> (<span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> msg, <span class="main_type"><a href="Soup.Auth.html" class="abstract_class">Auth</a></span> auth, <span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> retrying)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="virtual_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">virtual</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.cancel_message.html" class="virtual_method">cancel_message</a></b> (<span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> msg, <span class="main_basic_type"><a href="../glib-2.0/uint.html" class="struct">uint</a></span> status_code)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="virtual_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">virtual</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.flush_queue.html" class="virtual_method">flush_queue</a></b> ()
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">weak</span> <span class="main_type"><a href="../glib-2.0/GLib.MainContext.html" class="class">MainContext</a></span> <b><a href="Soup.Session.get_async_context.html" class="method">get_async_context</a></b> ()
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">weak</span> <span class="main_type"><a href="Soup.SessionFeature.html" class="interface">SessionFeature</a></span> <b><a href="Soup.Session.get_feature.html" class="method">get_feature</a></b> (<span class="main_type"><a href="../gobject-2.0/GLib.Type.html" class="struct">Type</a></span> feature_type)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">weak</span> <span class="main_type"><a href="Soup.SessionFeature.html" class="interface">SessionFeature</a></span> <b><a href="Soup.Session.get_feature_for_message.html" class="method">get_feature_for_message</a></b> (<span class="main_type"><a href="../gobject-2.0/GLib.Type.html" class="struct">Type</a></span> feature_type, <span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> msg)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="../glib-2.0/GLib.SList.html" class="class">SList</a></span>&lt;<span class="main_type"><a href="Soup.SessionFeature.html" class="interface">SessionFeature</a></span>&gt; <b><a href="Soup.Session.get_features.html" class="method">get_features</a></b> (<span class="main_type"><a href="../gobject-2.0/GLib.Type.html" class="struct">Type</a></span> feature_type)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="virtual_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">virtual</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.kick.html" class="virtual_method">kick</a></b> ()
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.pause_message.html" class="method">pause_message</a></b> (<span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> msg)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.prefetch_dns.html" class="method">prefetch_dns</a></b> (<span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> hostname, <span class="main_type"><a href="../gio-2.0/GLib.Cancellable.html" class="class">Cancellable</a></span>? cancellable, <span class="main_type"><a href="Soup.AddressCallback.html" class="delegate">AddressCallback</a></span>? callback)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="deprecated"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.prepare_for_uri.html" class="method">prepare_for_uri</a></b> (<span class="main_type"><a href="Soup.URI.html" class="class">URI</a></span> uri)
+                </span></span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="virtual_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">virtual</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.queue_message.html" class="virtual_method">queue_message</a></b> (<span class="main_keyword">owned</span> <span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> msg, <span class="main_type"><a href="Soup.SessionCallback.html" class="delegate">SessionCallback</a></span>? callback)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> <b><a href="Soup.Session.redirect_message.html" class="method">redirect_message</a></b> (<span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> msg)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.remove_feature.html" class="method">remove_feature</a></b> (<span class="main_type"><a href="Soup.SessionFeature.html" class="interface">SessionFeature</a></span> feature)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.remove_feature_by_type.html" class="method">remove_feature_by_type</a></b> (<span class="main_type"><a href="../gobject-2.0/GLib.Type.html" class="struct">Type</a></span> feature_type)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="virtual_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">virtual</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.requeue_message.html" class="virtual_method">requeue_message</a></b> (<span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> msg)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="virtual_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">virtual</span> <span class="main_basic_type"><a href="../glib-2.0/uint.html" class="struct">uint</a></span> <b><a href="Soup.Session.send_message.html" class="virtual_method">send_message</a></b> (<span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> msg)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.unpause_message.html" class="method">unpause_message</a></b> (<span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> msg)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> <b><a href="Soup.Session.would_redirect.html" class="method">would_redirect</a></b> (<span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> msg)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+          </ul>
+          <h3 class="main_title">Signals:</h3>
+          <ul class="navi_inline">
+            <li class="signal"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">virtual</span> <span class="main_keyword">signal</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.authenticate.html" class="signal">authenticate</a></b> (<span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> msg, <span class="main_type"><a href="Soup.Auth.html" class="abstract_class">Auth</a></span> auth, <span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> retrying)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="signal"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">signal</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.connection_created.html" class="signal">connection_created</a></b> (<span class="main_type"><a href="../gobject-2.0/GLib.Object.html" class="class">Object</a></span> connection)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="signal"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">signal</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.request_queued.html" class="signal">request_queued</a></b> (<span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> msg)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="signal"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">virtual</span> <span class="main_keyword">signal</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.request_started.html" class="signal">request_started</a></b> (<span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> msg, <span class="main_type"><a href="Soup.Socket.html" class="class">Socket</a></span> socket)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="signal"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">signal</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.request_unqueued.html" class="signal">request_unqueued</a></b> (<span class="main_type"><a href="Soup.Message.html" class="class">Message</a></span> msg)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="signal"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">signal</span> <span class="main_keyword">void</span> <b><a href="Soup.Session.tunneling.html" class="signal">tunneling</a></b> (<span class="main_type"><a href="../gobject-2.0/GLib.Object.html" class="class">Object</a></span> connection)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+          </ul>
+        </div>
+      </div><br/>
+      <div class="site_footer">Generated by <a href="http://www.valadoc.org/">Valadoc</a>
+      </div>
+    </body>
+  </html>

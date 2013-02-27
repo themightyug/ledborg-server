@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html>
+  <head>
+    <title>Soup.SESSION_IDLE_TIMEOUT -- Vala Binding Reference</title>
+    <link href="../style.css" rel="stylesheet" type="text/css"/><script src="../scripts.js" type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <div class="site_header">Soup.SESSION_IDLE_TIMEOUT Reference Manual</div>
+    <div class="site_body">
+      <div class="site_navigation">
+        <ul class="navi_main">
+          <li class="package_index"><a href="../index.html">Packages</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="package"><a href="index.htm">libsoup-2.4</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="namespace"><a href="Soup.html">Soup</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="namespace"><a href="Soup.Form.html">Form</a></li>
+          <li class="namespace"><a href="Soup.XMLRPC.html">XMLRPC</a></li>
+          <li class="enum"><a href="Soup.AddressFamily.html">AddressFamily</a></li>
+          <li class="enum"><a href="Soup.CacheResponse.html">CacheResponse</a></li>
+          <li class="enum"><a href="Soup.CacheType.html">CacheType</a></li>
+          <li class="enum"><a href="Soup.Cacheability.html">Cacheability</a></li>
+          <li class="enum"><a href="Soup.ConnectionState.html">ConnectionState</a></li>
+          <li class="enum"><a href="Soup.CookieJarAcceptPolicy.html">CookieJarAcceptPolicy</a></li>
+          <li class="enum"><a href="Soup.DateFormat.html">DateFormat</a></li>
+          <li class="enum"><a href="Soup.Encoding.html">Encoding</a></li>
+          <li class="enum"><a href="Soup.Expectation.html">Expectation</a></li>
+          <li class="enum"><a href="Soup.HTTPVersion.html">HTTPVersion</a></li>
+          <li class="enum"><a href="Soup.KnownStatusCode.html">KnownStatusCode</a></li>
+          <li class="enum"><a href="Soup.LoggerLogLevel.html">LoggerLogLevel</a></li>
+          <li class="enum"><a href="Soup.MemoryUse.html">MemoryUse</a></li>
+          <li class="enum"><a href="Soup.MessageFlags.html">MessageFlags</a></li>
+          <li class="enum"><a href="Soup.MessageHeadersType.html">MessageHeadersType</a></li>
+          <li class="enum"><a href="Soup.SocketIOStatus.html">SocketIOStatus</a></li>
+          <li class="interface"><span class="deprecated"><a href="Soup.ProxyResolver.html">ProxyResolver</a></span></li>
+          <li class="interface"><a href="Soup.ProxyURIResolver.html">ProxyURIResolver</a></li>
+          <li class="interface"><a href="Soup.SessionFeature.html">SessionFeature</a></li>
+          <li class="class"><a href="Soup.Address.html">Address</a></li>
+          <li class="abstract_class"><a href="Soup.Auth.html">Auth</a></li>
+          <li class="class"><a href="Soup.AuthBasic.html">AuthBasic</a></li>
+          <li class="class"><a href="Soup.AuthDigest.html">AuthDigest</a></li>
+          <li class="abstract_class"><a href="Soup.AuthDomain.html">AuthDomain</a></li>
+          <li class="class"><a href="Soup.AuthDomainBasic.html">AuthDomainBasic</a></li>
+          <li class="class"><a href="Soup.AuthDomainDigest.html">AuthDomainDigest</a></li>
+          <li class="class"><a href="Soup.AuthNTLM.html">AuthNTLM</a></li>
+          <li class="class"><a href="Soup.Buffer.html">Buffer</a></li>
+          <li class="class"><a href="Soup.ByteArray.html">ByteArray</a></li>
+          <li class="class"><a href="Soup.Cache.html">Cache</a></li>
+          <li class="class"><a href="Soup.ClientContext.html">ClientContext</a></li>
+          <li class="class"><a href="Soup.Connection.html">Connection</a></li>
+          <li class="class"><a href="Soup.ContentDecoder.html">ContentDecoder</a></li>
+          <li class="class"><a href="Soup.ContentSniffer.html">ContentSniffer</a></li>
+          <li class="class"><a href="Soup.Cookie.html">Cookie</a></li>
+          <li class="class"><a href="Soup.CookieJar.html">CookieJar</a></li>
+          <li class="class"><a href="Soup.CookieJarText.html">CookieJarText</a></li>
+          <li class="class"><a href="Soup.Date.html">Date</a></li>
+          <li class="class"><a href="Soup.Logger.html">Logger</a></li>
+          <li class="class"><a href="Soup.Message.html">Message</a></li>
+          <li class="class"><a href="Soup.MessageBody.html">MessageBody</a></li>
+          <li class="class"><a href="Soup.MessageHeaders.html">MessageHeaders</a></li>
+          <li class="class"><a href="Soup.MessageQueue.html">MessageQueue</a></li>
+          <li class="class"><a href="Soup.MessageQueueItem.html">MessageQueueItem</a></li>
+          <li class="class"><a href="Soup.Multipart.html">Multipart</a></li>
+          <li class="class"><a href="Soup.MultipartInputStream.html">MultipartInputStream</a></li>
+          <li class="class"><a href="Soup.ProxyResolverDefault.html">ProxyResolverDefault</a></li>
+          <li class="class"><a href="Soup.Request.html">Request</a></li>
+          <li class="class"><a href="Soup.RequestData.html">RequestData</a></li>
+          <li class="class"><a href="Soup.RequestFile.html">RequestFile</a></li>
+          <li class="class"><a href="Soup.RequestHTTP.html">RequestHTTP</a></li>
+          <li class="class"><a href="Soup.Requester.html">Requester</a></li>
+          <li class="class"><a href="Soup.Server.html">Server</a></li>
+          <li class="abstract_class"><a href="Soup.Session.html">Session</a></li>
+          <li class="class"><a href="Soup.SessionAsync.html">SessionAsync</a></li>
+          <li class="class"><a href="Soup.SessionSync.html">SessionSync</a></li>
+          <li class="class"><a href="Soup.Socket.html">Socket</a></li>
+          <li class="class"><a href="Soup.URI.html">URI</a></li>
+          <li class="struct"><a href="Soup.MessageHeadersIter.html">MessageHeadersIter</a></li>
+          <li class="struct"><a href="Soup.Range.html">Range</a></li>
+          <li class="constant"><a href="Soup.ADDRESS_ANY_PORT.html">ADDRESS_ANY_PORT</a></li>
+          <li class="constant"><a href="Soup.ADDRESS_FAMILY.html">ADDRESS_FAMILY</a></li>
+          <li class="constant"><a href="Soup.ADDRESS_NAME.html">ADDRESS_NAME</a></li>
+          <li class="constant"><a href="Soup.ADDRESS_PHYSICAL.html">ADDRESS_PHYSICAL</a></li>
+          <li class="constant"><a href="Soup.ADDRESS_PORT.html">ADDRESS_PORT</a></li>
+          <li class="constant"><a href="Soup.ADDRESS_PROTOCOL.html">ADDRESS_PROTOCOL</a></li>
+          <li class="constant"><a href="Soup.ADDRESS_SOCKADDR.html">ADDRESS_SOCKADDR</a></li>
+          <li class="constant"><a href="Soup.AUTH_DOMAIN_ADD_PATH.html">AUTH_DOMAIN_ADD_PATH</a></li>
+          <li class="constant"><a href="Soup.AUTH_DOMAIN_BASIC_AUTH_CALLBACK.html">AUTH_DOMAIN_BASIC_AUTH_CALLBACK</a></li>
+          <li class="constant"><a href="Soup.AUTH_DOMAIN_BASIC_AUTH_DATA.html">AUTH_DOMAIN_BASIC_AUTH_DATA</a></li>
+          <li class="constant"><a href="Soup.AUTH_DOMAIN_BASIC_H.html">AUTH_DOMAIN_BASIC_H</a></li>
+          <li class="constant"><a href="Soup.AUTH_DOMAIN_DIGEST_AUTH_CALLBACK.html">AUTH_DOMAIN_DIGEST_AUTH_CALLBACK</a></li>
+          <li class="constant"><a href="Soup.AUTH_DOMAIN_DIGEST_AUTH_DATA.html">AUTH_DOMAIN_DIGEST_AUTH_DATA</a></li>
+          <li class="constant"><a href="Soup.AUTH_DOMAIN_DIGEST_H.html">AUTH_DOMAIN_DIGEST_H</a></li>
+          <li class="constant"><a href="Soup.AUTH_DOMAIN_FILTER.html">AUTH_DOMAIN_FILTER</a></li>
+          <li class="constant"><a href="Soup.AUTH_DOMAIN_FILTER_DATA.html">AUTH_DOMAIN_FILTER_DATA</a></li>
+          <li class="constant"><a href="Soup.AUTH_DOMAIN_GENERIC_AUTH_CALLBACK.html">AUTH_DOMAIN_GENERIC_AUTH_CALLBACK</a></li>
+          <li class="constant"><a href="Soup.AUTH_DOMAIN_GENERIC_AUTH_DATA.html">AUTH_DOMAIN_GENERIC_AUTH_DATA</a></li>
+          <li class="constant"><a href="Soup.AUTH_DOMAIN_H.html">AUTH_DOMAIN_H</a></li>
+          <li class="constant"><a href="Soup.AUTH_DOMAIN_PROXY.html">AUTH_DOMAIN_PROXY</a></li>
+          <li class="constant"><a href="Soup.AUTH_DOMAIN_REALM.html">AUTH_DOMAIN_REALM</a></li>
+          <li class="constant"><a href="Soup.AUTH_DOMAIN_REMOVE_PATH.html">AUTH_DOMAIN_REMOVE_PATH</a></li>
+          <li class="constant"><a href="Soup.AUTH_H.html">AUTH_H</a></li>
+          <li class="constant"><a href="Soup.AUTH_HOST.html">AUTH_HOST</a></li>
+          <li class="constant"><a href="Soup.AUTH_IS_AUTHENTICATED.html">AUTH_IS_AUTHENTICATED</a></li>
+          <li class="constant"><a href="Soup.AUTH_IS_FOR_PROXY.html">AUTH_IS_FOR_PROXY</a></li>
+          <li class="constant"><a href="Soup.AUTH_REALM.html">AUTH_REALM</a></li>
+          <li class="constant"><a href="Soup.AUTH_SCHEME_NAME.html">AUTH_SCHEME_NAME</a></li>
+          <li class="constant"><a href="Soup.CACHE_H.html">CACHE_H</a></li>
+          <li class="constant"><a href="Soup.CHAR_HTTP_CTL.html">CHAR_HTTP_CTL</a></li>
+          <li class="constant"><a href="Soup.CHAR_HTTP_SEPARATOR.html">CHAR_HTTP_SEPARATOR</a></li>
+          <li class="constant"><a href="Soup.CHAR_URI_GEN_DELIMS.html">CHAR_URI_GEN_DELIMS</a></li>
+          <li class="constant"><a href="Soup.CHAR_URI_PERCENT_ENCODED.html">CHAR_URI_PERCENT_ENCODED</a></li>
+          <li class="constant"><a href="Soup.CHAR_URI_SUB_DELIMS.html">CHAR_URI_SUB_DELIMS</a></li>
+          <li class="constant"><a href="Soup.CONTENT_DECODER_H.html">CONTENT_DECODER_H</a></li>
+          <li class="constant"><a href="Soup.CONTENT_SNIFFER_H.html">CONTENT_SNIFFER_H</a></li>
+          <li class="constant"><a href="Soup.COOKIE_H.html">COOKIE_H</a></li>
+          <li class="constant"><a href="Soup.COOKIE_JAR_ACCEPT_POLICY.html">COOKIE_JAR_ACCEPT_POLICY</a></li>
+          <li class="constant"><a href="Soup.COOKIE_JAR_H.html">COOKIE_JAR_H</a></li>
+          <li class="constant"><a href="Soup.COOKIE_JAR_READ_ONLY.html">COOKIE_JAR_READ_ONLY</a></li>
+          <li class="constant"><a href="Soup.COOKIE_JAR_TEXT_FILENAME.html">COOKIE_JAR_TEXT_FILENAME</a></li>
+          <li class="constant"><a href="Soup.COOKIE_JAR_TEXT_H.html">COOKIE_JAR_TEXT_H</a></li>
+          <li class="constant"><a href="Soup.COOKIE_MAX_AGE_ONE_DAY.html">COOKIE_MAX_AGE_ONE_DAY</a></li>
+          <li class="constant"><a href="Soup.COOKIE_MAX_AGE_ONE_HOUR.html">COOKIE_MAX_AGE_ONE_HOUR</a></li>
+          <li class="constant"><a href="Soup.COOKIE_MAX_AGE_ONE_WEEK.html">COOKIE_MAX_AGE_ONE_WEEK</a></li>
+          <li class="constant"><a href="Soup.COOKIE_MAX_AGE_ONE_YEAR.html">COOKIE_MAX_AGE_ONE_YEAR</a></li>
+          <li class="constant"><a href="Soup.DATE_H.html">DATE_H</a></li>
+          <li class="constant"><a href="Soup.FORM_H.html">FORM_H</a></li>
+          <li class="constant"><a href="Soup.FORM_MIME_TYPE_MULTIPART.html">FORM_MIME_TYPE_MULTIPART</a></li>
+          <li class="constant"><a href="Soup.FORM_MIME_TYPE_URLENCODED.html">FORM_MIME_TYPE_URLENCODED</a></li>
+          <li class="constant"><a href="Soup.HEADERS_H.html">HEADERS_H</a></li>
+          <li class="constant"><a href="Soup.LOGGER_H.html">LOGGER_H</a></li>
+          <li class="constant"><a href="Soup.MESSAGE_BODY_H.html">MESSAGE_BODY_H</a></li>
+          <li class="constant"><a href="Soup.MESSAGE_FIRST_PARTY.html">MESSAGE_FIRST_PARTY</a></li>
+          <li class="constant"><a href="Soup.MESSAGE_FLAGS.html">MESSAGE_FLAGS</a></li>
+          <li class="constant"><a href="Soup.MESSAGE_H.html">MESSAGE_H</a></li>
+          <li class="constant"><a href="Soup.MESSAGE_HEADERS_H.html">MESSAGE_HEADERS_H</a></li>
+          <li class="constant"><a href="Soup.MESSAGE_HTTP_VERSION.html">MESSAGE_HTTP_VERSION</a></li>
+          <li class="constant"><a href="Soup.MESSAGE_METHOD.html">MESSAGE_METHOD</a></li>
+          <li class="constant"><a href="Soup.MESSAGE_REASON_PHRASE.html">MESSAGE_REASON_PHRASE</a></li>
+          <li class="constant"><a href="Soup.MESSAGE_REQUEST_BODY.html">MESSAGE_REQUEST_BODY</a></li>
+          <li class="constant"><a href="Soup.MESSAGE_REQUEST_HEADERS.html">MESSAGE_REQUEST_HEADERS</a></li>
+          <li class="constant"><a href="Soup.MESSAGE_RESPONSE_BODY.html">MESSAGE_RESPONSE_BODY</a></li>
+          <li class="constant"><a href="Soup.MESSAGE_RESPONSE_HEADERS.html">MESSAGE_RESPONSE_HEADERS</a></li>
+          <li class="constant"><a href="Soup.MESSAGE_SERVER_SIDE.html">MESSAGE_SERVER_SIDE</a></li>
+          <li class="constant"><a href="Soup.MESSAGE_STATUS_CODE.html">MESSAGE_STATUS_CODE</a></li>
+          <li class="constant"><a href="Soup.MESSAGE_TLS_CERTIFICATE.html">MESSAGE_TLS_CERTIFICATE</a></li>
+          <li class="constant"><a href="Soup.MESSAGE_TLS_ERRORS.html">MESSAGE_TLS_ERRORS</a></li>
+          <li class="constant"><a href="Soup.MESSAGE_URI.html">MESSAGE_URI</a></li>
+          <li class="constant"><a href="Soup.METHOD_H.html">METHOD_H</a></li>
+          <li class="constant"><a href="Soup.MISC_H.html">MISC_H</a></li>
+          <li class="constant"><a href="Soup.MULTIPART_H.html">MULTIPART_H</a></li>
+          <li class="constant"><a href="Soup.MULTIPART_INPUT_STREAM_H.html">MULTIPART_INPUT_STREAM_H</a></li>
+          <li class="constant"><a href="Soup.PASSWORD_MANAGER_H.html">PASSWORD_MANAGER_H</a></li>
+          <li class="constant"><a href="Soup.PROXY_RESOLVER_DEFAULT_H.html">PROXY_RESOLVER_DEFAULT_H</a></li>
+          <li class="constant"><a href="Soup.PROXY_URI_RESOLVER_H.html">PROXY_URI_RESOLVER_H</a></li>
+          <li class="constant"><a href="Soup.REQUESTER_H.html">REQUESTER_H</a></li>
+          <li class="constant"><a href="Soup.REQUEST_DATA_H.html">REQUEST_DATA_H</a></li>
+          <li class="constant"><a href="Soup.REQUEST_FILE_H.html">REQUEST_FILE_H</a></li>
+          <li class="constant"><a href="Soup.REQUEST_H.html">REQUEST_H</a></li>
+          <li class="constant"><a href="Soup.REQUEST_HTTP_H.html">REQUEST_HTTP_H</a></li>
+          <li class="constant"><a href="Soup.REQUEST_SESSION.html">REQUEST_SESSION</a></li>
+          <li class="constant"><a href="Soup.REQUEST_URI.html">REQUEST_URI</a></li>
+          <li class="constant"><a href="Soup.SERVER_ASYNC_CONTEXT.html">SERVER_ASYNC_CONTEXT</a></li>
+          <li class="constant"><a href="Soup.SERVER_H.html">SERVER_H</a></li>
+          <li class="constant"><a href="Soup.SERVER_INTERFACE.html">SERVER_INTERFACE</a></li>
+          <li class="constant"><a href="Soup.SERVER_PORT.html">SERVER_PORT</a></li>
+          <li class="constant"><a href="Soup.SERVER_RAW_PATHS.html">SERVER_RAW_PATHS</a></li>
+          <li class="constant"><a href="Soup.SERVER_SERVER_HEADER.html">SERVER_SERVER_HEADER</a></li>
+          <li class="constant"><a href="Soup.SERVER_SSL_CERT_FILE.html">SERVER_SSL_CERT_FILE</a></li>
+          <li class="constant"><a href="Soup.SERVER_SSL_KEY_FILE.html">SERVER_SSL_KEY_FILE</a></li>
+          <li class="constant"><a href="Soup.SERVER_TLS_CERTIFICATE.html">SERVER_TLS_CERTIFICATE</a></li>
+          <li class="constant"><a href="Soup.SESSION_ACCEPT_LANGUAGE.html">SESSION_ACCEPT_LANGUAGE</a></li>
+          <li class="constant"><a href="Soup.SESSION_ACCEPT_LANGUAGE_AUTO.html">SESSION_ACCEPT_LANGUAGE_AUTO</a></li>
+          <li class="constant"><a href="Soup.SESSION_ASYNC_CONTEXT.html">SESSION_ASYNC_CONTEXT</a></li>
+          <li class="constant"><a href="Soup.SESSION_ASYNC_H.html">SESSION_ASYNC_H</a></li>
+          <li class="constant"><a href="Soup.SESSION_FEATURE_H.html">SESSION_FEATURE_H</a></li>
+          <li class="constant"><a href="Soup.SESSION_H.html">SESSION_H</a></li>
+          <li class="constant"><a href="Soup.SESSION_HTTPS_ALIASES.html">SESSION_HTTPS_ALIASES</a></li>
+          <li class="constant"><a href="Soup.SESSION_HTTP_ALIASES.html">SESSION_HTTP_ALIASES</a></li>
+          <li class="constant">SESSION_IDLE_TIMEOUT</li>
+          <li class="constant"><a href="Soup.SESSION_MAX_CONNS.html">SESSION_MAX_CONNS</a></li>
+          <li class="constant"><a href="Soup.SESSION_MAX_CONNS_PER_HOST.html">SESSION_MAX_CONNS_PER_HOST</a></li>
+          <li class="constant"><a href="Soup.SESSION_PROXY_URI.html">SESSION_PROXY_URI</a></li>
+          <li class="constant"><a href="Soup.SESSION_SSL_CA_FILE.html">SESSION_SSL_CA_FILE</a></li>
+          <li class="constant"><a href="Soup.SESSION_SSL_STRICT.html">SESSION_SSL_STRICT</a></li>
+          <li class="constant"><a href="Soup.SESSION_SSL_USE_SYSTEM_CA_FILE.html">SESSION_SSL_USE_SYSTEM_CA_FILE</a></li>
+          <li class="constant"><a href="Soup.SESSION_SYNC_H.html">SESSION_SYNC_H</a></li>
+          <li class="constant"><a href="Soup.SESSION_TIMEOUT.html">SESSION_TIMEOUT</a></li>
+          <li class="constant"><a href="Soup.SESSION_TLS_DATABASE.html">SESSION_TLS_DATABASE</a></li>
+          <li class="constant"><a href="Soup.SESSION_USER_AGENT.html">SESSION_USER_AGENT</a></li>
+          <li class="constant"><a href="Soup.SESSION_USE_NTLM.html">SESSION_USE_NTLM</a></li>
+          <li class="constant"><a href="Soup.SESSION_USE_THREAD_CONTEXT.html">SESSION_USE_THREAD_CONTEXT</a></li>
+          <li class="constant"><a href="Soup.SOCKET_ASYNC_CONTEXT.html">SOCKET_ASYNC_CONTEXT</a></li>
+          <li class="constant"><a href="Soup.SOCKET_FLAG_NONBLOCKING.html">SOCKET_FLAG_NONBLOCKING</a></li>
+          <li class="constant"><a href="Soup.SOCKET_H.html">SOCKET_H</a></li>
+          <li class="constant"><a href="Soup.SOCKET_IS_SERVER.html">SOCKET_IS_SERVER</a></li>
+          <li class="constant"><a href="Soup.SOCKET_LOCAL_ADDRESS.html">SOCKET_LOCAL_ADDRESS</a></li>
+          <li class="constant"><a href="Soup.SOCKET_REMOTE_ADDRESS.html">SOCKET_REMOTE_ADDRESS</a></li>
+          <li class="constant"><a href="Soup.SOCKET_SSL_CREDENTIALS.html">SOCKET_SSL_CREDENTIALS</a></li>
+          <li class="constant"><a href="Soup.SOCKET_SSL_FALLBACK.html">SOCKET_SSL_FALLBACK</a></li>
+          <li class="constant"><a href="Soup.SOCKET_SSL_STRICT.html">SOCKET_SSL_STRICT</a></li>
+          <li class="constant"><a href="Soup.SOCKET_TIMEOUT.html">SOCKET_TIMEOUT</a></li>
+          <li class="constant"><a href="Soup.SOCKET_TLS_CERTIFICATE.html">SOCKET_TLS_CERTIFICATE</a></li>
+          <li class="constant"><a href="Soup.SOCKET_TLS_ERRORS.html">SOCKET_TLS_ERRORS</a></li>
+          <li class="constant"><a href="Soup.SOCKET_TRUSTED_CERTIFICATE.html">SOCKET_TRUSTED_CERTIFICATE</a></li>
+          <li class="constant"><a href="Soup.SOCKET_USE_THREAD_CONTEXT.html">SOCKET_USE_THREAD_CONTEXT</a></li>
+          <li class="constant"><a href="Soup.STATUS_H.html">STATUS_H</a></li>
+          <li class="constant"><a href="Soup.TYPES_H.html">TYPES_H</a></li>
+          <li class="constant"><a href="Soup.URI_H.html">URI_H</a></li>
+          <li class="constant"><a href="Soup.VALUE_UTILS_H.html">VALUE_UTILS_H</a></li>
+          <li class="constant"><a href="Soup.XMLRPC_H.html">XMLRPC_H</a></li>
+          <li class="delegate"><a href="Soup.AddressCallback.html">AddressCallback</a></li>
+          <li class="delegate"><a href="Soup.AuthDomainBasicAuthCallback.html">AuthDomainBasicAuthCallback</a></li>
+          <li class="delegate"><a href="Soup.AuthDomainDigestAuthCallback.html">AuthDomainDigestAuthCallback</a></li>
+          <li class="delegate"><a href="Soup.AuthDomainFilter.html">AuthDomainFilter</a></li>
+          <li class="delegate"><a href="Soup.AuthDomainGenericAuthCallback.html">AuthDomainGenericAuthCallback</a></li>
+          <li class="delegate"><a href="Soup.ChunkAllocator.html">ChunkAllocator</a></li>
+          <li class="delegate"><a href="Soup.LoggerFilter.html">LoggerFilter</a></li>
+          <li class="delegate"><a href="Soup.LoggerPrinter.html">LoggerPrinter</a></li>
+          <li class="delegate"><a href="Soup.MessageHeadersForeachFunc.html">MessageHeadersForeachFunc</a></li>
+          <li class="delegate"><a href="Soup.ProxyResolverCallback.html">ProxyResolverCallback</a></li>
+          <li class="delegate"><a href="Soup.ProxyURIResolverCallback.html">ProxyURIResolverCallback</a></li>
+          <li class="delegate"><a href="Soup.ServerCallback.html">ServerCallback</a></li>
+          <li class="delegate"><a href="Soup.SessionCallback.html">SessionCallback</a></li>
+          <li class="delegate"><a href="Soup.SocketCallback.html">SocketCallback</a></li>
+          <li class="method"><a href="Soup.add_completion.html">add_completion</a></li>
+          <li class="method"><a href="Soup.add_idle.html">add_idle</a></li>
+          <li class="method"><a href="Soup.add_io_watch.html">add_io_watch</a></li>
+          <li class="method"><a href="Soup.add_timeout.html">add_timeout</a></li>
+          <li class="method"><a href="Soup.cookies_from_request.html">cookies_from_request</a></li>
+          <li class="method"><a href="Soup.cookies_from_response.html">cookies_from_response</a></li>
+          <li class="method"><a href="Soup.cookies_to_cookie_header.html">cookies_to_cookie_header</a></li>
+          <li class="method"><a href="Soup.cookies_to_request.html">cookies_to_request</a></li>
+          <li class="method"><a href="Soup.cookies_to_response.html">cookies_to_response</a></li>
+          <li class="method"><span class="deprecated"><a href="Soup.form_decode.html">form_decode</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.form_decode_multipart.html">form_decode_multipart</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.form_encode.html">form_encode</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.form_encode_datalist.html">form_encode_datalist</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.form_encode_hash.html">form_encode_hash</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.form_encode_valist.html">form_encode_valist</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.form_request_new.html">form_request_new</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.form_request_new_from_datalist.html">form_request_new_from_datalist</a></span>
+          </li>
+          <li class="method"><span class="deprecated"><a href="Soup.form_request_new_from_hash.html">form_request_new_from_hash</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.form_request_new_from_multipart.html">form_request_new_from_multipart</a></span>
+          </li>
+          <li class="method"><a href="Soup.header_contains.html">header_contains</a></li>
+          <li class="method"><a href="Soup.header_free_param_list.html">header_free_param_list</a></li>
+          <li class="method"><a href="Soup.header_g_string_append_param.html">header_g_string_append_param</a></li>
+          <li class="method"><a href="Soup.header_g_string_append_param_quoted.html">header_g_string_append_param_quoted</a></li>
+          <li class="method"><a href="Soup.header_parse_list.html">header_parse_list</a></li>
+          <li class="method"><a href="Soup.header_parse_param_list.html">header_parse_param_list</a></li>
+          <li class="method"><a href="Soup.header_parse_quality_list.html">header_parse_quality_list</a></li>
+          <li class="method"><a href="Soup.header_parse_semi_param_list.html">header_parse_semi_param_list</a></li>
+          <li class="method"><a href="Soup.headers_parse.html">headers_parse</a></li>
+          <li class="method"><a href="Soup.headers_parse_request.html">headers_parse_request</a></li>
+          <li class="method"><a href="Soup.headers_parse_response.html">headers_parse_response</a></li>
+          <li class="method"><a href="Soup.headers_parse_status_line.html">headers_parse_status_line</a></li>
+          <li class="method"><a href="Soup.http_error_quark.html">http_error_quark</a></li>
+          <li class="method"><span class="deprecated"><a href="Soup.ssl_error_quark.html">ssl_error_quark</a></span></li>
+          <li class="method"><a href="Soup.status_get_phrase.html">status_get_phrase</a></li>
+          <li class="method"><a href="Soup.status_proxify.html">status_proxify</a></li>
+          <li class="method"><a href="Soup.str_case_equal.html">str_case_equal</a></li>
+          <li class="method"><a href="Soup.str_case_hash.html">str_case_hash</a></li>
+          <li class="method"><a href="Soup.tld_domain_is_public_suffix.html">tld_domain_is_public_suffix</a></li>
+          <li class="method"><a href="Soup.tld_get_base_domain.html">tld_get_base_domain</a></li>
+          <li class="method"><a href="Soup.value_array_append.html">value_array_append</a></li>
+          <li class="method"><a href="Soup.value_array_append_vals.html">value_array_append_vals</a></li>
+          <li class="method"><a href="Soup.value_array_from_args.html">value_array_from_args</a></li>
+          <li class="method"><a href="Soup.value_array_get_nth.html">value_array_get_nth</a></li>
+          <li class="method"><a href="Soup.value_array_insert.html">value_array_insert</a></li>
+          <li class="method"><a href="Soup.value_array_new.html">value_array_new</a></li>
+          <li class="method"><a href="Soup.value_array_new_with_vals.html">value_array_new_with_vals</a></li>
+          <li class="method"><a href="Soup.value_array_to_args.html">value_array_to_args</a></li>
+          <li class="method"><a href="Soup.value_hash_insert.html">value_hash_insert</a></li>
+          <li class="method"><a href="Soup.value_hash_insert_vals.html">value_hash_insert_vals</a></li>
+          <li class="method"><a href="Soup.value_hash_insert_value.html">value_hash_insert_value</a></li>
+          <li class="method"><a href="Soup.value_hash_lookup.html">value_hash_lookup</a></li>
+          <li class="method"><a href="Soup.value_hash_lookup_vals.html">value_hash_lookup_vals</a></li>
+          <li class="method"><a href="Soup.value_hash_new.html">value_hash_new</a></li>
+          <li class="method"><a href="Soup.value_hash_new_with_vals.html">value_hash_new_with_vals</a></li>
+          <li class="method"><span class="deprecated"><a href="Soup.xmlrpc_build_fault.html">xmlrpc_build_fault</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.xmlrpc_build_method_call.html">xmlrpc_build_method_call</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.xmlrpc_build_method_response.html">xmlrpc_build_method_response</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.xmlrpc_error_quark.html">xmlrpc_error_quark</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.xmlrpc_extract_method_call.html">xmlrpc_extract_method_call</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.xmlrpc_extract_method_response.html">xmlrpc_extract_method_response</a></span>
+          </li>
+          <li class="method"><span class="deprecated"><a href="Soup.xmlrpc_fault_quark.html">xmlrpc_fault_quark</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.xmlrpc_parse_method_call.html">xmlrpc_parse_method_call</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.xmlrpc_parse_method_response.html">xmlrpc_parse_method_response</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.xmlrpc_request_new.html">xmlrpc_request_new</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.xmlrpc_set_fault.html">xmlrpc_set_fault</a></span></li>
+          <li class="method"><span class="deprecated"><a href="Soup.xmlrpc_set_response.html">xmlrpc_set_response</a></span></li>
+        </ul>
+      </div>
+      <div class="site_content">
+        <h1 class="main_title">SESSION_IDLE_TIMEOUT</h1>
+        <hr class="main_hr"/>
+        <h2 class="main_title">Description:</h2>
+        <div class="main_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">const</span> <span class="main_keyword">unowned</span> <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> <b><span css="constant">SESSION_IDLE_TIMEOUT</span></b>
+        </div><br/>
+        <div class="namespace_note"><b>Namespace:</b> Soup</div>
+        <div class="package_note"><b>Package:</b> libsoup-2.4</div>
+      </div>
+    </div><br/>
+    <div class="site_footer">Generated by <a href="http://www.valadoc.org/">Valadoc</a>
+    </div>
+  </body>
+</html>

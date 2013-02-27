@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html>
+  <head>
+    <title>GLib.NetworkMonitor -- Vala Binding Reference</title>
+    <link href="../style.css" rel="stylesheet" type="text/css"/><script src="../scripts.js" type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <div class="site_header">GLib.NetworkMonitor Reference Manual</div>
+    <div class="site_body">
+      <div class="site_navigation">
+        <ul class="navi_main">
+          <li class="package_index"><a href="../index.html">Packages</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="package"><a href="index.htm">gio-2.0</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="namespace"><a href="GLib.html">GLib</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="interface">NetworkMonitor</li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="abstract_property"><a href="GLib.NetworkMonitor.network_available.html">network_available</a></li>
+          <li class="static_method"><a href="GLib.NetworkMonitor.get_default.html">get_default</a></li>
+          <li class="abstract_method"><a href="GLib.NetworkMonitor.can_reach.html">can_reach</a></li>
+          <li class="abstract_method"><a href="GLib.NetworkMonitor.can_reach_async.html">can_reach_async</a></li>
+          <li class="method"><a href="GLib.NetworkMonitor.get_network_available.html">get_network_available</a></li>
+          <li class="signal"><a href="GLib.NetworkMonitor.network_changed.html">network_changed</a></li>
+        </ul>
+      </div>
+      <div class="site_content">
+        <h1 class="main_title">NetworkMonitor</h1>
+        <hr class="main_hr"/>
+        <h2 class="main_title">Object Hierarchy:</h2>
+        <img class="main_diagram" usemap="#GLib.NetworkMonitor" alt="Object hierarchy for NetworkMonitor" src="img/GLib.NetworkMonitor.png"/>
+
+      <map id="GLib.NetworkMonitor" name="GLib.NetworkMonitor">
+<area shape="rect" id="node1" href="GLib.NetworkMonitor.html" title="GLib.NetworkMonitor" alt="" coords="37,101,224,149"/>
+<area shape="rect" id="node2" href="../gobject-2.0/GLib.Object.html" title="GLib.Object" alt="" coords="5,5,117,53"/>
+<area shape="rect" id="node3" href="GLib.Initable.html" title="GLib.Initable" alt="" coords="141,5,261,53"/>
+</map>
+
+        <h2 class="main_title">Description:</h2>
+        <div class="main_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">interface</span> <b><span css="interface">NetworkMonitor</span></b> : <span class="main_type"><a href="../gobject-2.0/GLib.Object.html" class="class">Object</a></span>, <span class="main_type"><a href="GLib.Initable.html" class="interface">Initable</a></span>
+        </div><br/>
+        <div class="namespace_note"><b>Namespace:</b> GLib</div>
+        <div class="package_note"><b>Package:</b> gio-2.0</div>
+        <h2 class="main_title">Content:</h2>
+        <h3 class="main_title">Properties:</h3>
+        <ul class="navi_inline">
+          <li class="abstract_property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">abstract</span> <span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> <b><a href="GLib.NetworkMonitor.network_available.html" class="abstract_property">network_available</a></b> { <span class="main_keyword">get</span>; }
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+        </ul>
+        <h3 class="main_title">Static methods:</h3>
+        <ul class="navi_inline">
+          <li class="static_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">static</span> <span class="main_keyword">weak</span> <span class="main_type"><span css="interface">NetworkMonitor</span></span> <b><a href="GLib.NetworkMonitor.get_default.html" class="static_method">get_default</a></b> ()
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+        </ul>
+        <h3 class="main_title">Methods:</h3>
+        <ul class="navi_inline">
+          <li class="abstract_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">abstract</span> <span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> <b><a href="GLib.NetworkMonitor.can_reach.html" class="abstract_method">can_reach</a></b> (<span class="main_type"><a href="GLib.SocketConnectable.html" class="interface">SocketConnectable</a></span> connectable, <span class="main_type"><a href="GLib.Cancellable.html" class="class">Cancellable</a></span>? cancellable = <span class="main_optional_parameter">null</span>) <span class="main_keyword">throws</span> <span class="main_type"><a href="../glib-2.0/GLib.Error.html" class="class">Error</a></span>
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="abstract_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">abstract</span> <span class="main_keyword">async</span> <span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> <b><a href="GLib.NetworkMonitor.can_reach_async.html" class="abstract_method">can_reach_async</a></b> (<span class="main_type"><a href="GLib.SocketConnectable.html" class="interface">SocketConnectable</a></span> connectable, <span class="main_type"><a href="GLib.Cancellable.html" class="class">Cancellable</a></span>? cancellable = <span class="main_optional_parameter">null</span>) <span class="main_keyword">throws</span> <span class="main_type"><a href="../glib-2.0/GLib.Error.html" class="class">Error</a></span>
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+          <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> <b><a href="GLib.NetworkMonitor.get_network_available.html" class="method">get_network_available</a></b> ()
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+        </ul>
+        <h3 class="main_title">Signals:</h3>
+        <ul class="navi_inline">
+          <li class="signal"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">virtual</span> <span class="main_keyword">signal</span> <span class="main_keyword">void</span> <b><a href="GLib.NetworkMonitor.network_changed.html" class="signal">network_changed</a></b> (<span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> available)
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+        </ul>
+      </div>
+    </div><br/>
+    <div class="site_footer">Generated by <a href="http://www.valadoc.org/">Valadoc</a>
+    </div>
+  </body>
+</html>

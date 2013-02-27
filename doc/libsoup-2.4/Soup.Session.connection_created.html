@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html>
+  <head>
+    <title>Soup.Session.connection_created -- Vala Binding Reference</title>
+    <link href="../style.css" rel="stylesheet" type="text/css"/><script src="../scripts.js" type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <div class="site_header">Soup.Session.connection_created Reference Manual</div>
+    <div class="site_body">
+      <div class="site_navigation">
+        <ul class="navi_main">
+          <li class="package_index"><a href="../index.html">Packages</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="package"><a href="index.htm">libsoup-2.4</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="namespace"><a href="Soup.html">Soup</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="abstract_class"><a href="Soup.Session.html">Session</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="property"><a href="Soup.Session.accept_language.html">accept_language</a></li>
+          <li class="property"><a href="Soup.Session.accept_language_auto.html">accept_language_auto</a></li>
+          <li class="property"><a href="Soup.Session.async_context.html">async_context</a></li>
+          <li class="property"><a href="Soup.Session.http_aliases.html">http_aliases</a></li>
+          <li class="property"><a href="Soup.Session.https_aliases.html">https_aliases</a></li>
+          <li class="property"><a href="Soup.Session.idle_timeout.html">idle_timeout</a></li>
+          <li class="property"><a href="Soup.Session.max_conns.html">max_conns</a></li>
+          <li class="property"><a href="Soup.Session.max_conns_per_host.html">max_conns_per_host</a></li>
+          <li class="property"><a href="Soup.Session.proxy_uri.html">proxy_uri</a></li>
+          <li class="property"><a href="Soup.Session.ssl_ca_file.html">ssl_ca_file</a></li>
+          <li class="property"><a href="Soup.Session.ssl_strict.html">ssl_strict</a></li>
+          <li class="property"><a href="Soup.Session.ssl_use_system_ca_file.html">ssl_use_system_ca_file</a></li>
+          <li class="property"><a href="Soup.Session.timeout.html">timeout</a></li>
+          <li class="property"><a href="Soup.Session.tls_database.html">tls_database</a></li>
+          <li class="property"><a href="Soup.Session.use_ntlm.html">use_ntlm</a></li>
+          <li class="property"><a href="Soup.Session.use_thread_context.html">use_thread_context</a></li>
+          <li class="property"><a href="Soup.Session.user_agent.html">user_agent</a></li>
+          <li class="creation_method"><a href="Soup.Session.Session.html">Session</a></li>
+          <li class="method"><a href="Soup.Session.abort.html">abort</a></li>
+          <li class="method"><a href="Soup.Session.add_feature.html">add_feature</a></li>
+          <li class="method"><a href="Soup.Session.add_feature_by_type.html">add_feature_by_type</a></li>
+          <li class="virtual_method"><a href="Soup.Session.auth_required.html">auth_required</a></li>
+          <li class="virtual_method"><a href="Soup.Session.cancel_message.html">cancel_message</a></li>
+          <li class="virtual_method"><a href="Soup.Session.flush_queue.html">flush_queue</a></li>
+          <li class="method"><a href="Soup.Session.get_async_context.html">get_async_context</a></li>
+          <li class="method"><a href="Soup.Session.get_feature.html">get_feature</a></li>
+          <li class="method"><a href="Soup.Session.get_feature_for_message.html">get_feature_for_message</a></li>
+          <li class="method"><a href="Soup.Session.get_features.html">get_features</a></li>
+          <li class="virtual_method"><a href="Soup.Session.kick.html">kick</a></li>
+          <li class="method"><a href="Soup.Session.pause_message.html">pause_message</a></li>
+          <li class="method"><a href="Soup.Session.prefetch_dns.html">prefetch_dns</a></li>
+          <li class="method"><span class="deprecated"><a href="Soup.Session.prepare_for_uri.html">prepare_for_uri</a></span></li>
+          <li class="virtual_method"><a href="Soup.Session.queue_message.html">queue_message</a></li>
+          <li class="method"><a href="Soup.Session.redirect_message.html">redirect_message</a></li>
+          <li class="method"><a href="Soup.Session.remove_feature.html">remove_feature</a></li>
+          <li class="method"><a href="Soup.Session.remove_feature_by_type.html">remove_feature_by_type</a></li>
+          <li class="virtual_method"><a href="Soup.Session.requeue_message.html">requeue_message</a></li>
+          <li class="virtual_method"><a href="Soup.Session.send_message.html">send_message</a></li>
+          <li class="method"><a href="Soup.Session.unpause_message.html">unpause_message</a></li>
+          <li class="method"><a href="Soup.Session.would_redirect.html">would_redirect</a></li>
+          <li class="signal"><a href="Soup.Session.authenticate.html">authenticate</a></li>
+          <li class="signal">connection_created</li>
+          <li class="signal"><a href="Soup.Session.request_queued.html">request_queued</a></li>
+          <li class="signal"><a href="Soup.Session.request_started.html">request_started</a></li>
+          <li class="signal"><a href="Soup.Session.request_unqueued.html">request_unqueued</a></li>
+          <li class="signal"><a href="Soup.Session.tunneling.html">tunneling</a></li>
+        </ul>
+      </div>
+      <div class="site_content">
+        <h1 class="main_title">connection_created</h1>
+        <hr class="main_hr"/>
+        <h2 class="main_title">Description:</h2>
+        <div class="main_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">signal</span> <span class="main_keyword">void</span> <b><span css="signal">connection_created</span></b> (<span class="main_type"><a href="../gobject-2.0/GLib.Object.html" class="class">Object</a></span> connection)
+        </div>
+      </div>
+    </div><br/>
+    <div class="site_footer">Generated by <a href="http://www.valadoc.org/">Valadoc</a>
+    </div>
+  </body>
+</html>

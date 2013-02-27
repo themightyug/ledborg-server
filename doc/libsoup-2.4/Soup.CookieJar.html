@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html>
+  <head>
+    <title>Soup.CookieJar -- Vala Binding Reference</title>
+    <link href="../style.css" rel="stylesheet" type="text/css"/><script src="../scripts.js" type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <div class="site_header">Soup.CookieJar Reference Manual</div>
+    <div class="site_body">
+      <div class="site_navigation">
+        <ul class="navi_main">
+          <li class="package_index"><a href="../index.html">Packages</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="package"><a href="index.htm">libsoup-2.4</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="namespace"><a href="Soup.html">Soup</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="class">CookieJar</li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="property"><a href="Soup.CookieJar.accept_policy.html">accept_policy</a></li>
+          <li class="property"><a href="Soup.CookieJar.read_only.html">read_only</a></li>
+          <li class="creation_method"><a href="Soup.CookieJar.CookieJar.html">CookieJar</a></li>
+          <li class="method"><a href="Soup.CookieJar.add_cookie.html">add_cookie</a></li>
+          <li class="method"><a href="Soup.CookieJar.add_cookie_with_first_party.html">add_cookie_with_first_party</a></li>
+          <li class="method"><a href="Soup.CookieJar.all_cookies.html">all_cookies</a></li>
+          <li class="method"><a href="Soup.CookieJar.delete_cookie.html">delete_cookie</a></li>
+          <li class="method"><a href="Soup.CookieJar.get_accept_policy.html">get_accept_policy</a></li>
+          <li class="method"><a href="Soup.CookieJar.get_cookie_list.html">get_cookie_list</a></li>
+          <li class="method"><a href="Soup.CookieJar.get_cookies.html">get_cookies</a></li>
+          <li class="virtual_method"><a href="Soup.CookieJar.is_persistent.html">is_persistent</a></li>
+          <li class="virtual_method"><a href="Soup.CookieJar.save.html">save</a></li>
+          <li class="method"><a href="Soup.CookieJar.set_accept_policy.html">set_accept_policy</a></li>
+          <li class="method"><a href="Soup.CookieJar.set_cookie.html">set_cookie</a></li>
+          <li class="method"><a href="Soup.CookieJar.set_cookie_with_first_party.html">set_cookie_with_first_party</a></li>
+          <li class="signal"><a href="Soup.CookieJar.changed.html">changed</a></li>
+        </ul>
+      </div>
+      <div class="site_content">
+        <h1 class="main_title">CookieJar</h1>
+        <hr class="main_hr"/>
+        <h2 class="main_title">Object Hierarchy:</h2>
+        <img class="main_diagram" usemap="#Soup.CookieJar" alt="Object hierarchy for CookieJar" src="img/Soup.CookieJar.png"/>
+
+      <map id="Soup.CookieJar" name="Soup.CookieJar">
+<area shape="rect" id="node1" href="Soup.CookieJar.html" title="Soup.CookieJar" alt="" coords="76,101,212,149"/>
+<area shape="rect" id="node2" href="../gobject-2.0/GLib.Object.html" title="GLib.Object" alt="" coords="5,5,117,53"/>
+<area shape="rect" id="node3" href="Soup.SessionFeature.html" title="Soup.SessionFeature" alt="" coords="141,5,315,53"/>
+</map>
+
+        <h2 class="main_title">Description:</h2>
+        <div class="main_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">class</span> <b><span css="class">CookieJar</span></b> : <span class="main_type"><a href="../gobject-2.0/GLib.Object.html" class="class">Object</a></span>, <span class="main_type"><a href="Soup.SessionFeature.html" class="interface">SessionFeature</a></span>
+        </div>
+        <div class="box">
+          <div class="headline">
+            <div class="text">All known sub-classes:</div>
+            <div class="toggle">
+              <img onclick="toggle_box  (this, 'box-content-10')" src="../coll_open.png">&nbsp;</div>
+            </div>
+            <div class="content" id="box-content-10">
+              <div class="column">
+                <ul class="navi_inline">
+                  <li class="class"><a href="Soup.CookieJarText.html">CookieJarText</a></li>
+                </ul>
+              </div>
+              <div class="column">
+                <ul class="navi_inline">
+                </ul>
+              </div>
+              <div class="column">
+                <ul class="navi_inline">
+                </ul>
+              </div>
+            </div>
+          </div><br/>
+          <div class="namespace_note"><b>Namespace:</b> Soup</div>
+          <div class="package_note"><b>Package:</b> libsoup-2.4</div>
+          <h2 class="main_title">Content:</h2>
+          <h3 class="main_title">Properties:</h3>
+          <ul class="navi_inline">
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="Soup.CookieJarAcceptPolicy.html" class="enum">CookieJarAcceptPolicy</a></span> <b><a href="Soup.CookieJar.accept_policy.html" class="property">accept_policy</a></b> { <span class="main_keyword">set</span>; <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> <b><a href="Soup.CookieJar.read_only.html" class="property">read_only</a></b> { <span class="main_keyword">construct</span> <span class="main_keyword">set</span>; <span class="main_keyword">get</span>; }
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+          </ul>
+          <h3 class="main_title">Creation methods:</h3>
+          <ul class="navi_inline">
+            <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="Soup.CookieJar.CookieJar.html" class="creation_method">CookieJar</a></b> ()
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+          </ul>
+          <h3 class="main_title">Methods:</h3>
+          <ul class="navi_inline">
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="Soup.CookieJar.add_cookie.html" class="method">add_cookie</a></b> (<span class="main_keyword">owned</span> <span class="main_type"><a href="Soup.Cookie.html" class="class">Cookie</a></span> cookie)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="Soup.CookieJar.add_cookie_with_first_party.html" class="method">add_cookie_with_first_party</a></b> (<span class="main_type"><a href="Soup.URI.html" class="class">URI</a></span> first_party, <span class="main_keyword">owned</span> <span class="main_type"><a href="Soup.Cookie.html" class="class">Cookie</a></span> cookie)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="../glib-2.0/GLib.SList.html" class="class">SList</a></span>&lt;<span class="main_type"><a href="Soup.Cookie.html" class="class">Cookie</a></span>&gt; <b><a href="Soup.CookieJar.all_cookies.html" class="method">all_cookies</a></b> ()
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="Soup.CookieJar.delete_cookie.html" class="method">delete_cookie</a></b> (<span class="main_type"><a href="Soup.Cookie.html" class="class">Cookie</a></span> cookie)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="Soup.CookieJarAcceptPolicy.html" class="enum">CookieJarAcceptPolicy</a></span> <b><a href="Soup.CookieJar.get_accept_policy.html" class="method">get_accept_policy</a></b> ()
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="../glib-2.0/GLib.SList.html" class="class">SList</a></span>&lt;<span class="main_type"><a href="Soup.Cookie.html" class="class">Cookie</a></span>&gt; <b><a href="Soup.CookieJar.get_cookie_list.html" class="method">get_cookie_list</a></b> (<span class="main_type"><a href="Soup.URI.html" class="class">URI</a></span> uri, <span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> for_http)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> <b><a href="Soup.CookieJar.get_cookies.html" class="method">get_cookies</a></b> (<span class="main_type"><a href="Soup.URI.html" class="class">URI</a></span> uri, <span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> for_http)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="virtual_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">virtual</span> <span class="main_basic_type"><a href="../glib-2.0/bool.html" class="struct">bool</a></span> <b><a href="Soup.CookieJar.is_persistent.html" class="virtual_method">is_persistent</a></b> ()
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="virtual_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">virtual</span> <span class="main_keyword">void</span> <b><a href="Soup.CookieJar.save.html" class="virtual_method">save</a></b> ()
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="Soup.CookieJar.set_accept_policy.html" class="method">set_accept_policy</a></b> (<span class="main_type"><a href="Soup.CookieJarAcceptPolicy.html" class="enum">CookieJarAcceptPolicy</a></span> policy)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="Soup.CookieJar.set_cookie.html" class="method">set_cookie</a></b> (<span class="main_type"><a href="Soup.URI.html" class="class">URI</a></span> uri, <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> cookie)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+            <li class="method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">void</span> <b><a href="Soup.CookieJar.set_cookie_with_first_party.html" class="method">set_cookie_with_first_party</a></b> (<span class="main_type"><a href="Soup.URI.html" class="class">URI</a></span> uri, <span class="main_type"><a href="Soup.URI.html" class="class">URI</a></span> first_party, <span class="main_basic_type"><a href="../glib-2.0/string.html" class="class">string</a></span> cookie)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+          </ul>
+          <h3 class="main_title">Signals:</h3>
+          <ul class="navi_inline">
+            <li class="signal"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">virtual</span> <span class="main_keyword">signal</span> <span class="main_keyword">void</span> <b><a href="Soup.CookieJar.changed.html" class="signal">changed</a></b> (<span class="main_type"><a href="Soup.Cookie.html" class="class">Cookie</a></span> old_cookie, <span class="main_type"><a href="Soup.Cookie.html" class="class">Cookie</a></span> new_cookie)
+              </span>
+              <div class="leaf_brief_description">
+              </div></li>
+          </ul>
+        </div>
+      </div><br/>
+      <div class="site_footer">Generated by <a href="http://www.valadoc.org/">Valadoc</a>
+      </div>
+    </body>
+  </html>
