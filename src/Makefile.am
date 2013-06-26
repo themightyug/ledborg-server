@@ -45,7 +45,7 @@ ledborg_server_SOURCES = \
 
 ledborg_server_LDADD = \
 	$(LEDBORG_SERVER_LIBS) \
-	lib/.libs/libledborg.so \
+	lib/.libs/libledborg-0.2.so \
 	$(NULL)
 
 EXTRA_DIST = \
